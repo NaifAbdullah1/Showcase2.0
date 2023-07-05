@@ -3,7 +3,7 @@
     <scroll-parallax :speed="0.35">
       <img
         class="img__background"
-        :src="src1"
+        src=""
       />
     </scroll-parallax>
     <scroll-parallax
