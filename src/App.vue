@@ -6,7 +6,8 @@
     A- See if there's a library that replaces the mouse with something that looks web-dev related. 
     B- Make items below appear when you scroll to them the first time and dissappear when scrolling away
     C- Look at A LOT of other websites, look up "Parallax websites examples" to get ideas from different sites. 
-  4- Last priority: Make sure the website works for mobile
+  4- When you get to a new section, popups should appear with the contents of the section. THEY SHOULD HAVE A PARALLAX EFFECT, use the original code we deleted, but also add to it a fade in and out using gsap
+    - Last priority: Make sure the website works for mobile
   -->
 
 
@@ -35,7 +36,7 @@
     -->
 
       <div class="intro-box">
-        <img id= "smuckerLogo" src="./assets/Smucker3.png"/>
+        <img id= "smuckerLogo" src="./assets/Smucker2.png"/>
         <h1>Nathan's Showcase</h1>
         <div>
           <button class="button" @click="scrollToGetToKnowMeSection">Get to Know Me</button>
@@ -128,7 +129,7 @@ export default {
 
       // This makes the intro box fade in on page load
       gsap.from ('.intro-box', { 
-        duration: 1, // Duration of fade in
+        duration: 3, // Duration of fade in
         opacity:0,  // Start from opacity of 0
         delay:0.8 // Wait 0.8 seconds after the page loads before starting to fade in
       })      
@@ -148,6 +149,17 @@ export default {
         gsap.to('.intro-box', { duration: 0.3, scale: 1 });
       });
 
+      // Fade out intro box as user scrolls
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Adjust opacity based on scroll position. Adjust the constants if needed.
+        const newOpacity = 1 - (scrollPosition / windowHeight);
+
+        introBox.style.opacity = Math.max(newOpacity, 0);
+      });
+
     })
 
     // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
@@ -155,6 +167,8 @@ export default {
       const getToKnowMeSection = document.getElementById("getToKnowMe");
       getToKnowMeSection.scrollIntoView({behavior: 'smooth'})
     }
+
+    
 
 
     onBeforeUnmount(() => {
@@ -174,6 +188,7 @@ export default {
     padding: 0;
     font-family: Helvetica;
     height: 3000px;
+    background-color: black;
   }
 
   .img__background {
@@ -182,7 +197,7 @@ export default {
   }
 
   .horizontal__img {
-    height: 937px; /* Set the height as needed */
+    height: 937px; 
   }
 
   .img__title {
@@ -240,9 +255,6 @@ export default {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 600px;
     left: 35%;
-    /*
-    transition: all 0.3s ease-in-out;
-    animation: fadeIn 1s ease-in 1s; */
   }
 
   .intro-box:hover {
@@ -256,16 +268,10 @@ export default {
   }
 
   #smuckerLogo{
-    height: 120px;
-    width: 144px;
+    height: 141px;
+    width: 281px;
   }
 
-/*This will make the intro-box appear on page load 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-*/
 
 </style>
 
