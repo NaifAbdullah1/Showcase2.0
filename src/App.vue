@@ -1,3 +1,15 @@
+<!--
+  TODOS: 
+  1- Implement the auto scroll upon clicking the buttons. Ask ChatGPT how to translate the href button from <a> to <button>. 
+  2- Implement the auto scroll using intervals (scroll down automatically for the purposes of the showcase.)
+  3- Think of better design ideas, make it better than Ryan's
+    A- See if there's a library that replaces the mouse with something that looks web-dev related. 
+    B- Make items below appear when you scroll to them the first time and dissappear when scrolling away
+    C- Look at A LOT of other websites, look up "Parallax websites examples" to get ideas from different sites. 
+  4- Last priority: Make sure the website works for mobile
+  -->
+
+
 <template>
   <section>
     <scroll-parallax :speed="0.65">
@@ -22,13 +34,13 @@
     </div>
     -->
 
-    <div class="intro-box">
-      <h1>Nathan Abdullah</h1>
-      <div>
-        <button class="button">Get to Know Me</button>
-        <button class="button">See What I Have Accomplished</button>
+      <div class="intro-box">
+        <h1>Nathan Abdullah</h1>
+        <div>
+          <button class="button">Get to Know Me</button>
+          <button class="button">See What I Have Accomplished</button>
+        </div>
       </div>
-    </div>
     
     <!--
     <div class="img__title">
@@ -102,14 +114,11 @@ export default {
     onMounted(() => {
       scrollY.value = '<scroll-parallax direction="y"></scroll-parallax>'
       scrollX.value = '<scroll-parallax :left="true" direction="x"></scroll-parallax>'
-      
     })
 
     return {
       scrollY,
-      scrollX
-
-
+      scrollX, 
     }
   },
 };
@@ -183,7 +192,7 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 50em;
+    top: -700px;
     color: black;
     text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
     margin-right: 32px;
