@@ -35,7 +35,7 @@
     -->
 
       <div class="intro-box">
-        <img src=""/>
+        <img id= "smuckerLogo" src="./assets/Smucker3.png"/>
         <h1>Nathan's Showcase</h1>
         <div>
           <button class="button" @click="scrollToGetToKnowMeSection">Get to Know Me</button>
@@ -231,10 +231,9 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -700px;
+    top: -790px;
     color: black;
     text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
-    margin-right: 32px;
     background: rgba(255, 255, 255, 0.7);
     padding: 20px;
     border-radius: 10px;
@@ -254,7 +253,12 @@ export default {
     margin-bottom: 10px;
     font-size: 42px;
     font-family: 'Petrona';
-}
+  }
+
+  #smuckerLogo{
+    height: 120px;
+    width: 144px;
+  }
 
 /*This will make the intro-box appear on page load 
 @keyframes fadeIn {
