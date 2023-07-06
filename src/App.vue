@@ -37,7 +37,7 @@
       <div class="intro-box">
         <h1>Nathan Abdullah</h1>
         <div>
-          <button class="button">Get to Know Me</button>
+          <button class="button" @click="scrollToGetToKnowMeSection">Get to Know Me</button>
           <button class="button">See What I Have Accomplished</button>
         </div>
       </div>
@@ -55,16 +55,16 @@
 
   <div class="spacing"></div>
 
-  <section class="horizontal__content">
-    <scroll-parallax :speed="0.25" :left="true" direction="x">
+  <section class="horizontal__content" id="getToKnowMe">
+    <scroll-parallax :speed="0.58" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <img
           class="img__background"
-          src="./assets/GrpPic.JPG"
+          src="./assets/Smucker.jpg"
         />
         <img
           class="img__background"
-          src="./assets/Smucker.jpg"
+          src="./assets/OriPic.jpg"
         />
       </div>
     </scroll-parallax>
@@ -116,9 +116,15 @@ export default {
       scrollX.value = '<scroll-parallax :left="true" direction="x"></scroll-parallax>'
     })
 
+    const scrollToGetToKnowMeSection = () => {
+      const getToKnowMeSection = document.getElementById("getToKnowMe");
+      getToKnowMeSection.scrollIntoView({behavior: 'smooth'})
+    }
+
     return {
       scrollY,
-      scrollX, 
+      scrollX,
+      scrollToGetToKnowMeSection 
     }
   },
 };
