@@ -56,7 +56,7 @@
   <div class="spacing"></div>
 
   <section class="horizontal__content" id="getToKnowMe">
-    <scroll-parallax :speed="0.58" :left="true" direction="x">
+    <scroll-parallax :speed="0.65" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <img
           class="img__background"
