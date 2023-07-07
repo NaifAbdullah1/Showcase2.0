@@ -22,7 +22,7 @@
     -->
 
       <video class="img__background" autoplay muted loop>
-        <source src="./assets/Smucker-Headquarters-(Slowed-to-0.8).mp4" type="video/mp4">
+        <source src="./assets/t.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
 
