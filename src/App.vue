@@ -11,23 +11,16 @@
 
 
 <template>
-  <section>
-    <scroll-parallax :speed="0.65">
-      <!--
-      <img
-        class="img__background"
-        src="./assets/Smucker.jpg"
-      />
-    -->
+  <section id = "intro_section">
 
+    <!--<scroll-parallax :speed="0.65"> -->
       <video class="video__background" autoplay muted loop>
         <source src="./assets/t.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
+    <!--</scroll-parallax>-->
 
-    </scroll-parallax>
-
-    <scroll-parallax :speed="0.2">
+    <scroll-parallax :speed="0.6">
     <!--
       <div class="img__title" style="display: flex; justify-content: flex-end; align-item: center;">
       <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
@@ -57,7 +50,7 @@
   <div class="spacing"></div>
 
   <section class="horizontal__content" id="getToKnowMe">
-    <scroll-parallax :speed="0.30" :left="true" direction="x">
+    <scroll-parallax :speed="0.40" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <img
           class="horizontal__img"
@@ -121,6 +114,7 @@ export default {
     ScrollParallax
   },
   setup(){
+    let horizontalSectionsObserver // This will be used for shading the images. 
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let autoScroll // This will be used for implementing the auto scrolling
 
@@ -165,17 +159,38 @@ export default {
 
       // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
       const videoElement = document.querySelector('.video__background')
-
       videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting)
-            videoElement.play()
-          else 
-            videoElement.pause()
+          if (entry.target === videoElement){
+            if (entry.isIntersecting)
+              videoElement.play()
+            else 
+              videoElement.pause()
+          }
         })
-      }, {})
-
+      }, {}) 
       videoObserver.observe(videoElement)
+
+
+      const horizontalSections = document.querySelector('.horizontal__content')      
+      horizontalSectionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target === horizontalSections){
+            document.body.classList.toggle('shaded', entry.isIntersecting)
+          }
+        })
+      }, {threshold: 0.1}) // This means that the shading will appear when at least 30% of the horizontal__content section is visible
+      horizontalSectionsObserver.observe(horizontalSections)
+
+      
+      // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
+      document.addEventListener('keydown', (event) => {
+        if (event.key.toLowerCase() === 's')
+          stopAutoScroll()
+        else if(event.key.toLowerCase() === 'a')
+          startAutoScroll()
+      })
+
 
     })
 
@@ -201,10 +216,10 @@ export default {
       autoScroll = setInterval(() => {
         // get current scroll position
         let currentScrollPosition = window.scrollY || document.documentElement.scrollTop
-
+        console.log(currentScrollPosition)
         // Scrolling down by 100px
         window.scrollTo({
-          top: currentScrollPosition + 937, // Add 100px to our current scrolling position
+          top: currentScrollPosition + ((currentScrollPosition === 0) ? 1418 : 973), // Add 100px to our current scrolling position
           behavior: 'smooth'
         })
 
@@ -245,6 +260,28 @@ export default {
     height: 3000px;
     background-color: black;
   }
+
+  body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(ellipse at center, transparent 20%, black 90%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body.shaded::before {
+  opacity: 1;
+}
+
+ #intro_section{
+  height: 1080px;
+ }
 
   .video__background {
     /*width: 100%; */
