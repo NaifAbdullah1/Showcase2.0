@@ -1,7 +1,6 @@
 <!--
   TODOS: 
-  1- Implement the auto scroll upon clicking the buttons. Ask ChatGPT how to translate the href button from <a> to <button>. 
-  2- Implement the auto scroll using intervals (scroll down automatically for the purposes of the showcase.)
+  2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
     A- See if there's a library that replaces the mouse with something that looks web-dev related. 
     B- Make items below appear when you scroll to them the first time and dissappear when scrolling away
@@ -40,7 +39,7 @@
         <h1>Nathan's Showcase</h1>
         <div>
           <button class="button" @click="scrollToGetToKnowMeSection">Get to Know Me</button>
-          <button class="button">See What I Have Accomplished</button>
+          <button class="button" @click="scrollToSeeWhatIHaveAccomplished">See What I Have Accomplished</button>
         </div>
       </div>
     
@@ -71,7 +70,7 @@
       </div>
     </scroll-parallax>
 
-    <section class="horizontal__content" id="getToKnowMe">
+    <section class="horizontal__content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
         <div style="display: flex; justify-content: flex-end;">
           <img
@@ -122,11 +121,14 @@ export default {
     ScrollParallax
   },
   setup(){
-    let videoObserver
+    let videoObserver // This will be used for pausing the video when it's out of the viewport
+    let autoScroll // This will be used for implementing the auto scrolling
 
     onMounted(() => {
 
       document.title = "Nathan's Showcase" // Setting the name of the tab title
+
+      startAutoScroll()
 
       // This makes the intro box fade in on page load
       gsap.from ('.intro-box', { 
@@ -179,11 +181,47 @@ export default {
 
     // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
     const scrollToGetToKnowMeSection = () => {
+      stopAutoScroll()
       const getToKnowMeSection = document.getElementById("getToKnowMe");
       getToKnowMeSection.scrollIntoView({behavior: 'smooth'})
     }
 
-    
+    const scrollToSeeWhatIHaveAccomplished = () => {
+      stopAutoScroll()
+      const seeWhatIHaveAccomplished = document.getElementById("seeWhatIHaveAccomplished")
+      seeWhatIHaveAccomplished.scrollIntoView({behavior: 'smooth'})
+    }
+
+    const startAutoScroll = () => {
+      // get the height of the document
+      let documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight);
+
+      autoScroll = setInterval(() => {
+        // get current scroll position
+        let currentScrollPosition = window.scrollY || document.documentElement.scrollTop
+
+        // Scrolling down by 100px
+        window.scrollTo({
+          top: currentScrollPosition + 937, // Add 100px to our current scrolling position
+          behavior: 'smooth'
+        })
+
+        // If we reach the bottom of the website, we are to scroll all the way up
+        if (currentScrollPosition + window.innerHeight >= documentHeight)
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
+
+      }, 5000) // scroll every 5000milliseconds, every 5 seconds. 
+    }
+
+    const stopAutoScroll = () => {
+      clearInterval(autoScroll) // Almost like unmounting an event listener to cease its effect
+    }
+
 
 
     onBeforeUnmount(() => {
@@ -192,7 +230,8 @@ export default {
     })
 
     return {
-      scrollToGetToKnowMeSection 
+      scrollToGetToKnowMeSection, 
+      scrollToSeeWhatIHaveAccomplished
     }
   },
 };
