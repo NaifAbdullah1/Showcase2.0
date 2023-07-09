@@ -1,5 +1,6 @@
 <!--
   TODOS: 
+  1- Implement the swiping scrolls to the next sections with an indicator of where we're at to the right hand side. See Rolls Royce site for illustration. 
   2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
     A- See if there's a library that replaces the mouse with something that looks web-dev related. 
@@ -364,6 +365,14 @@ body.shaded::before {
     width: 281px;
   }
 
+  /*We're using KursorJS for the website's cursor. But there was 
+  a problem where when you hover over a button, the normal cursor would
+  reappear in addition to the Kursor cursor. The following CSS
+  ensures that the defaults cursor always remains hidden when 
+  hovering over any of the items below. */
+  a, button, input, textarea {
+    cursor: none !important;
+  }
 
 </style>
 

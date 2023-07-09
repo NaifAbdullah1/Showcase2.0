@@ -7,9 +7,19 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Petrona" />
+    <!--The following <link> is us importing a customer cursor, no npm install needed.-->
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <script src="https://unpkg.com/kursor"></script>
+    <script>
+        new kursor({ // Replacing default cursor with KursorJS cursor.
+            type: 1, 
+            removeDefaultCursor: true
+        })
+    </script>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
