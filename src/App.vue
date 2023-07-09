@@ -21,7 +21,7 @@
       />
     -->
 
-      <video class="img__background" autoplay muted loop>
+      <video class="video__background" autoplay muted loop>
         <source src="./assets/t.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
@@ -61,11 +61,11 @@
     <scroll-parallax :speed="0.30" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <img
-          class="img__background horizontal__img"
+          class="horizontal__img"
           src="./assets/OriPic(cropped).jpg"
         />
         <img
-          class="img__background horizontal__img"
+          class="horizontal__img"
           src="./assets/Smucker.jpg"
         />
       </div>
@@ -122,10 +122,11 @@ export default {
     ScrollParallax
   },
   setup(){
+    let videoObserver
 
     onMounted(() => {
 
-      document.title = "Nathan's Showcase"
+      document.title = "Nathan's Showcase" // Setting the name of the tab title
 
       // This makes the intro box fade in on page load
       gsap.from ('.intro-box', { 
@@ -160,6 +161,20 @@ export default {
         introBox.style.opacity = Math.max(newOpacity, 0);
       });
 
+      // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
+      const videoElement = document.querySelector('.video__background')
+
+      videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting)
+            videoElement.play()
+          else 
+            videoElement.pause()
+        })
+      }, {})
+
+      videoObserver.observe(videoElement)
+
     })
 
     // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
@@ -172,7 +187,8 @@ export default {
 
 
     onBeforeUnmount(() => {
-
+      if (videoObserver)
+        videoObserver.disconnect();
     })
 
     return {
@@ -191,9 +207,9 @@ export default {
     background-color: black;
   }
 
-  .img__background {
-    width: 100%;
-    top: 0;
+  .video__background {
+    /*width: 100%; */
+    /*top: 0; */
   }
 
   .horizontal__img {
