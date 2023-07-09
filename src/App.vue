@@ -15,7 +15,7 @@
 
     <!--<scroll-parallax :speed="0.65"> -->
       <video class="video__background" autoplay muted loop>
-        <source src="./assets/t.mp4" type="video/mp4">
+        <source src="./assets/t2NC.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
     <!--</scroll-parallax>-->
