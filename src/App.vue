@@ -1,7 +1,5 @@
 <!--
   TODOS: 
-  0.4- There's a hovering problem with the intr-box, it keeps shaking when hovering over any of the child elements.
-  0.5- The mouse is very sluggish fix it or replace it
   1- Implement the swiping scrolls to the next sections with an indicator of where we're at to the right hand side. See Rolls Royce site for illustration. 
   2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
@@ -139,8 +137,17 @@
   
         const introBox = document.querySelector('.intro-box')
   
-        // Slightly expands the intro box on mouse hover. 
-        introBox.addEventListener('mouseover', () => {
+        /* Slightly expands the intro box on mouse hover. We're using 
+        mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
+        because mouseenter and mouseleave work when entering or leaving the 
+        bounds of the intro-box. Making the animation and everything within it have
+        the same animation. On the other hand, the mouseover event is triggered 
+        when you enter the intro box, but the mouseout event is triggered when 
+        you leave the intro box OR when you hover over a child element of the 
+        intro box (the buttons). This can cause the animation to rapidly 
+        switch between scaling up and down when you move your mouse over the 
+        buttons.*/
+        introBox.addEventListener('mouseenter', () => {
           gsap.to('.intro-box', {
             duration: 0.3, 
             scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
@@ -148,7 +155,7 @@
         })
   
         // Revert the intro box to its original size after the mouse is off the intro box.
-        introBox.addEventListener('mouseout', () => {
+        introBox.addEventListener('mouseleave', () => {
           gsap.to('.intro-box', { duration: 0.3, scale: 1 });
         });
   
@@ -392,16 +399,8 @@
     a, button, input, textarea {
       cursor: none !important;
     }
-  
-    .intro-box * {
-    pointer-events: none;
-  }
-  
-  .intro-box button {
-    pointer-events: auto;
-  }
+
   
   </style>
-  
   
   
