@@ -18,7 +18,7 @@
   <section id = "intro_section">
 
     <!--<scroll-parallax :speed="0.65"> -->
-      <video class="video__background" autoplay muted loop>
+      <video class="video_background" autoplay muted loop>
         <source src="./assets/t2NC.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
@@ -26,7 +26,7 @@
 
     <scroll-parallax :speed="0.6">
     <!--
-      <div class="img__title" style="display: flex; justify-content: flex-end; align-item: center;">
+      <div class="img_title" style="display: flex; justify-content: flex-end; align-item: center;">
       <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
     </div>
     -->
@@ -41,7 +41,7 @@
       </div>
     
     <!--
-    <div class="img__title">
+    <div class="img_title">
       <code>
           {{ scrollY }}
       </code>
@@ -53,29 +53,30 @@
 
   <div class="spacing"></div>
 
-  <section class="horizontal__content" id="getToKnowMe">
+  <section class="horizontal_content" id="getToKnowMe">
     <scroll-parallax :speed="0.40" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <img
-          class="horizontal__img"
+          class="horizontal_img"
           src="./assets/OriPic(cropped).jpg"
         />
         <img
-          class="horizontal__img"
+          class="horizontal_img"
           src="./assets/Smucker.jpg"
         />
       </div>
     </scroll-parallax>
+  </section>
 
-    <section class="horizontal__content" id="seeWhatIHaveAccomplished">
+    <section class="horizontal_content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
         <div style="display: flex; justify-content: flex-end;">
           <img
-            class="img__background horizontal__img"
+            class="img__background horizontal_img"
             src="./assets/GrpPic.jpg"
           />
           <img
-            class="img__background horizontal__img"
+            class="img__background horizontal_img"
             src="./assets/Orientation.jpg"
           />
         </div>
@@ -90,10 +91,10 @@
       >
       
       <div style="display: flex; align-item: center;">
-        <div class="img__title">
+        <div class="img_title">
           <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
         </div>
-        <div class="img__title" style="">
+        <div class="img_title" style="">
           <code>
               {{ scrollX }}
           </code>
@@ -104,7 +105,7 @@
     </div>
     -->
 
-  </section>
+  
 </template>
 
 <script>
@@ -118,7 +119,6 @@ export default {
     ScrollParallax
   },
   setup(){
-    let horizontalSectionsObserver // This will be used for shading the images. 
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let autoScroll // This will be used for implementing the auto scrolling
 
@@ -126,7 +126,7 @@ export default {
 
       document.title = "Nathan's Showcase" // Setting the name of the tab title
 
-      startAutoScroll()
+      //startAutoScroll()
 
       // This makes the intro box fade in on page load
       gsap.from ('.intro-box', { 
@@ -162,7 +162,7 @@ export default {
       });
 
       // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
-      const videoElement = document.querySelector('.video__background')
+      const videoElement = document.querySelector('.video_background')
       videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.target === videoElement){
@@ -176,6 +176,34 @@ export default {
       videoObserver.observe(videoElement)
 
 
+      const horizontalSections = document.querySelectorAll('.horizontal_content');
+
+      // Keep track of which sections are currently intersecting.
+      const intersectingSections = new Set();
+
+      const horizontalSectionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            intersectingSections.add(entry.target);
+          } else {
+            intersectingSections.delete(entry.target);
+          }
+        });
+  
+      // Add or remove 'shaded' depending on whether any sections are intersecting.
+      document.body.classList.toggle('shaded', intersectingSections.size > 0);
+      }, {threshold: 0.1});
+
+      horizontalSections.forEach(horizontalSection => {
+        horizontalSectionsObserver.observe(horizontalSection);
+      });
+
+      /*
+      Regarding the observer above, that observer work if you had multiple sections with the same class name. 
+      If you look at the template, every sliding section is in its own horizontal section. 
+
+      But if you put them all under the same section with the same class name, you could use the following, simpler, code. It works when you have only one element with the horiontal_content class:
+
       const horizontalSections = document.querySelector('.horizontal__content')      
       horizontalSectionsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -186,6 +214,7 @@ export default {
       }, {threshold: 0.1}) // This means that the shading will appear when at least 30% of the horizontal__content section is visible
       horizontalSectionsObserver.observe(horizontalSections)
 
+      */
       
       // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
       document.addEventListener('keydown', (event) => {
@@ -272,16 +301,16 @@ body.shaded::before {
   height: 1080px;
  }
 
-  .video__background {
+  .video_background {
     /*width: 100%; */
     /*top: 0; */
   }
 
-  .horizontal__img {
+  .horizontal_img {
     height: 937px; 
   }
 
-  .img__title {
+  .img_title {
     position: relative;
     bottom: 30em;
     color: white;
@@ -289,7 +318,7 @@ body.shaded::before {
     margin-right: 32px;
   }
 
-  .img__title img {
+  .img_title img {
     width: 350px;
     box-shadow: 1px 2px 4px rgba(0,0,0,0.8);
     border-radius: 30px;
@@ -299,7 +328,7 @@ body.shaded::before {
     height: 0px;
   }
 
-  .horizontal__content {
+  .horizontal_content {
     overflow: hidden;
   }
   
@@ -361,6 +390,14 @@ body.shaded::before {
   a, button, input, textarea {
     cursor: none !important;
   }
+
+  .intro-box * {
+  pointer-events: none;
+}
+
+.intro-box button {
+  pointer-events: auto;
+}
 
 </style>
 
