@@ -8,6 +8,9 @@
     C- Look at A LOT of other websites, look up "Parallax websites examples" to get ideas from different sites. 
   4- When you get to a new section, popups should appear with the contents of the section. THEY SHOULD HAVE A PARALLAX EFFECT, use the original code we deleted, but also add to it a fade in and out using gsap
     - Last priority: Make sure the website works for mobile
+
+    When truning this into a personal site, we'll follow a grey/dark color scheme
+    Work on replacing the smucker logo with your own, the site: https://www.brandcrowd.com/ is excellent. We already got a logo from there. We'll have a copy in the assets file and in OneDrive
   -->
 
 
