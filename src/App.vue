@@ -212,29 +212,14 @@ export default {
     }
 
     const startAutoScroll = () => {
-      // get the height of the document
-      let documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight);
+      let sectionsToScrollTo = ['getToKnowMe', "seeWhatIHaveAccomplished", "intro_section"] // Sections to scroll to, add more sections as needed
+      let currentSectionNumber = 0; // The index of the current section we're on above.
 
       autoScroll = setInterval(() => {
-        // get current scroll position
-        let currentScrollPosition = window.scrollY || document.documentElement.scrollTop
-        console.log(currentScrollPosition)
-        // Scrolling down by 100px
-        window.scrollTo({
-          top: currentScrollPosition + ((currentScrollPosition === 0) ? 1418 : 973), // Add 100px to our current scrolling position
-          behavior: 'smooth'
-        })
-
-        // If we reach the bottom of the website, we are to scroll all the way up
-        if (currentScrollPosition + window.innerHeight >= documentHeight)
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          })
-
-      }, 5000) // scroll every 5000milliseconds, every 5 seconds. 
+        const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
+        sectionToScrollTo.scrollIntoView({behavior: 'smooth'})
+        currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
+      }, 5000) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
     }
 
     const stopAutoScroll = () => {
