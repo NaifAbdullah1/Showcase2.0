@@ -1,5 +1,7 @@
 <!--
   TODOS: 
+  0.4- There's a hovering problem with the intr-box, it keeps shaking when hovering over any of the child elements. 
+  0.5- The mouse is very sluggish fix it or replace it
   1- Implement the swiping scrolls to the next sections with an indicator of where we're at to the right hand side. See Rolls Royce site for illustration. 
   2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
