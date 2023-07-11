@@ -1,6 +1,8 @@
 <!--
   TODOS: 
   1- Implement the swiping scrolls to the next sections with an indicator of where we're at to the right hand side. See Rolls Royce site for illustration. 
+    The way you're going to want to do this is as follows: 
+    The website will be sectioned just like the rolls royce site. Once the user jumps to a new section, it will give the user 1 second before adding the shading. The shading will be added, along with the fading in parallax effects. If parallax items cause sluggish performance, consider making them normal and non-parallax. The flow is like this. Intro is as it is. Jump to new section, see images for 1.5 seconds, shade edges + fade in the parallax items, consider making them non-parallax. 
   2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
     A- See if there's a library that replaces the mouse with something that looks web-dev related. 
@@ -257,7 +259,7 @@
           const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
           sectionToScrollTo.scrollIntoView({behavior: 'smooth'})
           currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
-        }, 5000) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
+        }, 3500) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
       }
   
       const stopAutoScroll = () => {
