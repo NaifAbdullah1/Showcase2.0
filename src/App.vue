@@ -1,9 +1,9 @@
 <!--
   TODOS: 
+  0.5 - look at the doc with the required info and start making smaller boxes that fade in and are parallaxy. These floating boxes should have the required showcase info. 
   1- Implement the snap scrolls to the next sections with an indicator of where we're at (either circles to the right hand side or a progress bar to the top). See Rolls Royce site for illustration. 
     The way you're going to want to do this is as follows: 
     The website will be sectioned just like the rolls royce site. Once the user jumps to a new section, it will give the user 1 second before adding the shading. The shading will be added, along with the fading in parallax effects. If parallax items cause sluggish performance, consider making them normal and non-parallax. The flow is like this. Intro is as it is. Jump to new section, see images for 1.5 seconds, shade edges + fade in the parallax items, consider making them non-parallax. 
-  2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
   3- Think of better design ideas, make it better than Ryan's
     A- See if there's a library that replaces the mouse with something that looks web-dev related. 
     B- Make items below appear when you scroll to them the first time and dissappear when scrolling away
@@ -14,6 +14,10 @@
     - Consider re-working your site with this library, this is a snap-scroll + parallax library and much more, it's a veryh beautiful library: https://github.com/alvarotrigo/fullPage.js/#options  https://codepen.io/alvarotrigo/pen/zpQmwq
     When truning this into a personal site, we'll follow a grey/dark color scheme
     Work on replacing the smucker logo with your own, the site: https://www.brandcrowd.com/ is excellent. We already got a logo from there. We'll have a copy in the assets file and in OneDrive
+  
+    Post Showcase notes: 
+
+  
   -->
 
 
@@ -243,7 +247,7 @@ export default {
             }
           }
         });
-      }, { threshold: 0.8 });
+      }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
 
       horizontalSections.forEach(horizontalSection => {
         horizontalSectionsObserver.observe(horizontalSection);
