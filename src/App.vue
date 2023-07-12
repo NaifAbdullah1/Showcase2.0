@@ -105,6 +105,9 @@
 import ScrollParallax from './components/ScrollParallax.vue';
 import { onBeforeUnmount, onMounted } from 'vue'
 import { gsap } from "gsap"
+// The following two will be used for 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
 
@@ -180,6 +183,20 @@ export default {
 
       const horizontalSections = document.querySelectorAll('.horizontal_content');
 
+      //First, using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
+      horizontalSections.forEach(section => {
+        gsap.from(section, {
+          opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom", // Animation starts with the top of the section is at the bottom of viewport.
+            end: "bottom top", // Animation ends with the bottom of the sections is at the top of the viewport.
+            scrub: true, // Makes animation progress keep up with scrollbar
+            delay: 1
+          }
+        });
+      });
+      
       // Keep track of which sections are currently intersecting.
       const intersectingSections = new Set();
 
@@ -194,7 +211,7 @@ export default {
 
         // Add or remove 'shaded' depending on whether any sections are intersecting.
         document.body.classList.toggle('shaded', intersectingSections.size > 0);
-      }, { threshold: 0.1 });
+      }, { threshold: 0.8 });
 
       horizontalSections.forEach(horizontalSection => {
         horizontalSectionsObserver.observe(horizontalSection);
@@ -217,7 +234,6 @@ export default {
       horizontalSectionsObserver.observe(horizontalSections)
  
       */
-
       // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
       document.addEventListener('keydown', (event) => {
         if (event.key.toLowerCase() === 's')
@@ -288,7 +304,7 @@ body::before {
   right: 0;
   bottom: 0;
   left: 0;
-  background: radial-gradient(ellipse at center, transparent 20%, black 90%);
+  background: radial-gradient(ellipse at center, transparent 40%, black 90%);
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
