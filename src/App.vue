@@ -1,6 +1,6 @@
 <!--
   TODOS: 
-  1- Implement the swiping scrolls to the next sections with an indicator of where we're at to the right hand side. See Rolls Royce site for illustration. 
+  1- Implement the snap scrolls to the next sections with an indicator of where we're at (either circles to the right hand side or a progress bar to the top). See Rolls Royce site for illustration. 
     The way you're going to want to do this is as follows: 
     The website will be sectioned just like the rolls royce site. Once the user jumps to a new section, it will give the user 1 second before adding the shading. The shading will be added, along with the fading in parallax effects. If parallax items cause sluggish performance, consider making them normal and non-parallax. The flow is like this. Intro is as it is. Jump to new section, see images for 1.5 seconds, shade edges + fade in the parallax items, consider making them non-parallax. 
   2- See if there's a way to slow down the auto scrolling action. We want to scrolling to be a lot slower. 
@@ -39,8 +39,8 @@
           <img id="smuckerLogo" src="./assets/Smucker2.png" />
           <h1>Nathan's Showcase</h1>
           <div>
-            <button class="button" @click="scrollToGetToKnowMeSection">Get to Know Me</button>
-            <button class="button" @click="scrollToSeeWhatIHaveAccomplished">See What I Have Accomplished</button>
+            <button class="button" @click="scrollToSection('#getToKnowMe')">Get to Know Me</button>
+            <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">See What I Have Accomplished</button>
           </div>
         </div>
 
@@ -270,17 +270,14 @@ export default {
     })
 
     // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
-    const scrollToGetToKnowMeSection = () => {
+    const scrollToSection = (sectionToScrollTo) => {
       stopAutoScroll()
-      const getToKnowMeSection = document.getElementById("getToKnowMe");
-      getToKnowMeSection.scrollIntoView({ behavior: 'smooth' })
+      // Old code, replaced with GSAP
+      //const getToKnowMeSection = document.getElementById("getToKnowMe");
+      //getToKnowMeSection.scrollIntoView({ behavior: 'smooth' })
+      gsap.to(window, {duration: 1.25, scrollTo: sectionToScrollTo})
     }
 
-    const scrollToSeeWhatIHaveAccomplished = () => {
-      stopAutoScroll()
-      const seeWhatIHaveAccomplished = document.getElementById("seeWhatIHaveAccomplished")
-      seeWhatIHaveAccomplished.scrollIntoView({ behavior: 'smooth' })
-    }
 
     const startAutoScroll = () => {
       let currentSectionNumber = 0; // The index of the current section we're on above.
@@ -324,8 +321,7 @@ export default {
     
 
     return {
-      scrollToGetToKnowMeSection,
-      scrollToSeeWhatIHaveAccomplished, 
+      scrollToSection, 
     }
   },
 };
