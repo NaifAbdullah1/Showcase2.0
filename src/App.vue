@@ -117,6 +117,7 @@ export default {
   setup() {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let autoScroll // This will be used for implementing the auto scrolling
+    let sectionsToScrollTo = ['getToKnowMe', "seeWhatIHaveAccomplished", "intro_section"] // These will be used for snap and auto scrolling, add more sections as needed
 
     onMounted(() => {
 
@@ -259,7 +260,6 @@ export default {
     }
 
     const startAutoScroll = () => {
-      let sectionsToScrollTo = ['getToKnowMe', "seeWhatIHaveAccomplished", "intro_section"] // Sections to scroll to, add more sections as needed
       let currentSectionNumber = 0; // The index of the current section we're on above.
 
       autoScroll = setInterval(() => {
