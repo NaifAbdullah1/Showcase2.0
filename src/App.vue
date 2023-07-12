@@ -105,9 +105,14 @@
 import ScrollParallax from './components/ScrollParallax.vue';
 import { onBeforeUnmount, onMounted } from 'vue'
 import { gsap } from "gsap"
-// The following two will be used for 
+
+// The following two will be used for fading in the pictures of horizontal_section s when scrolling. 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+
+// The following two will be used for implementing GSAP's scrolling animation. Which is better because you can control the scrolling speed. 
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 
 export default {
 
@@ -116,12 +121,19 @@ export default {
   },
   setup() {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
+    let horizontalSectionsObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['getToKnowMe', "seeWhatIHaveAccomplished", "intro_section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#intro_section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let introBox
 
     onMounted(() => {
 
+      // Defining values first:
       document.title = "Nathan's Showcase" // Setting the name of the tab title
+      const videoElement = document.querySelector('.video_background') // Saving the element with class="video_background". We'll use it later to stop video when it's out of viewport
+      introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
+      const horizontalSections = document.querySelectorAll('.horizontal_content'); // This will be used to apply shading on horizontal sections. 
+
 
       //startAutoScroll()
 
@@ -132,7 +144,22 @@ export default {
         delay: 0.8 // Wait 0.8 seconds after the page loads before starting to fade in
       })
 
-      const introBox = document.querySelector('.intro-box')
+      //Using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
+      horizontalSections.forEach(section => {
+        gsap.from(section, {
+          opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
+          delay: 2,
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom", // Animation starts with the top of the section is at the bottom of viewport.
+            end: "bottom top", // Animation ends with the bottom of the sections is at the top of the viewport.
+            scrub: true, // Makes animation progress keep up with scrollbar
+          }
+        });
+      });
+
+
+      // Event Listeners:
 
       /* Slightly expands the intro box on mouse hover. We're using 
       mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
@@ -167,8 +194,18 @@ export default {
         introBox.style.opacity = Math.max(newOpacity, 0);
       });
 
+      // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
+      document.addEventListener('keydown', (event) => {
+        if (event.key.toLowerCase() === 's')
+          stopAutoScroll()
+        else if (event.key.toLowerCase() === 'a')
+          startAutoScroll()
+      })
+
+      
+      // Observers:
+
       // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
-      const videoElement = document.querySelector('.video_background')
       videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.target === videoElement) {
@@ -179,39 +216,33 @@ export default {
           }
         })
       }, {})
+
       videoObserver.observe(videoElement)
 
-
-      const horizontalSections = document.querySelectorAll('.horizontal_content');
-
-      //First, using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
-      horizontalSections.forEach(section => {
-        gsap.from(section, {
-          opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom", // Animation starts with the top of the section is at the bottom of viewport.
-            end: "bottom top", // Animation ends with the bottom of the sections is at the top of the viewport.
-            scrub: true, // Makes animation progress keep up with scrollbar
-            delay: 1
-          }
-        });
-      });
-      
-      // Keep track of which sections are currently intersecting.
+      // Using observers to apply shading to horizontal sections. 
       const intersectingSections = new Set();
-
-      const horizontalSectionsObserver = new IntersectionObserver((entries) => {
+      let shadingTimeout;
+      horizontalSectionsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             intersectingSections.add(entry.target);
-          } else {
+            // Clear previous timeout, if it exists.
+            clearTimeout(shadingTimeout);
+            // Set new timeout to apply shading.
+            shadingTimeout = setTimeout(() => {
+              // Add or remove 'shaded' depending on whether any sections are intersecting.
+              document.body.classList.toggle('shaded', intersectingSections.size > 0);
+            }, 1500); // change this to the delay you want
+          } 
+          else {
             intersectingSections.delete(entry.target);
+            // If no sections are intersecting, immediately remove shading and clear timeout.
+            if (intersectingSections.size === 0) {
+              clearTimeout(shadingTimeout);
+              document.body.classList.remove('shaded');
+            }
           }
         });
-
-        // Add or remove 'shaded' depending on whether any sections are intersecting.
-        document.body.classList.toggle('shaded', intersectingSections.size > 0);
       }, { threshold: 0.8 });
 
       horizontalSections.forEach(horizontalSection => {
@@ -235,15 +266,7 @@ export default {
       horizontalSectionsObserver.observe(horizontalSections)
  
       */
-      // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
-      document.addEventListener('keydown', (event) => {
-        if (event.key.toLowerCase() === 's')
-          stopAutoScroll()
-        else if (event.key.toLowerCase() === 'a')
-          startAutoScroll()
-      })
-
-
+    
     })
 
     // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
@@ -263,10 +286,15 @@ export default {
       let currentSectionNumber = 0; // The index of the current section we're on above.
 
       autoScroll = setInterval(() => {
-        const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
-        sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
+        console.log("Section Num:", currentSectionNumber)
+        // Previous code. It was replaced by GSAP
+        //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
+        //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
+        gsap.to(window, {duration: 5, scrollTo: sectionsToScrollTo[currentSectionNumber]})
+
         currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
-      }, 3500) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
+        console.log("Now it's: ", currentSectionNumber)
+      }, 9000) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
     }
 
     const stopAutoScroll = () => {
@@ -278,7 +306,22 @@ export default {
     onBeforeUnmount(() => {
       if (videoObserver)
         videoObserver.disconnect();
+    
+      if (horizontalSectionsObserver)
+        horizontalSectionsObserver.disconnect()
+
+      if (introBox){
+        introBox.removeEventListener('mouseenter')
+        introBox.removeEventListener('mouseleave')
+      }
+
+      if (window){
+        window.removeEventListener('keydown')
+        window.removeEventListener('scroll')
+      }
+      
     })
+    
 
     return {
       scrollToGetToKnowMeSection,
@@ -288,7 +331,7 @@ export default {
 };
 </script>
   
-<style >
+<style>
 body {
   margin: 0;
   padding: 0;
