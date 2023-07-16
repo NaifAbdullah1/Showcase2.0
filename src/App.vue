@@ -82,22 +82,52 @@
           <h1>Who am I?</h1>
         </div>
       
-        <div class="grid-item background-box">
-          BACKGORUND: FROM:
-          <img class="home-icon" src="./assets/Home.png"/> 
+        <div class="grid-item background-box horizontal-container">
+          <div class="vertical-container">
+            <img class="home-icon" src="./assets/Icons/Home.png"/>
+            <h1 class="icon-title">Home</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+           
         </div>
-        <div class="grid-item school-box">
-          SCHOOL: 
-          <img class="school-icon" src="./assets/school.png" />
-          <img class="UW-icon" src="./assets/UW-Madison.png"/>
+
+
+        <div class="grid-item school-box horizontal-container">
+          <div class="vertical-container">
+            <img class="school-icon" src="./assets/Icons/school.png" />
+            <h1 class="icon-title">School</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+
+          <!--<img class="UW-icon" src="./assets/UW-Madison.png"/>-->
         </div>
-        <div class="grid-item major-box">MAJOR: 
-          <img class="major-icon" src="./assets/fieldOfStudy.png"/>
+
+
+        <div class="grid-item major-box horizontal-container">
+          <div class="vertical-container">
+            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
+            <h1 class="icon-title">Major</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+
         </div>
-        <div class="grid-item graduation-box">
-          GRADUATION YEAR
-          <img class="graduation-icon" src="./assets/grad.png" />
+
+
+        <div class="grid-item graduation-box horizontal-container">
+          <div class="vertical-container">
+            <img class="graduation-icon" src="./assets/Icons/grad.png" />
+            <h1 class="icon-title">Graduation <br>Year</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+
+          
         </div>
+
+
       </div>
 
     </section>
@@ -482,8 +512,8 @@ body.shaded::before {
 }
 
 .home-icon{
-  height: 100px;
-  width: 100px;
+  height: 108px;
+  width: 111px;
 }
 
 .UW-icon{
@@ -492,8 +522,8 @@ body.shaded::before {
 }
 
 .major-icon{
-  height: 100px;
-  width: 100px;
+  height: 108px;
+  width: 113px;
 }
 
 .graduation-icon{
@@ -502,8 +532,22 @@ body.shaded::before {
 }
 
 .school-icon{
-  height: 100px;
-  width: 100px;
+  height: 108px;
+  width: 133px;
+}
+
+.vertical-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content; /*Prevents the container from taking up the entire box and only giving the size of the biggest element in it. */
+}
+
+.icon-title{
+  font-family:'Petrona';
+  margin: 2px;
+  text-align: center;
 }
 
 /*We're using KursorJS for the website's cursor. But there was 
@@ -532,7 +576,7 @@ textarea {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
-  justify-content: center;
+  justify-items: center;
   gap: 10px;
   align-items: center;
 }
@@ -569,6 +613,12 @@ textarea {
   z-index: 9999;
 }
 
+.horizontal-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .background-box{
   grid-row: 2;
   grid-column: 1;
@@ -589,7 +639,11 @@ textarea {
   grid-column: 1;
 }
 
-
+.partition{
+  height: 100px;
+  width: 12px;
+  margin: 0px 5px 0px 5px;
+}
 
 
 
