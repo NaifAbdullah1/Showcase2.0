@@ -1,5 +1,6 @@
 <!--
   TODOS: 
+  - Think of implementing scroll indicator: https://www.npmjs.com/package/vue-scroll-indicator
   0.5 - look at the doc with the required info and start making smaller boxes that fade in and are parallaxy. These floating boxes should have the required showcase info. 
   1- Implement the snap scrolls to the next sections with an indicator of where we're at (either circles to the right hand side or a progress bar to the top). See Rolls Royce site for illustration. 
     The way you're going to want to do this is as follows: 
@@ -24,20 +25,18 @@
 <template>
 
     <section id="intro_section" >
-
-      <!--<scroll-parallax :speed="0.65"> -->
       <video class="video_background" autoplay muted loop>
         <source src="./assets/t2NC.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
-      <!--</scroll-parallax>-->
 
       <scroll-parallax :speed="0.6">
         <!--
         <div class="img_title" style="display: flex; justify-content: flex-end; align-item: center;">
-        <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
-      </div>
-      -->
+          <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
+        </div> 
+        -->
+      
 
         <div class="intro-box">
           <img id="smuckerLogo" src="./assets/Smucker2.png" />
@@ -63,14 +62,48 @@
     <!--This div adds a space, in case you wante to add something in the middle. Could be another video.-->
     <div class="spacing"></div> 
 
+
+    
+    
     <section class="horizontal_content" id="getToKnowMe">
+
+      
       <scroll-parallax :speed="0.40" :left="true" direction="x">
         <div style="display: flex; justify-content: flex-start;">
           <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
           <img class="horizontal_img" src="./assets/Smucker.jpg" />
         </div>
       </scroll-parallax>
+    
+
+      <div id="overlay">
+        
+        <div class="grid-item whoAmI-box">
+          <h1>Who am I?</h1>
+        </div>
+      
+        <div class="grid-item background-box">
+          BACKGORUND: FROM:
+          <img class="home-icon" src="./assets/Home.png"/> 
+        </div>
+        <div class="grid-item school-box">
+          SCHOOL: 
+          <img class="school-icon" src="./assets/school.png" />
+          <img class="UW-icon" src="./assets/UW-Madison.png"/>
+        </div>
+        <div class="grid-item major-box">MAJOR: 
+          <img class="major-icon" src="./assets/fieldOfStudy.png"/>
+        </div>
+        <div class="grid-item graduation-box">
+          GRADUATION YEAR
+          <img class="graduation-icon" src="./assets/grad.png" />
+        </div>
+      </div>
+
     </section>
+
+
+
 
     <section class="horizontal_content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
@@ -82,7 +115,7 @@
     </section>
 
     <!--
-      <div class="horizontal__elements">
+    <div >
         <scroll-parallax
           :speed="0.15"
           direction="x"
@@ -100,8 +133,10 @@
         </div>
         
         </scroll-parallax>
-      </div>
-      -->
+    </div>
+
+  -->
+      
 
 </template>
   
@@ -236,7 +271,7 @@ export default {
             shadingTimeout = setTimeout(() => {
               // Add or remove 'shaded' depending on whether any sections are intersecting.
               document.body.classList.toggle('shaded', intersectingSections.size > 0);
-            }, 1500); // change this to the delay you want
+            }, 1000); // change this to the shading delay you want.
           } 
           else {
             intersectingSections.delete(entry.target);
@@ -336,7 +371,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica;
-  height: 3000px;
+  height:3000px;
   background-color: black;
 }
 
@@ -349,7 +384,7 @@ body::before {
   left: 0;
   background: radial-gradient(ellipse at center, transparent 40%, black 90%);
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9999; 
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -362,13 +397,14 @@ body.shaded::before {
   height: 1080px;
 }
 
-.video_background {
-  /*width: 100%; */
-  /*top: 0; */
-}
-
 .horizontal_img {
   height: 937px;
+
+  /*
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  */
 }
 
 .img_title {
@@ -428,6 +464,8 @@ body.shaded::before {
   left: 35%;
 }
 
+
+
 .intro-box:hover {
   transform: scale(1.1);
 }
@@ -443,6 +481,31 @@ body.shaded::before {
   width: 281px;
 }
 
+.home-icon{
+  height: 100px;
+  width: 100px;
+}
+
+.UW-icon{
+  height: 100px;
+  width: 100px;
+}
+
+.major-icon{
+  height: 100px;
+  width: 100px;
+}
+
+.graduation-icon{
+  height: 100px;
+  width: 100px;
+}
+
+.school-icon{
+  height: 100px;
+  width: 100px;
+}
+
 /*We're using KursorJS for the website's cursor. But there was 
     a problem where when you hover over a button, the normal cursor would
     reappear in addition to the Kursor cursor. The following CSS
@@ -454,6 +517,90 @@ input,
 textarea {
   cursor: none !important;
 }
+
+#getToKnowMe{
+  position: relative; 
+  width: 100vw;
+  height: 100vh;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.whoAmI-box {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.whoAmI-box h1{
+  margin-bottom: 10px; /*Replace those two margin options with the margin: # # # # */
+  margin-top: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+.grid-item {
+  /* Styling for each grid item */
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative; /* Add this line */
+  z-index: 9999;
+}
+
+.background-box{
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.school-box{
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.major-box{
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.graduation-box{
+  grid-row: 3;
+  grid-column: 1;
+}
+
+
+
+
+
+
+/*
+How to target a specific child
+.grid-item:nth-child(6) {
+  grid-column: 5;
+}
+
+*/
 </style>
   
   
