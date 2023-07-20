@@ -83,6 +83,7 @@
         </div>
       
         <div class="grid-item background-box horizontal-container">
+          
           <div class="vertical-container">
             <img class="home-icon" src="./assets/Icons/Home.png"/>
             <h1 class="icon-title">Home</h1>
@@ -90,10 +91,15 @@
 
           <img class="partition" src="./assets/Icons/bline.png">
            
+          <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
+          <img class="pin" src="./assets/Icons/pin.png">
+          <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
+
         </div>
 
 
         <div class="grid-item school-box horizontal-container">
+
           <div class="vertical-container">
             <img class="school-icon" src="./assets/Icons/school.png" />
             <h1 class="icon-title">School</h1>
@@ -101,11 +107,13 @@
 
           <img class="partition" src="./assets/Icons/bline.png">
 
-          <!--<img class="UW-icon" src="./assets/UW-Madison.png"/>-->
+          <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;"/>
+
         </div>
 
 
         <div class="grid-item major-box horizontal-container">
+
           <div class="vertical-container">
             <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
             <h1 class="icon-title">Major</h1>
@@ -113,18 +121,31 @@
 
           <img class="partition" src="./assets/Icons/bline.png">
 
+          <div class="major-info">
+
+            <div>
+              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
+              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
+              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
+            </div>
+
+            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+
+          </div>
+
         </div>
 
 
         <div class="grid-item graduation-box horizontal-container">
           <div class="vertical-container">
             <img class="graduation-icon" src="./assets/Icons/grad.png" />
-            <h1 class="icon-title">Graduation <br>Year</h1>
+            <h1 class="icon-title">Graduation <br>Date</h1>
           </div>
 
           <img class="partition" src="./assets/Icons/bline.png">
 
-          
+          <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
+
         </div>
 
 
@@ -213,7 +234,50 @@ export default {
         delay: 0.8 // Wait 0.8 seconds after the page loads before starting to fade in
       })
 
+
+      // Makes grid items fade in when they're in viewport
+      gsap.fromTo(".grid-item",
+      // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+      // From 
+      {
+        y: '-50%',
+        opacity: 0
+      }, 
+      // To
+      {
+        delay: 3,
+        opacity: 1,
+        y:'0%',
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: ".grid-item",
+          start: "top bottom",
+          end: "bottom middle",
+          toggleActions: "restart none restart none"
+        },
+        duration: 2,
+        ease: 'power1.out',
+        overwrite: 'auto'
+      })
+
+      //Making the pin for the US map bounce up and down
+      gsap.to(".pin", {
+        y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
+        repeat: -1, // infinite repitions
+        duration: 2, // The time it takes to complete each up and down cycle
+        yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
+        ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
+        scrollTrigger: {
+          trigger: '.pin', 
+          start: "top bottom", 
+          end: "bottom top", 
+          toggleActions: "restart pause resume pause"
+        }
+      })
+
+      // Unnecessary animation, deleted
       //Using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
+      /*
       horizontalSections.forEach(section => {
         gsap.from(section, {
           opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
@@ -226,6 +290,7 @@ export default {
           }
         });
       });
+      */
 
 
       // Event Listeners:
@@ -356,11 +421,11 @@ export default {
         // Previous code. It was replaced by GSAP
         //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
         //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
-        gsap.to(window, {duration: 5, scrollTo: sectionsToScrollTo[currentSectionNumber]})
+        gsap.to(window, {duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber]})
 
         currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
         console.log("Now it's: ", currentSectionNumber)
-      }, 9000) // Running sutoScroll once every 5000 Millisecond = 5 seconds. 
+      }, 9000) // Running sutoScroll once every 9000 Millisecond = 9 seconds. 
     }
 
     const stopAutoScroll = () => {
@@ -414,7 +479,7 @@ body::before {
   left: 0;
   background: radial-gradient(ellipse at center, transparent 40%, black 90%);
   pointer-events: none;
-  z-index: 9999; 
+  z-index: 2; 
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -606,11 +671,11 @@ textarea {
 
 .grid-item {
   /* Styling for each grid item */
-  background-color: #ddd;
+  background: rgba(255, 255, 255, 0.85);;
   padding: 20px;
   border-radius: 5px;
   position: relative; /* Add this line */
-  z-index: 9999;
+  z-index: 3;
 }
 
 .horizontal-container{
@@ -624,6 +689,12 @@ textarea {
   grid-column: 1;
 }
 
+.pin{
+  height: 50px; 
+  width: 39px;
+  transform: translate(-114px, -75px);
+}
+
 .school-box{
   grid-row: 2;
   grid-column: 2;
@@ -634,15 +705,21 @@ textarea {
   grid-column: 3;
 }
 
+.major-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .graduation-box{
   grid-row: 3;
-  grid-column: 1;
+  grid-column: 2;
 }
 
 .partition{
   height: 100px;
   width: 12px;
-  margin: 0px 5px 0px 5px;
+  margin: 0px 35px 0px 5px;
 }
 
 
