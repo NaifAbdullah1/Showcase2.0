@@ -67,7 +67,6 @@
     
     <section class="horizontal_content" id="getToKnowMe">
 
-      
       <scroll-parallax :speed="0.40" :left="true" direction="x">
         <div style="display: flex; justify-content: flex-start;">
           <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
@@ -76,7 +75,7 @@
       </scroll-parallax>
     
 
-      <div id="overlay">
+      <div id="overlay-A">
         
         <div class="grid-item whoAmI-box">
           <h1>Who am I?</h1>
@@ -163,6 +162,54 @@
           <img class="img__background horizontal_img" src="./assets/Orientation.jpg" />
         </div>
       </scroll-parallax>
+
+
+      <div id="overlay-B">
+        
+        <div class="grid-item-B smucker-accomplishments-box">
+          <h1>Accomplishments at Smucker</h1>
+        </div>
+      
+        <div class="grid-item-B background-box horizontal-container">
+          <div class="vertical-container">
+            <img src="./assets/droid-logo-black.svg" alt="Droid Logo" style="height: 50px; width: 400px;"/> <!--MAKE SURE TO CHOOSE THE RIGHT DIMENTIONS-->
+          </div>
+        </div>
+
+
+        <div class="grid-item-B school-box horizontal-container">
+          <div class="vertical-container">
+            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px;"/> <!--MAKE SURE TO CHOOSE THE RIGHT DIMENTIONS-->
+          </div>
+        </div>
+
+
+        <div class="grid-item-B major-box horizontal-container"> <!--css fix-->
+
+          <div class="vertical-container">
+            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
+            <h1 class="icon-title">Major</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+
+          <div class="major-info">
+
+            <div>
+              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
+              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
+              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
+            </div>
+
+            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
     </section>
 
     <!--
@@ -259,6 +306,36 @@ export default {
         ease: 'power1.out',
         overwrite: 'auto'
       })
+
+
+      //----------------------------------
+      gsap.fromTo(".grid-item-B",
+      // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+      // From 
+      {
+        y: '-50%',
+        opacity: 0
+      }, 
+      // To
+      {
+        delay: 3,
+        opacity: 1,
+        y:'0%',
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: ".grid-item-B",
+          start: "top bottom",
+          end: "bottom middle",
+          toggleActions: "restart none restart none"
+        },
+        duration: 2,
+        ease: 'power1.out',
+        overwrite: 'auto'
+      })
+
+      //----------------------------
+
+
 
       //Making the pin for the US map bounce up and down
       gsap.to(".pin", {
@@ -494,12 +571,6 @@ body.shaded::before {
 
 .horizontal_img {
   height: 937px;
-
-  /*
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  */
 }
 
 .img_title {
@@ -633,7 +704,13 @@ textarea {
   height: 100vh;
 }
 
-#overlay {
+#seeWhatIHaveAccomplished{
+  position: relative; 
+  width: 100vw;
+  height: 100vh;
+}
+
+#overlay-A {
   position: absolute;
   top: 0;
   left: 0;
@@ -641,6 +718,19 @@ textarea {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#overlay-B {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   gap: 10px;
   align-items: center;
@@ -669,7 +759,19 @@ textarea {
   font-family: 'Petrona';
 }
 
-.grid-item {
+.smucker-accomplishments-box{
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.smucker-accomplishments-box h1{
+  margin-bottom: 10px; /*Replace those two margin options with the margin: # # # # */
+  margin-top: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+.grid-item, .grid-item-B {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 0.85);;
   padding: 20px;
