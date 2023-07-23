@@ -24,15 +24,15 @@
 
 <template>
 
-    <section id="intro_section" >
-      <video class="video_background" autoplay muted loop>
+    <section id="intro-section" >
+      <video class="video-background" autoplay muted loop>
         <source src="./assets/t2NC.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
 
       <scroll-parallax :speed="0.6">
         <!--
-        <div class="img_title" style="display: flex; justify-content: flex-end; align-item: center;">
+        <div class="img-title" style="display: flex; justify-content: flex-end; align-item: center;">
           <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
         </div> 
         -->
@@ -48,7 +48,7 @@
         </div>
 
         <!--
-      <div class="img_title">
+      <div class="img-title">
         <code>
             {{ scrollY }}
         </code>
@@ -65,7 +65,7 @@
 
     
     
-    <section class="horizontal_content" id="getToKnowMe">
+    <section class="horizontal-content" id="getToKnowMe">
 
       <scroll-parallax :speed="0.40" :left="true" direction="x">
         <div style="display: flex; justify-content: flex-start;">
@@ -153,12 +153,60 @@
     </section>
 
 
+    <!--VIDEO-->
+    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
+
+      <video class="video-background" autoplay muted loop>
+        <source src="./assets/droid.mp4" type="video/mp4">
+      </video>
+
+      <div id="overlay-B">
+        
+        <div class="grid-item-B smucker-accomplishments-box">
+          <h1>Accomplishments at Smucker</h1>
+        </div>
+      
+        <div class="grid-item-B background-box horizontal-container">
+          <div class="vertical-container">
+            <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" /> 
+          </div>
+        </div>
 
 
-    <section class="horizontal_content" id="seeWhatIHaveAccomplished">
+        <div class="grid-item-B dunkin-box horizontal-container">
+          <div class="vertical-container">
+            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px; border-radius: 10px;"/> 
+          </div>
+        </div>
+
+
+        <div class="grid-item-B major-box horizontal-container"> 
+
+          <div class="vertical-container">
+            <!--<img class="cookie-bar" src="./assets/CookieBar/original-mid.png" alt="Original cookie bar">-->
+            <img class="css-logo" src="./assets/css.png" alt="CSS logo" >
+          </div>
+
+          
+
+  
+
+        </div>
+
+
+      </div>
+
+    </section>
+    
+
+    <!--
+    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
         <div style="display: flex; justify-content: flex-end;">
-          <img class="img__background horizontal_img" src="./assets/GrpPic.jpg" />
+          <img class="img__background horizontal_img" src="./assets/css.jpg" />
+          <video autoplay muted loop>
+            <source src="./assets/droidcropped.mp4" type="video/mp4">
+          </video>
           <img class="img__background horizontal_img" src="./assets/Orientation.jpg" />
         </div>
       </scroll-parallax>
@@ -172,19 +220,19 @@
       
         <div class="grid-item-B background-box horizontal-container">
           <div class="vertical-container">
-            <img src="./assets/droid-logo-black.svg" alt="Droid Logo" style="height: 50px; width: 400px;"/> <!--MAKE SURE TO CHOOSE THE RIGHT DIMENTIONS-->
+            <img src="./assets/droid-logo-black.svg" alt="Droid Logo" style="height: 50px; width: 400px;"/> 
           </div>
         </div>
 
 
-        <div class="grid-item-B school-box horizontal-container">
+        <div class="grid-item-B dunkin-box horizontal-container">
           <div class="vertical-container">
-            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px;"/> <!--MAKE SURE TO CHOOSE THE RIGHT DIMENTIONS-->
+            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px;"/> 
           </div>
         </div>
 
 
-        <div class="grid-item-B major-box horizontal-container"> <!--css fix-->
+        <div class="grid-item-B major-box horizontal-container"> 
 
           <div class="vertical-container">
             <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
@@ -212,6 +260,9 @@
 
     </section>
 
+    -->
+
+
     <!--
     <div >
         <scroll-parallax
@@ -220,10 +271,10 @@
         >
         
         <div style="display: flex; align-item: center;">
-          <div class="img_title">
+          <div class="img-title">
             <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
           </div>
-          <div class="img_title" style="">
+          <div class="img-title" style="">
             <code>
                 {{ scrollX }}
             </code>
@@ -260,16 +311,16 @@ export default {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let horizontalSectionsObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#intro_section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let introBox
 
     onMounted(() => {
 
       // Defining values first:
       document.title = "Nathan's Showcase" // Setting the name of the tab title
-      const videoElement = document.querySelector('.video_background') // Saving the element with class="video_background". We'll use it later to stop video when it's out of viewport
+      const videoElement = document.querySelector('.video-background') // Saving the element with class="video-background". We'll use it later to stop video when it's out of viewport
       introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
-      const horizontalSections = document.querySelectorAll('.horizontal_content'); // This will be used to apply shading on horizontal sections. 
+      const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
 
 
       //startAutoScroll()
@@ -565,7 +616,7 @@ body.shaded::before {
   opacity: 1;
 }
 
-#intro_section {
+#intro-section {
   height: 1080px;
 }
 
@@ -573,7 +624,7 @@ body.shaded::before {
   height: 937px;
 }
 
-.img_title {
+.img-title {
   position: relative;
   bottom: 30em;
   color: white;
@@ -581,7 +632,7 @@ body.shaded::before {
   margin-right: 32px;
 }
 
-.img_title img {
+.img-title img {
   width: 350px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   border-radius: 30px;
@@ -591,7 +642,7 @@ body.shaded::before {
   height: 0px;
 }
 
-.horizontal_content {
+.horizontal-content {
   overflow: hidden;
 }
 
@@ -730,7 +781,7 @@ textarea {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
+  grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   gap: 10px;
   align-items: center;
@@ -786,6 +837,13 @@ textarea {
   align-items: center;
 }
 
+.css-logo{
+  height: 225px; 
+  width: 400px;
+  border-radius: 10px;
+}
+
+
 .background-box{
   grid-row: 2;
   grid-column: 1;
@@ -797,14 +855,19 @@ textarea {
   transform: translate(-114px, -75px);
 }
 
-.school-box{
+.school-box, .dunkin-box{
   grid-row: 2;
   grid-column: 2;
 }
 
-.major-box{
+.major-box {
   grid-row: 2;
   grid-column: 3;
+}
+
+.droid-logo{
+  height: 225px;
+  width: 400px;
 }
 
 .major-info{
