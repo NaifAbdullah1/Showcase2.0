@@ -1,5 +1,6 @@
 <!--
   TODOS: 
+  - Implement a button to the bottom right corner that takes you all the way back up
   - Think of implementing scroll indicator: https://www.npmjs.com/package/vue-scroll-indicator
   0.5 - look at the doc with the required info and start making smaller boxes that fade in and are parallaxy. These floating boxes should have the required showcase info. 
   1- Implement the snap scrolls to the next sections with an indicator of where we're at (either circles to the right hand side or a progress bar to the top). See Rolls Royce site for illustration. 
@@ -197,7 +198,8 @@
 
 
   <section ref="droidSlideshow" class="droidSlideshow" id="droid-overlay-section" style="height: 932px; background-color: grey;">
-    <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index" :src="droidSlide" class="droid-slide" />
+    <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index" :src="droidSlide" class="droid-slide" /> 
+    
   </section>
 
   
@@ -210,92 +212,6 @@
     
   </section>
 
-  <!--
-    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
-      <scroll-parallax :speed="0.15" :left="false" direction="x">
-        <div style="display: flex; justify-content: flex-end;">
-          <img class="img__background horizontal_img" src="./assets/css.jpg" />
-          <video autoplay muted loop>
-            <source src="./assets/droidcropped.mp4" type="video/mp4">
-          </video>
-          <img class="img__background horizontal_img" src="./assets/Orientation.jpg" />
-        </div>
-      </scroll-parallax>
-
-
-      <div id="overlay-B">
-        
-        <div class="grid-item-B smucker-accomplishments-box">
-          <h1>Accomplishments at Smucker</h1>
-        </div>
-      
-        <div class="grid-item-B background-box horizontal-container">
-          <div class="vertical-container">
-            <img src="./assets/droid-logo-black.svg" alt="Droid Logo" style="height: 50px; width: 400px;"/> 
-          </div>
-        </div>
-
-
-        <div class="grid-item-B dunkin-box horizontal-container">
-          <div class="vertical-container">
-            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px;"/> 
-          </div>
-        </div>
-
-
-        <div class="grid-item-B major-box horizontal-container"> 
-
-          <div class="vertical-container">
-            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
-            <h1 class="icon-title">Major</h1>
-          </div>
-
-          <img class="partition" src="./assets/Icons/bline.png">
-
-          <div class="major-info">
-
-            <div>
-              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
-              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
-              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
-            </div>
-
-            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-    -->
-
-
-  <!--
-    <div >
-        <scroll-parallax
-          :speed="0.15"
-          direction="x"
-        >
-        
-        <div style="display: flex; align-item: center;">
-          <div class="img-title">
-            <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
-          </div>
-          <div class="img-title" style="">
-            <code>
-                {{ scrollX }}
-            </code>
-          </div>
-        </div>
-        
-        </scroll-parallax>
-    </div>
-
-  -->
 </template>
   
 <script>
@@ -321,7 +237,7 @@ export default {
     let horizontalSectionsObserver;
     let autoScroll // This will be used for implementing the auto scrolling
     let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
-    let droidSlideshowImages = ["./assets/droid-slideshow/droid-logo.png", "./assets/droid-slideshow/css.svg"]
+    let droidSlideshowImages = ["/assets/droid-logo.png", "/assets/css.svg"]
     const droidSlideshow = ref(null)
     
     let introBox
@@ -341,7 +257,6 @@ export default {
 
       // Start the slideshow
       let index = 1
-
       setInterval(() => {
         //Fade out current slide
         gsap.to(droidSlides[index-1], {autoAlpha: 0, duration: 1})
@@ -984,7 +899,103 @@ textarea {
   margin: 0px 35px 0px 5px;
 }
 
+</style>
+  
+  
 
+
+
+
+
+
+
+
+<!--Code graveyard -->
+
+  <!--
+    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
+      <scroll-parallax :speed="0.15" :left="false" direction="x">
+        <div style="display: flex; justify-content: flex-end;">
+          <img class="img__background horizontal_img" src="./assets/css.jpg" />
+          <video autoplay muted loop>
+            <source src="./assets/droidcropped.mp4" type="video/mp4">
+          </video>
+          <img class="img__background horizontal_img" src="./assets/Orientation.jpg" />
+        </div>
+      </scroll-parallax>
+
+
+      <div id="overlay-B">
+        
+        <div class="grid-item-B smucker-accomplishments-box">
+          <h1>Accomplishments at Smucker</h1>
+        </div>
+      
+        <div class="grid-item-B background-box horizontal-container">
+          <div class="vertical-container">
+            <img src="./assets/droid-logo-black.svg" alt="Droid Logo" style="height: 50px; width: 400px;"/> 
+          </div>
+        </div>
+
+
+        <div class="grid-item-B dunkin-box horizontal-container">
+          <div class="vertical-container">
+            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px;"/> 
+          </div>
+        </div>
+
+
+        <div class="grid-item-B major-box horizontal-container"> 
+
+          <div class="vertical-container">
+            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
+            <h1 class="icon-title">Major</h1>
+          </div>
+
+          <img class="partition" src="./assets/Icons/bline.png">
+
+          <div class="major-info">
+
+            <div>
+              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
+              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
+              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
+            </div>
+
+            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+    -->
+
+
+  <!--
+    <div >
+        <scroll-parallax
+          :speed="0.15"
+          direction="x"
+        >
+        
+        <div style="display: flex; align-item: center;">
+          <div class="img-title">
+            <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
+          </div>
+          <div class="img-title" style="">
+            <code>
+                {{ scrollX }}
+            </code>
+          </div>
+        </div>
+        
+        </scroll-parallax>
+    </div>
 
 
 /*
@@ -994,6 +1005,5 @@ How to target a specific child
 }
 
 */
-</style>
-  
-  
+
+  -->
