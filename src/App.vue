@@ -23,31 +23,31 @@
 
 
 <template>
+  <section id="intro-section">
+    <video class="video-background" autoplay muted loop>
+      <source src="./assets/t2NC.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
 
-    <section id="intro-section" >
-      <video class="video-background" autoplay muted loop>
-        <source src="./assets/t2NC.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-
-      <scroll-parallax :speed="0.6">
-        <!--
+    <scroll-parallax :speed="0.6">
+      <!--
         <div class="img-title" style="display: flex; justify-content: flex-end; align-item: center;">
           <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
         </div> 
         -->
-      
 
-        <div class="intro-box">
-          <img id="smuckerLogo" src="./assets/Smucker2.png" />
-          <h1>Nathan's Showcase</h1>
-          <div>
-            <button class="button" @click="scrollToSection('#getToKnowMe')">Get to Know Me</button>
-            <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">See What I Have Accomplished</button>
-          </div>
+
+      <div class="intro-box">
+        <img id="smuckerLogo" src="./assets/Smucker2.png" />
+        <h1>Nathan's Showcase</h1>
+        <div>
+          <button class="button" @click="scrollToSection('#getToKnowMe')">Get to Know Me</button>
+          <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">See What I Have
+            Accomplished</button>
         </div>
+      </div>
 
-        <!--
+      <!--
       <div class="img-title">
         <code>
             {{ scrollY }}
@@ -55,151 +55,162 @@
       </div>
       -->
 
-      </scroll-parallax>
-    
-    </section>
+    </scroll-parallax>
 
-    <!--This div adds a space, in case you wante to add something in the middle. Could be another video.-->
-    <div class="spacing"></div> 
+  </section>
+
+  <!--This div adds a space, in case you wante to add something in the middle. Could be another video.-->
+  <div class="spacing"></div>
+
+  <section class="horizontal-content" id="getToKnowMe">
+
+    <scroll-parallax :speed="0.40" :left="true" direction="x">
+      <div style="display: flex; justify-content: flex-start;">
+        <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
+        <img class="horizontal_img" src="./assets/Smucker.jpg" />
+      </div>
+    </scroll-parallax>
 
 
-    
-    
-    <section class="horizontal-content" id="getToKnowMe">
+    <div id="overlay-A">
 
-      <scroll-parallax :speed="0.40" :left="true" direction="x">
-        <div style="display: flex; justify-content: flex-start;">
-          <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
-          <img class="horizontal_img" src="./assets/Smucker.jpg" />
-        </div>
-      </scroll-parallax>
-    
+      <div class="grid-item-A whoAmI-box">
+        <h1>Who am I?</h1>
+      </div>
 
-      <div id="overlay-A">
-        
-        <div class="grid-item whoAmI-box">
-          <h1>Who am I?</h1>
-        </div>
-      
-        <div class="grid-item background-box horizontal-container">
-          
-          <div class="vertical-container">
-            <img class="home-icon" src="./assets/Icons/Home.png"/>
-            <h1 class="icon-title">Home</h1>
-          </div>
+      <div class="grid-item-A background-box horizontal-container">
 
-          <img class="partition" src="./assets/Icons/bline.png">
-           
-          <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
-          <img class="pin" src="./assets/Icons/pin.png">
-          <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
-
+        <div class="vertical-container">
+          <img class="home-icon" src="./assets/Icons/Home.png" />
+          <h1 class="icon-title">Home</h1>
         </div>
 
+        <img class="partition" src="./assets/Icons/bline.png">
 
-        <div class="grid-item school-box horizontal-container">
-
-          <div class="vertical-container">
-            <img class="school-icon" src="./assets/Icons/school.png" />
-            <h1 class="icon-title">School</h1>
-          </div>
-
-          <img class="partition" src="./assets/Icons/bline.png">
-
-          <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;"/>
-
-        </div>
-
-
-        <div class="grid-item major-box horizontal-container">
-
-          <div class="vertical-container">
-            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png"/>
-            <h1 class="icon-title">Major</h1>
-          </div>
-
-          <img class="partition" src="./assets/Icons/bline.png">
-
-          <div class="major-info">
-
-            <div>
-              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
-              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
-              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
-            </div>
-
-            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
-
-          </div>
-
-        </div>
-
-
-        <div class="grid-item graduation-box horizontal-container">
-          <div class="vertical-container">
-            <img class="graduation-icon" src="./assets/Icons/grad.png" />
-            <h1 class="icon-title">Graduation <br>Date</h1>
-          </div>
-
-          <img class="partition" src="./assets/Icons/bline.png">
-
-          <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
-
-        </div>
-
+        <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
+        <img class="pin" src="./assets/Icons/pin.png">
+        <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
 
       </div>
 
-    </section>
 
+      <div class="grid-item-A school-box horizontal-container">
 
-    <!--VIDEO-->
-    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
-
-      <video class="video-background" autoplay muted loop>
-        <source src="./assets/droid.mp4" type="video/mp4">
-      </video>
-
-      <div id="overlay-B">
-        
-        <div class="grid-item-B smucker-accomplishments-box">
-          <h1>Accomplishments at Smucker</h1>
-        </div>
-      
-        <div class="grid-item-B background-box horizontal-container">
-          <div class="vertical-container">
-            <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" /> 
-          </div>
+        <div class="vertical-container">
+          <img class="school-icon" src="./assets/Icons/school.png" />
+          <h1 class="icon-title">School</h1>
         </div>
 
+        <img class="partition" src="./assets/Icons/bline.png">
 
-        <div class="grid-item-B dunkin-box horizontal-container">
-          <div class="vertical-container">
-            <img src="./assets/dunkin-style-guide.png" alt="Dunking Logo" style="height: 225px; width: 400px; border-radius: 10px;"/> 
-          </div>
+        <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
+
+      </div>
+
+
+      <div class="grid-item-A major-box horizontal-container">
+
+        <div class="vertical-container">
+          <img class="major-icon" src="./assets/Icons/fieldOfStudy.png" />
+          <h1 class="icon-title">Major</h1>
         </div>
 
+        <img class="partition" src="./assets/Icons/bline.png">
 
-        <div class="grid-item-B major-box horizontal-container"> 
+        <div class="major-info">
 
-          <div class="vertical-container">
-            <!--<img class="cookie-bar" src="./assets/CookieBar/original-mid.png" alt="Original cookie bar">-->
-            <img class="css-logo" src="./assets/css.png" alt="CSS logo" >
+          <div>
+            <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
+            <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
+            <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
           </div>
 
-          
+          <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+
+        </div>
+
+      </div>
+
+
+      <div class="grid-item-A graduation-box horizontal-container">
+        <div class="vertical-container">
+          <img class="graduation-icon" src="./assets/Icons/grad.png" />
+          <h1 class="icon-title">Graduation <br>Date</h1>
+        </div>
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!--VIDEO-->
+  <section class="horizontal-content" id="seeWhatIHaveAccomplished">
+
+    <video class="video-background" autoplay muted loop>
+      <source src="./assets/droid.mp4" type="video/mp4">
+    </video>
+
+    <div id="overlay-B">
+
+      <div class="grid-item-B smucker-accomplishments-box">
+        <h1>Accomplishments at Smucker</h1>
+      </div>
+
+      <div class="grid-item-B droid-box">
+        <div class="vertical-container">
+          <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" />
+          <h1 class="icon-title">DROID: A website Auditing Tool</h1>
+        </div>
+        <div class="droid-overlay"></div>
+      </div>
+
+
+
+      <div class="grid-item-B dunkin-box">
+        <div class="vertical-container">
+          <img class="dunkin-logo" src="./assets/dunkin-style-guide.png" alt="Dunking Logo" />
+          <h1 class="icon-title">An Overhaul of Dunkin's Website Style</h1>
+        </div>
+        <div class="dunkin-overlay"></div>
+      </div>
+
+
+      <div class="grid-item-B onetrust-box">
+        <div class="vertical-container">
+          <img class="onetrust-logo" src="./assets/onetrust-logo.svg" alt="OneTrust logo">
+          <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
+        </div>
+        <div class="onetrust-overlay"></div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <section ref="droidSlideshow" class="droidSlideshow" id="droid-overlay-section" style="height: 932px; background-color: grey;">
+    <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index" :src="droidSlide" class="droid-slide" />
+  </section>
 
   
+  <section class="horizontal-content" id="dunkin-overlay-section" style="height: 1000px;">
+  
+  </section>
 
-        </div>
 
-
-      </div>
-
-    </section>
+  <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
     
+  </section>
 
-    <!--
+  <!--
     <section class="horizontal-content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
         <div style="display: flex; justify-content: flex-end;">
@@ -263,7 +274,7 @@
     -->
 
 
-    <!--
+  <!--
     <div >
         <scroll-parallax
           :speed="0.15"
@@ -285,13 +296,11 @@
     </div>
 
   -->
-      
-
 </template>
   
 <script>
 import ScrollParallax from './components/ScrollParallax.vue';
-import { onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { gsap } from "gsap"
 
 // The following two will be used for fading in the pictures of horizontal_section s when scrolling. 
@@ -311,16 +320,47 @@ export default {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let horizontalSectionsObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let droidSlideshowImages = ["./assets/droid-slideshow/droid-logo.png", "./assets/droid-slideshow/css.svg"]
+    const droidSlideshow = ref(null)
+    
     let introBox
 
+    let droidBox
+    let dunkinBox
+    let oneTrustBox
+
     onMounted(() => {
+
+      const droidSlides = droidSlideshow.value.children
+      // Hide all slides initially
+      gsap.set(droidSlides, { autoAlpha: 0 })
+
+      // Show the first slide
+      gsap.set(droidSlides[0], { autoAlpha: 1 })
+
+      // Start the slideshow
+      let index = 1
+
+      setInterval(() => {
+        //Fade out current slide
+        gsap.to(droidSlides[index-1], {autoAlpha: 0, duration: 1})
+
+        //Fade in the next slide
+        gsap.to(droidSlides[index], {autoAlpha: 1, duration: 1})
+
+        index = (index + 1) % droidSlides.length
+
+      }, 3000)
 
       // Defining values first:
       document.title = "Nathan's Showcase" // Setting the name of the tab title
       const videoElement = document.querySelector('.video-background') // Saving the element with class="video-background". We'll use it later to stop video when it's out of viewport
       introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
       const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
+      droidBox = document.querySelector('.droid-box')
+      dunkinBox = document.querySelector('.dunkin-box')
+      oneTrustBox = document.querySelector('.onetrust-box')
 
 
       //startAutoScroll()
@@ -334,7 +374,7 @@ export default {
 
 
       // Makes grid items fade in when they're in viewport
-      gsap.fromTo(".grid-item",
+      gsap.fromTo(".grid-item-A",
       // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
       // From 
       {
@@ -348,7 +388,7 @@ export default {
         y:'0%',
         stagger: 0.5,
         scrollTrigger: {
-          trigger: ".grid-item",
+          trigger: ".grid-item-A",
           start: "top bottom",
           end: "bottom middle",
           toggleActions: "restart none restart none"
@@ -359,7 +399,6 @@ export default {
       })
 
 
-      //----------------------------------
       gsap.fromTo(".grid-item-B",
       // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
       // From 
@@ -383,9 +422,6 @@ export default {
         ease: 'power1.out',
         overwrite: 'auto'
       })
-
-      //----------------------------
-
 
 
       //Making the pin for the US map bounce up and down
@@ -433,6 +469,30 @@ export default {
       intro box (the buttons). This can cause the animation to rapidly 
       switch between scaling up and down when you move your mouse over the 
       buttons.*/
+      ;[introBox, droidBox, dunkinBox, oneTrustBox].forEach(element => {
+
+        if (element != null){
+          element.addEventListener('mouseenter', () => {
+            gsap.to(element, {
+              duration: 0.3,
+              scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
+            })
+          })
+
+          element.addEventListener('mouseleave', () => {
+            gsap.to(element, { duration: 0.3, scale: 1 });
+          })
+
+          if (element != introBox){
+            element.addEventListener('click', () => {
+              console.log(`section to scroll to: ${event.target.classList[0]}`)
+              scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+            })
+          }
+        }
+      })
+      
+      /*
       introBox.addEventListener('mouseenter', () => {
         gsap.to('.intro-box', {
           duration: 0.3,
@@ -444,6 +504,8 @@ export default {
       introBox.addEventListener('mouseleave', () => {
         gsap.to('.intro-box', { duration: 0.3, scale: 1 });
       });
+
+      */
 
       // Fade out intro box as user scrolls
       window.addEventListener('scroll', () => {
@@ -530,8 +592,7 @@ export default {
       */
     
     })
-
-    // A JS function that runs when you click the "Get to Know Me" button that scrolls you down to the right section. 
+ 
     const scrollToSection = (sectionToScrollTo) => {
       stopAutoScroll()
       // Old code, replaced with GSAP
@@ -574,6 +635,24 @@ export default {
         introBox.removeEventListener('mouseleave')
       }
 
+      if (droidBox){
+        droidBox.removeEventListener('mouseenter')
+        droidBox.removeEventListener('mouseleave')
+        droidBox.removeEventListener('click')
+      }
+
+      if (dunkinBox){
+        dunkinBox.removeEventListener('mouseenter')
+        dunkinBox.removeEventListener('mouseleave')
+        dunkinBox.removeEventListener('click')
+      }
+
+      if (oneTrustBox){
+        oneTrustBox.removeEventListener('mouseenter')
+        oneTrustBox.removeEventListener('mouseleave')
+        oneTrustBox.removeEventListener('click')
+      }
+
       if (window){
         window.removeEventListener('keydown')
         window.removeEventListener('scroll')
@@ -584,6 +663,8 @@ export default {
 
     return {
       scrollToSection, 
+      droidSlideshowImages, 
+      droidSlideshow
     }
   },
 };
@@ -733,7 +814,7 @@ body.shaded::before {
 
 .icon-title{
   font-family:'Petrona';
-  margin: 2px;
+  margin: 8px;
   text-align: center;
 }
 
@@ -759,6 +840,16 @@ textarea {
   position: relative; 
   width: 100vw;
   height: 100vh;
+}
+
+.droid-overlay, .dunkin-overlay, .onetrust-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
 }
 
 #overlay-A {
@@ -822,7 +913,7 @@ textarea {
   font-family: 'Petrona';
 }
 
-.grid-item, .grid-item-B {
+.grid-item-A, .grid-item-B {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 0.85);;
   padding: 20px;
@@ -837,14 +928,14 @@ textarea {
   align-items: center;
 }
 
-.css-logo{
+.onetrust-logo{
   height: 225px; 
   width: 400px;
   border-radius: 10px;
 }
 
 
-.background-box{
+.background-box, .droid-box{
   grid-row: 2;
   grid-column: 1;
 }
@@ -860,7 +951,7 @@ textarea {
   grid-column: 2;
 }
 
-.major-box {
+.major-box, .onetrust-box {
   grid-row: 2;
   grid-column: 3;
 }
@@ -868,6 +959,12 @@ textarea {
 .droid-logo{
   height: 225px;
   width: 400px;
+}
+
+.dunkin-logo{
+  height: 225px; 
+  width: 400px; 
+  border-radius: 10px;
 }
 
 .major-info{
