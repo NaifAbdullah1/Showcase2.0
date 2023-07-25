@@ -185,7 +185,7 @@
 
       <div class="grid-item-B onetrust-box">
         <div class="vertical-container">
-          <img class="onetrust-logo" src="./assets/onetrust-logo.svg" alt="OneTrust logo">
+          <img class="onetrust-logo" src="./assets/onetrust-logo.png" alt="OneTrust logo">
           <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
         </div>
         <div class="onetrust-overlay"></div>
@@ -197,21 +197,64 @@
   </section>
 
 
-  <section ref="droidSlideshow" class="droidSlideshow" id="droid-overlay-section" style="height: 932px; background-color: grey;">
-    <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index" :src="droidSlide" class="droid-slide" /> 
+  <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
+    <div ref="droidSlideshow" class="droidSlideshow">
+      <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
+      :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
+    </div>
     
+
+    <div id="overlay-C">
+
+      <div class="grid-item-C droid-section-title">
+        <h1>DROID</h1>
+        <h1>A website Auditing Tool</h1>
+      </div>
+
+      <div class="grid-item-C droid-runtime-box">
+        <div class="vertical-container">
+          <h1 class="icon-title">Optimized runtime by </h1>
+        </div>
+        <div class="droid-optimization-overlay"></div>
+      </div>
+
+
+      <div class="grid-item-C droid-setting-box">
+        <div class="vertical-container">
+          <h1 class="icon-title">Implemented a "Settings" page</h1>
+        </div>
+        <div class="droid-settings-overlay"></div>
+      </div>
+
+
+      <div class="grid-item-C droid-deletion-box">
+        <div class="vertical-container">
+          <h1 class="icon-title">Implemented deletion (phone you can't delete)</h1>
+        </div>
+        <div class="droid-deletion-overlay"></div>
+      </div>
+
+
+      <div class="grid-item-C droid-periodic-deletion-box">
+        <div class="vertical-container">
+          <h1 class="icon-title">Implemented periodic cleaning of the database</h1>
+        </div>
+        <div class="droid-periodic-deletion-overlay"></div>
+      </div>
+
+    </div>
+
   </section>
 
-  
+
   <section class="horizontal-content" id="dunkin-overlay-section" style="height: 1000px;">
-  
+
   </section>
 
 
   <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
-    
-  </section>
 
+  </section>
 </template>
   
 <script>
@@ -237,9 +280,9 @@ export default {
     let horizontalSectionsObserver;
     let autoScroll // This will be used for implementing the auto scrolling
     let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
-    let droidSlideshowImages = ["/assets/droid-logo.png", "/assets/css.svg"]
+    let droidSlideshowImages = ["droid-logo.png", "css-logo.png", "html-logo.png", "js-logo.png"]
     const droidSlideshow = ref(null)
-    
+
     let introBox
 
     let droidBox
@@ -247,26 +290,6 @@ export default {
     let oneTrustBox
 
     onMounted(() => {
-
-      const droidSlides = droidSlideshow.value.children
-      // Hide all slides initially
-      gsap.set(droidSlides, { autoAlpha: 0 })
-
-      // Show the first slide
-      gsap.set(droidSlides[0], { autoAlpha: 1 })
-
-      // Start the slideshow
-      let index = 1
-      setInterval(() => {
-        //Fade out current slide
-        gsap.to(droidSlides[index-1], {autoAlpha: 0, duration: 1})
-
-        //Fade in the next slide
-        gsap.to(droidSlides[index], {autoAlpha: 1, duration: 1})
-
-        index = (index + 1) % droidSlides.length
-
-      }, 3000)
 
       // Defining values first:
       document.title = "Nathan's Showcase" // Setting the name of the tab title
@@ -290,53 +313,53 @@ export default {
 
       // Makes grid items fade in when they're in viewport
       gsap.fromTo(".grid-item-A",
-      // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-      // From 
-      {
-        y: '-50%',
-        opacity: 0
-      }, 
-      // To
-      {
-        delay: 3,
-        opacity: 1,
-        y:'0%',
-        stagger: 0.5,
-        scrollTrigger: {
-          trigger: ".grid-item-A",
-          start: "top bottom",
-          end: "bottom middle",
-          toggleActions: "restart none restart none"
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
         },
-        duration: 2,
-        ease: 'power1.out',
-        overwrite: 'auto'
-      })
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-A",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
 
 
       gsap.fromTo(".grid-item-B",
-      // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-      // From 
-      {
-        y: '-50%',
-        opacity: 0
-      }, 
-      // To
-      {
-        delay: 3,
-        opacity: 1,
-        y:'0%',
-        stagger: 0.5,
-        scrollTrigger: {
-          trigger: ".grid-item-B",
-          start: "top bottom",
-          end: "bottom middle",
-          toggleActions: "restart none restart none"
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
         },
-        duration: 2,
-        ease: 'power1.out',
-        overwrite: 'auto'
-      })
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-B",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
 
 
       //Making the pin for the US map bounce up and down
@@ -347,80 +370,70 @@ export default {
         yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
         ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
         scrollTrigger: {
-          trigger: '.pin', 
-          start: "top bottom", 
-          end: "bottom top", 
+          trigger: '.pin',
+          start: "top bottom",
+          end: "bottom top",
           toggleActions: "restart pause resume pause"
         }
       })
 
-      // Unnecessary animation, deleted
-      //Using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
-      /*
-      horizontalSections.forEach(section => {
-        gsap.from(section, {
-          opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
-          delay: 2,
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom", // Animation starts with the top of the section is at the bottom of viewport.
-            end: "bottom top", // Animation ends with the bottom of the sections is at the top of the viewport.
-            scrub: true, // Makes animation progress keep up with scrollbar
-          }
-        });
-      });
-      */
+      const droidSlides = Array.from(droidSlideshow.value.children)
+      // Hide all slides initially
+      gsap.set(droidSlides, { autoAlpha: 0 })
+
+      // Show the first slide
+      gsap.set(droidSlides[0], { autoAlpha: 1 })
+
+      /// Start the slideshow
+      let index = 0
+      setInterval(() => {
+        let prevIndex = index == 0 ? droidSlides.length - 1 : index - 1;
+        //Fade out current slide
+        gsap.to(droidSlides[prevIndex], { autoAlpha: 0, duration: 1 })
+
+        //Fade in the next slide
+        gsap.to(droidSlides[index], { autoAlpha: 1, duration: 1 })
+
+        index = (index + 1) % droidSlides.length
+      }, 3000)
 
 
-      // Event Listeners:
 
-      /* Slightly expands the intro box on mouse hover. We're using 
-      mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
-      because mouseenter and mouseleave work when entering or leaving the 
-      bounds of the intro-box. Making the animation and everything within it have
-      the same animation. On the other hand, the mouseover event is triggered 
-      when you enter the intro box, but the mouseout event is triggered when 
-      you leave the intro box OR when you hover over a child element of the 
-      intro box (the buttons). This can cause the animation to rapidly 
-      switch between scaling up and down when you move your mouse over the 
-      buttons.*/
-      ;[introBox, droidBox, dunkinBox, oneTrustBox].forEach(element => {
 
-        if (element != null){
-          element.addEventListener('mouseenter', () => {
-            gsap.to(element, {
-              duration: 0.3,
-              scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
+        // Event Listeners:
+
+        /* Slightly expands the intro box on mouse hover. We're using 
+        mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
+        because mouseenter and mouseleave work when entering or leaving the 
+        bounds of the intro-box. Making the animation and everything within it have
+        the same animation. On the other hand, the mouseover event is triggered 
+        when you enter the intro box, but the mouseout event is triggered when 
+        you leave the intro box OR when you hover over a child element of the 
+        intro box (the buttons). This can cause the animation to rapidly 
+        switch between scaling up and down when you move your mouse over the 
+        buttons.*/
+        ;[introBox, droidBox, dunkinBox, oneTrustBox].forEach(element => {
+
+          if (element != null) {
+            element.addEventListener('mouseenter', () => {
+              gsap.to(element, {
+                duration: 0.3,
+                scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
+              })
             })
-          })
 
-          element.addEventListener('mouseleave', () => {
-            gsap.to(element, { duration: 0.3, scale: 1 });
-          })
-
-          if (element != introBox){
-            element.addEventListener('click', () => {
-              console.log(`section to scroll to: ${event.target.classList[0]}`)
-              scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+            element.addEventListener('mouseleave', () => {
+              gsap.to(element, { duration: 0.3, scale: 1 });
             })
+
+            if (element != introBox) {
+              element.addEventListener('click', () => {
+                console.log(`section to scroll to: ${event.target.classList[0]}`)
+                scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+              })
+            }
           }
-        }
-      })
-      
-      /*
-      introBox.addEventListener('mouseenter', () => {
-        gsap.to('.intro-box', {
-          duration: 0.3,
-          scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
         })
-      })
-
-      // Revert the intro box to its original size after the mouse is off the intro box.
-      introBox.addEventListener('mouseleave', () => {
-        gsap.to('.intro-box', { duration: 0.3, scale: 1 });
-      });
-
-      */
 
       // Fade out intro box as user scrolls
       window.addEventListener('scroll', () => {
@@ -441,7 +454,7 @@ export default {
           startAutoScroll()
       })
 
-      
+
       // Observers:
 
       // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
@@ -459,24 +472,24 @@ export default {
       videoObserver.observe(videoElement)
 
       // Using observers to apply shading to horizontal sections. 
-      const intersectingSections = new Set();
+      const intersectingHorizontalSections = new Set();
       let shadingTimeout;
       horizontalSectionsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            intersectingSections.add(entry.target);
+            intersectingHorizontalSections.add(entry.target);
             // Clear previous timeout, if it exists.
             clearTimeout(shadingTimeout);
             // Set new timeout to apply shading.
             shadingTimeout = setTimeout(() => {
               // Add or remove 'shaded' depending on whether any sections are intersecting.
-              document.body.classList.toggle('shaded', intersectingSections.size > 0);
+              document.body.classList.toggle('shaded', intersectingHorizontalSections.size > 0);
             }, 1000); // change this to the shading delay you want.
-          } 
+          }
           else {
-            intersectingSections.delete(entry.target);
+            intersectingHorizontalSections.delete(entry.target);
             // If no sections are intersecting, immediately remove shading and clear timeout.
-            if (intersectingSections.size === 0) {
+            if (intersectingHorizontalSections.size === 0) {
               clearTimeout(shadingTimeout);
               document.body.classList.remove('shaded');
             }
@@ -487,6 +500,10 @@ export default {
       horizontalSections.forEach(horizontalSection => {
         horizontalSectionsObserver.observe(horizontalSection);
       });
+
+      // SlideShow Observer
+
+
 
       /*
       Regarding the observer above, that observer work if you had multiple sections with the same class name. 
@@ -505,15 +522,15 @@ export default {
       horizontalSectionsObserver.observe(horizontalSections)
  
       */
-    
+
     })
- 
+
     const scrollToSection = (sectionToScrollTo) => {
       stopAutoScroll()
       // Old code, replaced with GSAP
       //const getToKnowMeSection = document.getElementById("getToKnowMe");
       //getToKnowMeSection.scrollIntoView({ behavior: 'smooth' })
-      gsap.to(window, {duration: 1.25, scrollTo: sectionToScrollTo})
+      gsap.to(window, { duration: 1.25, scrollTo: sectionToScrollTo })
     }
 
 
@@ -525,7 +542,7 @@ export default {
         // Previous code. It was replaced by GSAP
         //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
         //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
-        gsap.to(window, {duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber]})
+        gsap.to(window, { duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber] })
 
         currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
         console.log("Now it's: ", currentSectionNumber)
@@ -541,44 +558,44 @@ export default {
     onBeforeUnmount(() => {
       if (videoObserver)
         videoObserver.disconnect();
-    
+
       if (horizontalSectionsObserver)
         horizontalSectionsObserver.disconnect()
 
-      if (introBox){
+      if (introBox) {
         introBox.removeEventListener('mouseenter')
         introBox.removeEventListener('mouseleave')
       }
 
-      if (droidBox){
+      if (droidBox) {
         droidBox.removeEventListener('mouseenter')
         droidBox.removeEventListener('mouseleave')
         droidBox.removeEventListener('click')
       }
 
-      if (dunkinBox){
+      if (dunkinBox) {
         dunkinBox.removeEventListener('mouseenter')
         dunkinBox.removeEventListener('mouseleave')
         dunkinBox.removeEventListener('click')
       }
 
-      if (oneTrustBox){
+      if (oneTrustBox) {
         oneTrustBox.removeEventListener('mouseenter')
         oneTrustBox.removeEventListener('mouseleave')
         oneTrustBox.removeEventListener('click')
       }
 
-      if (window){
+      if (window) {
         window.removeEventListener('keydown')
         window.removeEventListener('scroll')
       }
-      
+
     })
-    
+
 
     return {
-      scrollToSection, 
-      droidSlideshowImages, 
+      scrollToSection,
+      droidSlideshowImages,
       droidSlideshow
     }
   },
@@ -590,7 +607,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica;
-  height:3000px;
+  height: 3000px;
   background-color: black;
 }
 
@@ -603,7 +620,7 @@ body::before {
   left: 0;
   background: radial-gradient(ellipse at center, transparent 40%, black 90%);
   pointer-events: none;
-  z-index: 2; 
+  z-index: 2;
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -694,41 +711,42 @@ body.shaded::before {
   width: 281px;
 }
 
-.home-icon{
+.home-icon {
   height: 108px;
   width: 111px;
 }
 
-.UW-icon{
+.UW-icon {
   height: 100px;
   width: 100px;
 }
 
-.major-icon{
+.major-icon {
   height: 108px;
   width: 113px;
 }
 
-.graduation-icon{
+.graduation-icon {
   height: 100px;
   width: 100px;
 }
 
-.school-icon{
+.school-icon {
   height: 108px;
   width: 133px;
 }
 
-.vertical-container{
+.vertical-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: fit-content; /*Prevents the container from taking up the entire box and only giving the size of the biggest element in it. */
+  width: fit-content;
+  /*Prevents the container from taking up the entire box and only giving the size of the biggest element in it. */
 }
 
-.icon-title{
-  font-family:'Petrona';
+.icon-title {
+  font-family: 'Petrona';
   margin: 8px;
   text-align: center;
 }
@@ -737,7 +755,8 @@ body.shaded::before {
     a problem where when you hover over a button, the normal cursor would
     reappear in addition to the Kursor cursor. The following CSS
     ensures that the defaults cursor always remains hidden when 
-    hovering over any of the items below. */
+    hovering over any of the items below. 
+*/
 a,
 button,
 input,
@@ -745,19 +764,20 @@ textarea {
   cursor: none !important;
 }
 
-#getToKnowMe{
-  position: relative; 
+#getToKnowMe, #seeWhatIHaveAccomplished, #droid-overlay-section {
+  position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-#seeWhatIHaveAccomplished{
-  position: relative; 
-  width: 100vw;
-  height: 100vh;
-}
 
-.droid-overlay, .dunkin-overlay, .onetrust-overlay{
+.droid-overlay,
+.dunkin-overlay,
+.onetrust-overlay, 
+.droid-optimization-overlay, 
+.droid-settings-overlay, 
+.droid-deletion-overlay, 
+.droid-periodic-deletion-overlay{
   position: absolute;
   top: 0;
   left: 0;
@@ -774,7 +794,8 @@ textarea {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
+  grid-template-columns: repeat(3, 1fr);
+  /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   gap: 10px;
   align-items: center;
@@ -787,15 +808,28 @@ textarea {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /*"Make 3 colums with width of 1fr (equal widths)" */
+  grid-template-columns: repeat(3, 1fr);
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#overlay-C {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   gap: 10px;
   align-items: center;
 }
 
 .whoAmI-box {
-  grid-row: 1;
-  grid-column: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -809,96 +843,145 @@ textarea {
   width: 300px;
 }
 
-.whoAmI-box h1{
-  margin-bottom: 10px; /*Replace those two margin options with the margin: # # # # */
+.whoAmI-box h1 {
+  margin-bottom: 10px;
+  /*Replace those two margin options with the margin: # # # # */
   margin-top: 10px;
   font-size: 42px;
   font-family: 'Petrona';
 }
 
-.smucker-accomplishments-box{
+.whoAmI-box, .smucker-accomplishments-box, .droid-section-title {
   grid-row: 1;
   grid-column: 2;
 }
 
-.smucker-accomplishments-box h1{
-  margin-bottom: 10px; /*Replace those two margin options with the margin: # # # # */
+.smucker-accomplishments-box h1 {
+  margin-bottom: 10px;
+  /*Replace those two margin options with the margin: # # # # */
   margin-top: 10px;
   font-size: 42px;
   font-family: 'Petrona';
 }
 
-.grid-item-A, .grid-item-B {
+.grid-item-A,
+.grid-item-B, 
+.grid-item-C {
   /* Styling for each grid item */
-  background: rgba(255, 255, 255, 0.85);;
+  background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 5px;
-  position: relative; /* Add this line */
+  position: relative;
   z-index: 3;
 }
 
-.horizontal-container{
+.horizontal-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.onetrust-logo{
-  height: 225px; 
+.onetrust-logo {
+  height: 225px;
   width: 400px;
   border-radius: 10px;
 }
 
+.droid-section-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.background-box, .droid-box{
+.droid-section-title h1{
+  margin-bottom: 10px;
+  /*Replace those two margin options with the margin: # # # # */
+  margin-top: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+
+.background-box,
+.droid-box, 
+.droid-runtime-box {
   grid-row: 2;
   grid-column: 1;
 }
 
-.pin{
-  height: 50px; 
+.pin {
+  height: 50px;
   width: 39px;
   transform: translate(-114px, -75px);
 }
 
-.school-box, .dunkin-box{
+.school-box,
+.dunkin-box {
   grid-row: 2;
   grid-column: 2;
 }
 
-.major-box, .onetrust-box {
+.droid-setting-box{
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.major-box,
+.onetrust-box, 
+.droid-deletion-box {
   grid-row: 2;
   grid-column: 3;
 }
 
-.droid-logo{
+.droid-logo {
   height: 225px;
   width: 400px;
 }
 
-.dunkin-logo{
-  height: 225px; 
-  width: 400px; 
+.dunkin-logo {
+  height: 225px;
+  width: 400px;
   border-radius: 10px;
 }
 
-.major-info{
+.major-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.graduation-box{
+.graduation-box {
   grid-row: 3;
   grid-column: 2;
 }
 
-.partition{
+.droid-periodic-deletion-box{
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.partition {
   height: 100px;
   width: 12px;
   margin: 0px 35px 0px 5px;
 }
 
+.droidSlideshow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.droid-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(15px);
+  z-index: 1;
+}
 </style>
   
   
@@ -912,7 +995,25 @@ textarea {
 
 <!--Code graveyard -->
 
-  <!--
+<!--
+// Unnecessary animation, deleted
+      //Using GSAP, we'll use the horizontalSections above so we can fade the pictures in as they come into view 
+      /*
+      horizontalSections.forEach(section => {
+        gsap.from(section, {
+          opacity: 0.2, // Starting from opacity of 0.2, we don't want to start from a black screen
+          delay: 2,
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom", // Animation starts with the top of the section is at the bottom of viewport.
+            end: "bottom top", // Animation ends with the bottom of the sections is at the top of the viewport.
+            scrub: true, // Makes animation progress keep up with scrollbar
+          }
+        });
+      });
+      */
+
+  
     <section class="horizontal-content" id="seeWhatIHaveAccomplished">
       <scroll-parallax :speed="0.15" :left="false" direction="x">
         <div style="display: flex; justify-content: flex-end;">
