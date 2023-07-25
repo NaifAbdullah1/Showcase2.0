@@ -18,8 +18,6 @@
     Work on replacing the smucker logo with your own, the site: https://www.brandcrowd.com/ is excellent. We already got a logo from there. We'll have a copy in the assets file and in OneDrive
   
     Post Showcase notes: 
-
-  
   -->
 
 
@@ -38,7 +36,7 @@
         -->
 
 
-      <div class="intro-box">
+      <div class="intro-box expandable">
         <img id="smuckerLogo" src="./assets/Smucker2.png" />
         <h1>Nathan's Showcase</h1>
         <div>
@@ -164,7 +162,7 @@
         <h1>Accomplishments at Smucker</h1>
       </div>
 
-      <div class="grid-item-B droid-box">
+      <div class="grid-item-B droid-box expandable">
         <div class="vertical-container">
           <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" />
           <h1 class="icon-title">DROID: A website Auditing Tool</h1>
@@ -174,7 +172,7 @@
 
 
 
-      <div class="grid-item-B dunkin-box">
+      <div class="grid-item-B dunkin-box expandable">
         <div class="vertical-container">
           <img class="dunkin-logo" src="./assets/dunkin-style-guide.png" alt="Dunking Logo" />
           <h1 class="icon-title">An Overhaul of Dunkin's Website Style</h1>
@@ -183,7 +181,7 @@
       </div>
 
 
-      <div class="grid-item-B onetrust-box">
+      <div class="grid-item-B onetrust-box expandable">
         <div class="vertical-container">
           <img class="onetrust-logo" src="./assets/onetrust-logo.png" alt="OneTrust logo">
           <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
@@ -199,19 +197,22 @@
 
   <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
     <div ref="droidSlideshow" class="droidSlideshow">
+      <!--
       <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
-      :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
-    </div>
-    
+        :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
+      -->
+      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
+      </div>
+
 
     <div id="overlay-C">
 
       <div class="grid-item-C droid-section-title">
         <h1>DROID</h1>
-        <h1>A website Auditing Tool</h1>
+        <h3>A website Auditing Tool</h3>
       </div>
 
-      <div class="grid-item-C droid-runtime-box">
+      <div class="grid-item-C droid-runtime-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Optimized runtime by </h1>
         </div>
@@ -219,7 +220,7 @@
       </div>
 
 
-      <div class="grid-item-C droid-setting-box">
+      <div class="grid-item-C droid-setting-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented a "Settings" page</h1>
         </div>
@@ -227,15 +228,15 @@
       </div>
 
 
-      <div class="grid-item-C droid-deletion-box">
+      <div class="grid-item-C droid-deletion-box expandable">
         <div class="vertical-container">
-          <h1 class="icon-title">Implemented deletion (phone you can't delete)</h1>
+          <h1 class="icon-title">Implemented deletion </h1> <!--(phone you can't delete)-->
         </div>
         <div class="droid-deletion-overlay"></div>
       </div>
 
 
-      <div class="grid-item-C droid-periodic-deletion-box">
+      <div class="grid-item-C droid-periodic-deletion-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented periodic cleaning of the database</h1>
         </div>
@@ -246,7 +247,7 @@
 
   </section>
 
-
+  <!--
   <section class="horizontal-content" id="dunkin-overlay-section" style="height: 1000px;">
 
   </section>
@@ -255,6 +256,7 @@
   <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
 
   </section>
+  -->
 </template>
   
 <script>
@@ -278,10 +280,12 @@ export default {
   setup() {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let horizontalSectionsObserver;
+    let backgroundImagesObserver;
     let autoScroll // This will be used for implementing the auto scrolling
     let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let droidSlideshowImages = ["droid-logo.png", "css-logo.png", "html-logo.png", "js-logo.png"]
     const droidSlideshow = ref(null)
+    const droidImgRef = ref(null)
 
     let introBox
 
@@ -296,6 +300,8 @@ export default {
       const videoElement = document.querySelector('.video-background') // Saving the element with class="video-background". We'll use it later to stop video when it's out of viewport
       introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
       const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
+      const backgroundImages = document.querySelectorAll('.background-image')
+      const expandableBoxes = document.querySelectorAll('.expandable')
       droidBox = document.querySelector('.droid-box')
       dunkinBox = document.querySelector('.dunkin-box')
       oneTrustBox = document.querySelector('.onetrust-box')
@@ -336,7 +342,6 @@ export default {
           overwrite: 'auto'
         })
 
-
       gsap.fromTo(".grid-item-B",
         // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
         // From 
@@ -352,6 +357,30 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-B",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+      gsap.fromTo(".grid-item-C",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-C",
             start: "top bottom",
             end: "bottom middle",
             toggleActions: "restart none restart none"
@@ -377,6 +406,9 @@ export default {
         }
       })
 
+
+      // Enables Slideshow
+      /*
       const droidSlides = Array.from(droidSlideshow.value.children)
       // Hide all slides initially
       gsap.set(droidSlides, { autoAlpha: 0 })
@@ -397,6 +429,8 @@ export default {
         index = (index + 1) % droidSlides.length
       }, 3000)
 
+      */
+
 
 
 
@@ -412,30 +446,30 @@ export default {
         intro box (the buttons). This can cause the animation to rapidly 
         switch between scaling up and down when you move your mouse over the 
         buttons.*/
-        ;[introBox, droidBox, dunkinBox, oneTrustBox].forEach(element => {
+        ;[droidBox, dunkinBox, oneTrustBox].forEach(element => {
+              element.addEventListener('click', () => {
+                console.log(`section to scroll to: ${event.target.classList[0]}`)
+                scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+              })
+        })
 
-          if (element != null) {
-            element.addEventListener('mouseenter', () => {
-              gsap.to(element, {
+        expandableBoxes.forEach(box => {
+          if (box != null) {
+            box.addEventListener('mouseenter', () => {
+              gsap.to(box, {
                 duration: 0.3,
                 scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
               })
             })
 
-            element.addEventListener('mouseleave', () => {
-              gsap.to(element, { duration: 0.3, scale: 1 });
+            box.addEventListener('mouseleave', () => {
+              gsap.to(box, { duration: 0.3, scale: 1 });
             })
-
-            if (element != introBox) {
-              element.addEventListener('click', () => {
-                console.log(`section to scroll to: ${event.target.classList[0]}`)
-                scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
-              })
-            }
           }
         })
 
       // Fade out intro box as user scrolls
+      // TODO: Consider replacing this with GSAP
       window.addEventListener('scroll', () => {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -501,8 +535,37 @@ export default {
         horizontalSectionsObserver.observe(horizontalSection);
       });
 
-      // SlideShow Observer
+      // Droid Observer: This blurs the background image
+      const intersectingBackgroundImages = new Set();
+      let blurringTimeout;
+      backgroundImagesObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            intersectingBackgroundImages.add(entry.target);
+            // Clear previous timeout, if it exists.
+            clearTimeout(blurringTimeout);
+            // Set new timeout to apply shading.
+            blurringTimeout = setTimeout(() => {
+              // Add or remove 'shaded' depending on whether any sections are intersecting.
+              entry.target.classList.toggle('blur', intersectingBackgroundImages.size > 0);
+            }, 1000); // change this to the shading delay you want.
+          }
+          else {
+            intersectingBackgroundImages.delete(entry.target);
+            // If no sections are intersecting, immediately remove shading and clear timeout.
+            if (intersectingBackgroundImages.size === 0) {
+              clearTimeout(blurringTimeout);
+              entry.target.classList.remove('blur');
+            }
+          }
+        });
+      }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
 
+      backgroundImages.forEach(backgroundImg => {
+        backgroundImagesObserver.observe(backgroundImg);
+      });
+      
+      
 
 
       /*
@@ -553,8 +616,6 @@ export default {
       clearInterval(autoScroll) // Almost like unmounting an event listener to cease its effect
     }
 
-
-
     onBeforeUnmount(() => {
       if (videoObserver)
         videoObserver.disconnect();
@@ -596,7 +657,8 @@ export default {
     return {
       scrollToSection,
       droidSlideshowImages,
-      droidSlideshow
+      droidSlideshow, 
+      droidImgRef
     }
   },
 };
@@ -764,7 +826,9 @@ textarea {
   cursor: none !important;
 }
 
-#getToKnowMe, #seeWhatIHaveAccomplished, #droid-overlay-section {
+#getToKnowMe,
+#seeWhatIHaveAccomplished,
+#droid-overlay-section {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -773,11 +837,11 @@ textarea {
 
 .droid-overlay,
 .dunkin-overlay,
-.onetrust-overlay, 
-.droid-optimization-overlay, 
-.droid-settings-overlay, 
-.droid-deletion-overlay, 
-.droid-periodic-deletion-overlay{
+.onetrust-overlay,
+.droid-optimization-overlay,
+.droid-settings-overlay,
+.droid-deletion-overlay,
+.droid-periodic-deletion-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -851,7 +915,9 @@ textarea {
   font-family: 'Petrona';
 }
 
-.whoAmI-box, .smucker-accomplishments-box, .droid-section-title {
+.whoAmI-box,
+.smucker-accomplishments-box,
+.droid-section-title {
   grid-row: 1;
   grid-column: 2;
 }
@@ -865,7 +931,7 @@ textarea {
 }
 
 .grid-item-A,
-.grid-item-B, 
+.grid-item-B,
 .grid-item-C {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 0.85);
@@ -887,14 +953,14 @@ textarea {
   border-radius: 10px;
 }
 
-.droid-section-title{
+.droid-section-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.droid-section-title h1{
+.droid-section-title h1 {
   margin-bottom: 10px;
   /*Replace those two margin options with the margin: # # # # */
   margin-top: 10px;
@@ -902,9 +968,15 @@ textarea {
   font-family: 'Petrona';
 }
 
+.droid-section-title h3{
+  margin: 0px;
+  font-size: 22px;
+  font-family: 'Petrona';
+}
+
 
 .background-box,
-.droid-box, 
+.droid-box,
 .droid-runtime-box {
   grid-row: 2;
   grid-column: 1;
@@ -922,13 +994,13 @@ textarea {
   grid-column: 2;
 }
 
-.droid-setting-box{
+.droid-setting-box {
   grid-row: 3;
   grid-column: 1;
 }
 
 .major-box,
-.onetrust-box, 
+.onetrust-box,
 .droid-deletion-box {
   grid-row: 2;
   grid-column: 3;
@@ -956,7 +1028,7 @@ textarea {
   grid-column: 2;
 }
 
-.droid-periodic-deletion-box{
+.droid-periodic-deletion-box {
   grid-row: 3;
   grid-column: 3;
 }
@@ -975,13 +1047,17 @@ textarea {
 
 }
 
-.droid-slide {
+.background-image{
   position: absolute;
   top: 0;
   left: 0;
-  filter: blur(15px);
-  z-index: 1;
+  transition: filter 1s ease-in-out;
 }
+
+.blur {
+  filter: blur(15px);
+}
+
 </style>
   
   
