@@ -219,10 +219,11 @@
           <ve-progress 
             v-if="veProgressInView"
             :key="veProgressKey"
-            :progress="50"
-            animation="rs 1000 5000" 
+            :progress="39.61"
+            animation="rs 3000 5000" 
             line-mode="out"
             dot="10% blue"
+            :size="400"
             :color="gradient"
             >
               <template #legend>
@@ -230,6 +231,7 @@
               </template>
               <template #legend-caption>
                 <h1 class="icon-title">Optimized Runtime</h1>
+                <h1 class="icon-title" style="font-size: 18px;">Startup time: <s>8.1s</s> 4.9s</h1>
               </template>
             </ve-progress>
           </div>
@@ -238,27 +240,57 @@
         <div class="droid-optimization-overlay"></div>
       </div>
 
+      
+      <!--
       <div class="grid-item-C droid-setting-box expandable">
         <div class="vertical-container">
-          <h1 class="icon-title">Implemented a "Settings" page</h1>
+          <h1 class="icon-title">Implemented a new "Settings" page</h1>
+          <img class="droid-before-settings" src="./assets/droid-before-settings.png" alt="Droid before implemeting the setting page" />
+          <img class="arrow-down-icon" src="./assets/Icons/arrow-down.png" alt="Arrow down icon" />
+          <img class="droid-after-settings" src="./assets/droid-after-settings.png" alt="Droid after implemeting the setting page" />
         </div>
         <div class="droid-settings-overlay"></div>
       </div>
+      -->
 
+      <!--Here's we're including a demo video of the deletion-->
       <div class="grid-item-C droid-deletion-box expandable">
         <div class="vertical-container">
-          <h1 class="icon-title">Implemented deletion </h1> <!--(phone you can't delete)-->
+          <h1 class="icon-title">Implemented deletion of database records</h1>
+          <video class="video-background" style="height: 300px; width: 534px;" autoplay muted loop>
+            <source src="./assets/droid-deletion-demo.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="droid-deletion-overlay"></div>
       </div>
 
+
+      <!--
       <div class="grid-item-C droid-periodic-deletion-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented periodic cleaning of the database</h1>
         </div>
         <div class="droid-periodic-deletion-overlay"></div>
       </div>
+      -->
 
+    </div>
+
+  </section>
+.
+  <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
+    <div ref="droidSlideshow" class="droidSlideshow">
+      <!--
+      <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
+        :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
+      -->
+      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
+      </div>
+
+
+    <div id="overlay-C">
+
+      
     </div>
 
   </section>
@@ -1048,14 +1080,16 @@ textarea {
   grid-column: 2;
 }
 
-.droid-setting-box {
+.droid-deletion-box {
   grid-row: 3;
   grid-column: 1;
 }
 
 .major-box,
 .onetrust-box,
-.droid-deletion-box {
+.droid-setting-box, 
+.droid-deletion-box
+{
   grid-row: 2;
   grid-column: 3;
 }
@@ -1110,6 +1144,21 @@ textarea {
 
 .blur {
   filter: blur(25px);
+}
+
+.droid-before-settings{
+  height: 300px; 
+  width: 534px;
+}
+
+.arrow-down-icon{
+  height: 100px; 
+  width: 38px;
+}
+
+.droid-after-settings{
+  height: 300px; 
+  width: 534px;
 }
 
 </style>
