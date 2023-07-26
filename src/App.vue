@@ -165,7 +165,7 @@
       <div class="grid-item-B droid-box expandable">
         <div class="vertical-container">
           <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" />
-          <h1 class="icon-title">DROID: A website Auditing Tool</h1>
+          <h1 class="icon-title">DROID: A Website Auditing Tool</h1>
         </div>
         <div class="droid-overlay"></div>
       </div>
@@ -214,11 +214,29 @@
 
       <div class="grid-item-C droid-runtime-box expandable">
         <div class="vertical-container">
-          <h1 class="icon-title">Optimized runtime by </h1>
+          
+          <div ref="veProgressRef">
+          <ve-progress 
+            v-if="veProgressInView"
+            :key="veProgressKey"
+            :progress="50"
+            animation="rs 1000 5000" 
+            line-mode="out"
+            dot="10% blue"
+            :color="gradient"
+            >
+              <template #legend>
+                <span>%</span>
+              </template>
+              <template #legend-caption>
+                <h1 class="icon-title">Optimized Runtime</h1>
+              </template>
+            </ve-progress>
+          </div>
+
         </div>
         <div class="droid-optimization-overlay"></div>
       </div>
-
 
       <div class="grid-item-C droid-setting-box expandable">
         <div class="vertical-container">
@@ -227,14 +245,12 @@
         <div class="droid-settings-overlay"></div>
       </div>
 
-
       <div class="grid-item-C droid-deletion-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented deletion </h1> <!--(phone you can't delete)-->
         </div>
         <div class="droid-deletion-overlay"></div>
       </div>
-
 
       <div class="grid-item-C droid-periodic-deletion-box expandable">
         <div class="vertical-container">
@@ -261,6 +277,7 @@
   
 <script>
 import ScrollParallax from './components/ScrollParallax.vue';
+import { VeProgress } from "vue-ellipse-progress";
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { gsap } from "gsap"
 
@@ -275,18 +292,37 @@ gsap.registerPlugin(ScrollToPlugin);
 export default {
 
   components: {
-    ScrollParallax
+    ScrollParallax, 
+    VeProgress
   },
   setup() {
     let videoObserver // This will be used for pausing the video when it's out of the viewport
     let horizontalSectionsObserver;
     let backgroundImagesObserver;
+    let veProgressObserver;
     let autoScroll // This will be used for implementing the auto scrolling
     let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let droidSlideshowImages = ["droid-logo.png", "css-logo.png", "html-logo.png", "js-logo.png"]
     const droidSlideshow = ref(null)
     const droidImgRef = ref(null)
-
+    const veProgressInView = ref(false) // Tracks whether the veProgress component is in view. We'll need to destroy it when not in view to force animation to re-run
+    const veProgressKey = ref(0)
+    const veProgressRef = ref(null) // We're observing the parent ref to determine if veProgress should be rendered or not. 
+    const gradient = ref({
+      radial: false,
+    colors: [
+      {
+        color: '#6546f7',
+        offset: "0",
+        opacity: '1',
+      },
+      {
+        color: 'lime',
+        offset: "100",
+        opacity: '0.6',
+      },
+    ]
+    })
     let introBox
 
     let droidBox
@@ -566,7 +602,21 @@ export default {
       });
       
       
+      veProgressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting && !veProgressInView.value) {
+          veProgressInView.value = true
+          veProgressKey.value++  // increment key to force component recreation. When the key changes, Vue treats it as a whole new component different from the previous one
+        }
+        else if (!entry.isIntersecting && veProgressInView.value) {
+          veProgressInView.value = false
+        }
+      })
+      }, {threshold: 0.8})
 
+      if (veProgressRef.value){ // We're observing the parent div that contains the veProgress. 
+        veProgressObserver.observe(veProgressRef.value)
+      }
 
       /*
       Regarding the observer above, that observer work if you had multiple sections with the same class name. 
@@ -658,7 +708,11 @@ export default {
       scrollToSection,
       droidSlideshowImages,
       droidSlideshow, 
-      droidImgRef
+      droidImgRef, 
+      veProgressInView, 
+      veProgressKey, 
+      veProgressRef, 
+      gradient
     }
   },
 };
@@ -958,12 +1012,12 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .droid-section-title h1 {
-  margin-bottom: 10px;
+  margin:0;
   /*Replace those two margin options with the margin: # # # # */
-  margin-top: 10px;
   font-size: 42px;
   font-family: 'Petrona';
 }
@@ -1055,7 +1109,7 @@ textarea {
 }
 
 .blur {
-  filter: blur(15px);
+  filter: blur(25px);
 }
 
 </style>
