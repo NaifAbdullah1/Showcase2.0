@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/vue-splide": "^0.6.12",
     "core-js": "^3.8.3",
     "gsap": "^3.12.2",
     "vue": "^3.2.13",

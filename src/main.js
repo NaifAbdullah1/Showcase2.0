@@ -4,6 +4,8 @@ import veProgress from "vue-ellipse-progress";
 
 import "./assets/styles.css"
 //import VueSmoothScroll from 'vue3-smooth-scroll' // Smooth scrolling library that enables you to controll scrolling speed and duration. 
+import '@splidejs/vue-splide/css';
+
 
 
 const app = createApp(App)
