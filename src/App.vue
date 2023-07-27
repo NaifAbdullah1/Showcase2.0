@@ -201,72 +201,86 @@
       <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
         :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
       -->
-      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
-      </div>
+      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png"
+        alt="Full-sized Droid logo" />
+    </div>
 
 
     <div id="overlay-C">
 
-      <div class="grid-item-C droid-section-title">
+      <div class="grid-item-C droid-section-title" style="width: 20%;">
         <h1>DROID</h1>
         <h3>A website Auditing Tool</h3>
       </div>
 
-      <div class="grid-item-C droid-runtime-box expandable">
-        <div class="vertical-container">
-          
-          <div ref="veProgressRef">
-          <ve-progress 
-            v-if="veProgressInView"
-            :key="veProgressKey"
-            :progress="39.61"
-            animation="rs 3000 5000" 
-            line-mode="out"
-            dot="10% blue"
-            :size="400"
-            :color="gradient"
-            >
-              <template #legend>
-                <span>%</span>
-              </template>
-              <template #legend-caption>
-                <h1 class="icon-title">Optimized Runtime</h1>
-                <h1 class="icon-title" style="font-size: 18px;">Startup time: <s>8.1s</s> 4.9s</h1>
-              </template>
-            </ve-progress>
-          </div>
+      <!--Parent-most div for the veProgress and the Deletion Video-->
+      <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <div class="grid-item-C expandable">
+          <div class="vertical-container">
 
+            <div ref="veProgressRef">
+              <h1 class="icon-title">Optimized Runtime by 39.61%</h1>
+              <ve-progress v-if="veProgressInView" :key="veProgressKey" :progress="39.61" animation="rs 3000 5000"
+                line-mode="out" dot="10% blue" :size="400" :color="gradient">
+                <template #legend>
+                  <span>%</span>
+                </template>
+                <template #legend-caption>
+                  <h1 class="icon-title" style="font-size: 26px;">Startup time: <s>8.14s</s> 4.91s</h1>
+                </template>
+              </ve-progress>
+            </div>
+
+          </div>
+          <div class="droid-optimization-overlay"></div>
         </div>
-        <div class="droid-optimization-overlay"></div>
+
+
+        
+
+        <!--Here's we're including a demo video of the deletion-->
+        <div class="grid-item-C expandable" >
+          <div class="vertical-container">
+            <h1 class="icon-title">Implemented deletion of database records</h1>
+            <video class="video-background" style="height: 370px; width: 658px;" autoplay muted loop>
+              <source src="./assets/droid-deletion-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="droid-deletion-overlay"></div>
+        </div>
       </div>
 
+
       
+
+    </div>
+
+  </section>
+  
+
+  <section id="droid-overlay-section2" style="height: 932px; background-color: grey;">
+    <div ref="droidSlideshow" class="droidSlideshow">
       <!--
-      <div class="grid-item-C droid-setting-box expandable">
+      <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
+        :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
+      -->
+      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png"
+        alt="Full-sized Droid logo" />
+    </div>
+
+
+    <div id="overlay-D">
+      <div class="grid-item-D droid-setting-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented a new "Settings" page</h1>
           <img class="droid-before-settings" src="./assets/droid-before-settings.png" alt="Droid before implemeting the setting page" />
           <img class="arrow-down-icon" src="./assets/Icons/arrow-down.png" alt="Arrow down icon" />
           <img class="droid-after-settings" src="./assets/droid-after-settings.png" alt="Droid after implemeting the setting page" />
         </div>
-        <div class="droid-settings-overlay"></div>
       </div>
-      -->
-
-      <!--Here's we're including a demo video of the deletion-->
-      <div class="grid-item-C droid-deletion-box expandable">
-        <div class="vertical-container">
-          <h1 class="icon-title">Implemented deletion of database records</h1>
-          <video class="video-background" style="height: 300px; width: 534px;" autoplay muted loop>
-            <source src="./assets/droid-deletion-demo.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="droid-deletion-overlay"></div>
-      </div>
-
-
+      
       <!--
-      <div class="grid-item-C droid-periodic-deletion-box expandable">
+      <div class="grid-item-D droid-periodic-deletion-box expandable">
         <div class="vertical-container">
           <h1 class="icon-title">Implemented periodic cleaning of the database</h1>
         </div>
@@ -277,30 +291,22 @@
     </div>
 
   </section>
-.
-  <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
+
+  
+  <section id="dunkin-overlay-section" style="height:932px;">
     <div ref="droidSlideshow" class="droidSlideshow">
       <!--
       <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
         :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
       -->
-      <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
-      </div>
-
-
-    <div id="overlay-C">
-
-      
+      <img ref="dunkinImgRef" class="background-image blur" src="./assets/dunkin-style-guide.png"
+        alt="Full-sized Droid logo" />
     </div>
 
   </section>
 
+
   <!--
-  <section class="horizontal-content" id="dunkin-overlay-section" style="height: 1000px;">
-
-  </section>
-
-
   <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
 
   </section>
@@ -324,7 +330,7 @@ gsap.registerPlugin(ScrollToPlugin);
 export default {
 
   components: {
-    ScrollParallax, 
+    ScrollParallax,
     VeProgress
   },
   setup() {
@@ -333,7 +339,7 @@ export default {
     let backgroundImagesObserver;
     let veProgressObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let droidSlideshowImages = ["droid-logo.png", "css-logo.png", "html-logo.png", "js-logo.png"]
     const droidSlideshow = ref(null)
     const droidImgRef = ref(null)
@@ -342,18 +348,18 @@ export default {
     const veProgressRef = ref(null) // We're observing the parent ref to determine if veProgress should be rendered or not. 
     const gradient = ref({
       radial: false,
-    colors: [
-      {
-        color: '#6546f7',
-        offset: "0",
-        opacity: '1',
-      },
-      {
-        color: 'lime',
-        offset: "100",
-        opacity: '0.6',
-      },
-    ]
+      colors: [
+        {
+          color: '#6546f7',
+          offset: "0",
+          opacity: '1',
+        },
+        {
+          color: 'lime',
+          offset: "100",
+          opacity: '0.6',
+        },
+      ]
     })
     let introBox
 
@@ -385,6 +391,7 @@ export default {
       })
 
 
+      // TODO: CONSIDER COMPACTING THOSE INTO ONLY ONE GSAP, We can compact the A-C, but not the D
       // Makes grid items fade in when they're in viewport
       gsap.fromTo(".grid-item-A",
         // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
@@ -458,6 +465,31 @@ export default {
           overwrite: 'auto'
         })
 
+        gsap.fromTo(".grid-item-D",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-D",
+            start: "middle top",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+        
+
 
       //Making the pin for the US map bounce up and down
       gsap.to(".pin", {
@@ -475,29 +507,29 @@ export default {
       })
 
 
-      // Enables Slideshow
-      /*
-      const droidSlides = Array.from(droidSlideshow.value.children)
-      // Hide all slides initially
-      gsap.set(droidSlides, { autoAlpha: 0 })
-
-      // Show the first slide
-      gsap.set(droidSlides[0], { autoAlpha: 1 })
-
-      /// Start the slideshow
-      let index = 0
-      setInterval(() => {
-        let prevIndex = index == 0 ? droidSlides.length - 1 : index - 1;
-        //Fade out current slide
-        gsap.to(droidSlides[prevIndex], { autoAlpha: 0, duration: 1 })
-
-        //Fade in the next slide
-        gsap.to(droidSlides[index], { autoAlpha: 1, duration: 1 })
-
-        index = (index + 1) % droidSlides.length
-      }, 3000)
-
-      */
+        // Enables Slideshow
+        /*
+        const droidSlides = Array.from(droidSlideshow.value.children)
+        // Hide all slides initially
+        gsap.set(droidSlides, { autoAlpha: 0 })
+  
+        // Show the first slide
+        gsap.set(droidSlides[0], { autoAlpha: 1 })
+  
+        /// Start the slideshow
+        let index = 0
+        setInterval(() => {
+          let prevIndex = index == 0 ? droidSlides.length - 1 : index - 1;
+          //Fade out current slide
+          gsap.to(droidSlides[prevIndex], { autoAlpha: 0, duration: 1 })
+  
+          //Fade in the next slide
+          gsap.to(droidSlides[index], { autoAlpha: 1, duration: 1 })
+  
+          index = (index + 1) % droidSlides.length
+        }, 3000)
+  
+        */
 
 
 
@@ -515,26 +547,26 @@ export default {
         switch between scaling up and down when you move your mouse over the 
         buttons.*/
         ;[droidBox, dunkinBox, oneTrustBox].forEach(element => {
-              element.addEventListener('click', () => {
-                console.log(`section to scroll to: ${event.target.classList[0]}`)
-                scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
-              })
+          element.addEventListener('click', () => {
+            console.log(`section to scroll to: ${event.target.classList[0]}`)
+            scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+          })
         })
 
-        expandableBoxes.forEach(box => {
-          if (box != null) {
-            box.addEventListener('mouseenter', () => {
-              gsap.to(box, {
-                duration: 0.3,
-                scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
-              })
+      expandableBoxes.forEach(box => {
+        if (box != null) {
+          box.addEventListener('mouseenter', () => {
+            gsap.to(box, {
+              duration: 0.3,
+              scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
             })
+          })
 
-            box.addEventListener('mouseleave', () => {
-              gsap.to(box, { duration: 0.3, scale: 1 });
-            })
-          }
-        })
+          box.addEventListener('mouseleave', () => {
+            gsap.to(box, { duration: 0.3, scale: 1 });
+          })
+        }
+      })
 
       // Fade out intro box as user scrolls
       // TODO: Consider replacing this with GSAP
@@ -632,21 +664,21 @@ export default {
       backgroundImages.forEach(backgroundImg => {
         backgroundImagesObserver.observe(backgroundImg);
       });
-      
-      
+
+
       veProgressObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-        if (entry.isIntersecting && !veProgressInView.value) {
-          veProgressInView.value = true
-          veProgressKey.value++  // increment key to force component recreation. When the key changes, Vue treats it as a whole new component different from the previous one
-        }
-        else if (!entry.isIntersecting && veProgressInView.value) {
-          veProgressInView.value = false
-        }
-      })
-      }, {threshold: 0.8})
+          if (entry.isIntersecting && !veProgressInView.value) {
+            veProgressInView.value = true
+            veProgressKey.value++  // increment key to force component recreation. When the key changes, Vue treats it as a whole new component different from the previous one
+          }
+          else if (!entry.isIntersecting && veProgressInView.value) {
+            veProgressInView.value = false
+          }
+        })
+      }, { threshold: 0.8 })
 
-      if (veProgressRef.value){ // We're observing the parent div that contains the veProgress. 
+      if (veProgressRef.value) { // We're observing the parent div that contains the veProgress. 
         veProgressObserver.observe(veProgressRef.value)
       }
 
@@ -739,11 +771,11 @@ export default {
     return {
       scrollToSection,
       droidSlideshowImages,
-      droidSlideshow, 
-      droidImgRef, 
-      veProgressInView, 
-      veProgressKey, 
-      veProgressRef, 
+      droidSlideshow,
+      droidImgRef,
+      veProgressInView,
+      veProgressKey,
+      veProgressRef,
       gradient
     }
   },
@@ -914,7 +946,8 @@ textarea {
 
 #getToKnowMe,
 #seeWhatIHaveAccomplished,
-#droid-overlay-section {
+#droid-overlay-section, 
+#droid-overlay-section2 {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -971,11 +1004,23 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#overlay-D {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
-  gap: 10px;
   align-items: center;
 }
 
@@ -1018,7 +1063,8 @@ textarea {
 
 .grid-item-A,
 .grid-item-B,
-.grid-item-C {
+.grid-item-C, 
+.grid-item-D {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
@@ -1044,17 +1090,17 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 200px
 }
 
 .droid-section-title h1 {
-  margin:0;
+  margin: 0;
   /*Replace those two margin options with the margin: # # # # */
   font-size: 42px;
   font-family: 'Petrona';
 }
 
-.droid-section-title h3{
+.droid-section-title h3 {
   margin: 0px;
   font-size: 22px;
   font-family: 'Petrona';
@@ -1087,11 +1133,14 @@ textarea {
 
 .major-box,
 .onetrust-box,
-.droid-setting-box, 
-.droid-deletion-box
-{
+.droid-deletion-box {
   grid-row: 2;
   grid-column: 3;
+}
+
+.droid-setting-box{
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .droid-logo {
@@ -1135,7 +1184,7 @@ textarea {
 
 }
 
-.background-image{
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -1146,19 +1195,26 @@ textarea {
   filter: blur(25px);
 }
 
-.droid-before-settings{
-  height: 300px; 
+.droid-before-settings {
+  height: 300px;
   width: 534px;
 }
 
-.arrow-down-icon{
-  height: 100px; 
+.arrow-down-icon {
+  height: 100px;
   width: 38px;
+  margin: 15px;
 }
 
-.droid-after-settings{
-  height: 300px; 
+.droid-after-settings {
+  height: 300px;
   width: 534px;
+}
+
+/*Expands the max width to allow horizontal spacing in the DROID page.*/
+#overlay-C > div {
+  width: 80%;  /* adjust this percentage as needed */
+  margin: auto;
 }
 
 </style>
