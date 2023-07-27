@@ -269,11 +269,17 @@
       <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
         <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
         <div style="display: flex; flex-direction: row; align-items: center;">
-          <img class="droid-before-settings" src="./assets/droid-before-settings.png"
-            alt="Droid before implemeting the setting page" />
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">Before</h1>
+            <img class="droid-before-settings" src="./assets/droid-before-settings.png"
+              alt="Droid before implemeting the setting page" />
+          </div>
           <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
-          <img class="droid-after-settings" src="./assets/droid-after-settings.png"
-            alt="Droid after implemeting the setting page" />
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">After</h1>
+            <img class="droid-after-settings" src="./assets/droid-after-settings.png"
+              alt="Droid after implemeting the setting page" />
+          </div>
         </div>
       </div>
 
@@ -498,7 +504,20 @@ export default {
           overwrite: 'auto'
         })
 
-
+      
+      gsap.to(".arrow-right-icon", {
+        scale: 0.8, // Scale the image by 20%
+        duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
+        repeat: -1, // num of times to repeat animation, -1 = infinitely
+        yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
+        ease: "power1.inOut", 
+        scrollTrigger: {
+          trigger: ".arrow-right-icon", 
+          start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
+          end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
+          
+        }
+      })
 
       //Making the pin for the US map bounce up and down
       gsap.to(".pin", {
