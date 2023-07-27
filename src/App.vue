@@ -236,10 +236,10 @@
         </div>
 
 
-        
+
 
         <!--Here's we're including a demo video of the deletion-->
-        <div class="grid-item-C expandable" >
+        <div class="grid-item-C expandable">
           <div class="vertical-container">
             <h1 class="icon-title">Implemented deletion of database records</h1>
             <video class="video-background" style="height: 370px; width: 658px;" autoplay muted loop>
@@ -251,34 +251,46 @@
       </div>
 
 
-      
+
 
     </div>
 
   </section>
-  
+
 
   <section id="droid-overlay-section2" style="height: 932px; background-color: grey;">
     <div ref="droidSlideshow" class="droidSlideshow">
-      <!--
-      <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
-        :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
-      -->
       <img ref="droidImgRef" class="background-image blur" src="./assets/droid-slideshow/droid-logo.png"
         alt="Full-sized Droid logo" />
     </div>
 
 
     <div id="overlay-D">
-      <div class="grid-item-D droid-setting-box expandable">
-        <div class="vertical-container">
-          <h1 class="icon-title">Implemented a new "Settings" page</h1>
-          <img class="droid-before-settings" src="./assets/droid-before-settings.png" alt="Droid before implemeting the setting page" />
-          <img class="arrow-down-icon" src="./assets/Icons/arrow-down.png" alt="Arrow down icon" />
-          <img class="droid-after-settings" src="./assets/droid-after-settings.png" alt="Droid after implemeting the setting page" />
+      <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+          <img class="droid-before-settings" src="./assets/droid-before-settings.png"
+            alt="Droid before implemeting the setting page" />
+          <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
+          <img class="droid-after-settings" src="./assets/droid-after-settings.png"
+            alt="Droid after implemeting the setting page" />
         </div>
       </div>
-      
+
+      <div class="grid-item-D key-learnings-box expandable" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 20px;">Key Learnings & Skills Acquired</h1>
+        
+        <!--
+          <div>  
+            <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
+            :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
+          </div>
+        -->
+        
+
+      </div>
+
+
       <!--
       <div class="grid-item-D droid-periodic-deletion-box expandable">
         <div class="vertical-container">
@@ -292,13 +304,10 @@
 
   </section>
 
-  
+
+  <!--
   <section id="dunkin-overlay-section" style="height:932px;">
     <div ref="droidSlideshow" class="droidSlideshow">
-      <!--
-      <img v-for="(droidSlide, index) in droidSlideshowImages" :key="index"
-        :src="require(`@/assets/droid-slideshow/${droidSlide}`)" class="droid-slide" />
-      -->
       <img ref="dunkinImgRef" class="background-image blur" src="./assets/dunkin-style-guide.png"
         alt="Full-sized Droid logo" />
     </div>
@@ -306,7 +315,7 @@
   </section>
 
 
-  <!--
+  
   <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
 
   </section>
@@ -465,7 +474,7 @@ export default {
           overwrite: 'auto'
         })
 
-        gsap.fromTo(".grid-item-D",
+      gsap.fromTo(".grid-item-D",
         // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
         // From 
         {
@@ -488,7 +497,7 @@ export default {
           ease: 'power1.out',
           overwrite: 'auto'
         })
-        
+
 
 
       //Making the pin for the US map bounce up and down
@@ -946,7 +955,7 @@ textarea {
 
 #getToKnowMe,
 #seeWhatIHaveAccomplished,
-#droid-overlay-section, 
+#droid-overlay-section,
 #droid-overlay-section2 {
   position: relative;
   width: 100vw;
@@ -1018,7 +1027,7 @@ textarea {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
   /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   align-items: center;
@@ -1063,7 +1072,7 @@ textarea {
 
 .grid-item-A,
 .grid-item-B,
-.grid-item-C, 
+.grid-item-C,
 .grid-item-D {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 0.85);
@@ -1138,7 +1147,7 @@ textarea {
   grid-column: 3;
 }
 
-.droid-setting-box{
+.droid-setting-box {
   grid-row: 1;
   grid-column: 1;
 }
@@ -1200,9 +1209,9 @@ textarea {
   width: 534px;
 }
 
-.arrow-down-icon {
+.arrow-right-icon {
   height: 100px;
-  width: 38px;
+  width: 269px;
   margin: 15px;
 }
 
@@ -1212,11 +1221,11 @@ textarea {
 }
 
 /*Expands the max width to allow horizontal spacing in the DROID page.*/
-#overlay-C > div {
-  width: 80%;  /* adjust this percentage as needed */
+#overlay-C>div {
+  width: 80%;
+  /* adjust this percentage as needed */
   margin: auto;
 }
-
 </style>
   
   

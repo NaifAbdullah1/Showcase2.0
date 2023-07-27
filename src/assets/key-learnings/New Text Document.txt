@@ -1,0 +1,1 @@
+    let keyLearningIcons = ["vue-icon.svg", "quasar-logo.svg", "php-logo.svg", "laravel-logo.svg", "js-logo.svg", "html-logo.svg", "css-logo.svg"]
