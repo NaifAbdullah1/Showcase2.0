@@ -323,7 +323,7 @@
       </div>
 
       <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center; flex: 1;">
-        <img-comparison-slider style="width: 512px; height: 500px;">
+        <img-comparison-slider style="width: 564px; height: 550px;">
           <!--eslint-disable-->
           <figure slot="first" class="before">
             <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
@@ -336,7 +336,7 @@
           <!--eslint-enable-->
         </img-comparison-slider>
         
-        <img-comparison-slider style="width: 512px; height: 500px;">
+        <img-comparison-slider style="width: 564px; height: 550px;">
           <!--eslint-disable-->
           <figure slot="first" class="before">
             <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
@@ -1332,9 +1332,10 @@ textarea {
     background: #fff;
     border: 1px solid #c0c0c0;
     border-radius: 12px;
-    color: #2e3452;
-    font-weight: bold;
-    opacity: 0.8;
+    color: black;
+    font-weight: bolder;
+    
+    opacity: 1;
     padding: 12px;
     position: absolute;
     top: 50%;
