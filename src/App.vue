@@ -21,277 +21,282 @@
   -->
 
 
-  <template>
-    <section id="intro-section">
-      <video class="video-background" autoplay muted loop>
-        <source src="./assets/t2NC.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-  
-      <scroll-parallax :speed="0.6">
-        <!--
+<template>
+  <section id="intro-section">
+    <video class="video-background" autoplay muted loop>
+      <source src="./assets/t2NC.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <scroll-parallax :speed="0.6">
+      <!--
           <div class="img-title" style="display: flex; justify-content: flex-end; align-item: center;">
             <img src="https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="">
           </div> 
           -->
-  
-  
-        <div class="intro-box expandable">
-          <img id="smuckerLogo" src="./assets/Smucker2.png" />
-          <h1>Nathan's Showcase</h1>
-          <div>
-            <button class="button" @click="scrollToSection('#getToKnowMe')">Get to Know Me</button>
-            <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">See What I Have
-              Accomplished</button>
-          </div>
+
+
+      <div class="intro-box expandable">
+        <img id="smuckerLogo" src="./assets/Smucker2.png" />
+        <h1>Nathan's Showcase</h1>
+        <div>
+          <button class="button" @click="scrollToSection('#getToKnowMe')">Get to Know Me</button>
+          <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">See What I Have
+            Accomplished</button>
         </div>
-  
-        <!--
+      </div>
+
+      <!--
         <div class="img-title">
           <code>
               {{ scrollY }}
           </code>
         </div>
         -->
-  
-      </scroll-parallax>
-  
-    </section>
-  
-    <!--This div adds a space, in case you wante to add something in the middle. Could be another video.-->
-    <div class="spacing"></div>
-  
-    <section class="horizontal-content" id="getToKnowMe">
-  
-      <scroll-parallax :speed="0.40" :left="true" direction="x">
-        <div style="display: flex; justify-content: flex-start;">
-          <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
-          <img class="horizontal_img" src="./assets/Smucker.jpg" />
-        </div>
-      </scroll-parallax>
-  
-  
-      <div id="overlay-A">
-  
-        <div class="grid-item-A whoAmI-box">
-          <h1>Who am I?</h1>
-        </div>
-  
-        <div class="grid-item-A background-box horizontal-container">
-  
-          <div class="vertical-container">
-            <img class="home-icon" src="./assets/Icons/Home.png" />
-            <h1 class="icon-title">Home</h1>
-          </div>
-  
-          <img class="partition" src="./assets/Icons/bline.png">
-  
-          <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
-          <img class="pin" src="./assets/Icons/pin.png">
-          <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
-  
-        </div>
-  
-  
-        <div class="grid-item-A school-box horizontal-container">
-  
-          <div class="vertical-container">
-            <img class="school-icon" src="./assets/Icons/school.png" />
-            <h1 class="icon-title">School</h1>
-          </div>
-  
-          <img class="partition" src="./assets/Icons/bline.png">
-  
-          <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
-  
-        </div>
-  
-  
-        <div class="grid-item-A major-box horizontal-container">
-  
-          <div class="vertical-container">
-            <img class="major-icon" src="./assets/Icons/fieldOfStudy.png" />
-            <h1 class="icon-title">Major</h1>
-          </div>
-  
-          <img class="partition" src="./assets/Icons/bline.png">
-  
-          <div class="major-info">
-  
-            <div>
-              <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
-              <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
-              <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
-            </div>
-  
-            <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
-  
-          </div>
-  
-        </div>
-  
-  
-        <div class="grid-item-A graduation-box horizontal-container">
-          <div class="vertical-container">
-            <img class="graduation-icon" src="./assets/Icons/grad.png" />
-            <h1 class="icon-title">Graduation <br>Date</h1>
-          </div>
-  
-          <img class="partition" src="./assets/Icons/bline.png">
-  
-          <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
-  
-        </div>
-  
-  
+
+    </scroll-parallax>
+
+  </section>
+
+  <!--This div adds a space, in case you wante to add something in the middle. Could be another video.-->
+  <div class="spacing"></div>
+
+  <section class="horizontal-content" id="getToKnowMe">
+
+    <scroll-parallax :speed="0.40" :left="true" direction="x">
+      <div style="display: flex; justify-content: flex-start;">
+        <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
+        <img class="horizontal_img" src="./assets/Smucker.jpg" />
       </div>
-  
-    </section>
-  
-  
-    <!--VIDEO-->
-    <section class="horizontal-content" id="seeWhatIHaveAccomplished">
-  
-      <video class="video-background" autoplay muted loop>
-        <source src="./assets/droid.mp4" type="video/mp4">
-      </video>
-  
-      <div id="overlay-B">
-  
-        <div class="grid-item-B smucker-accomplishments-box">
-          <h1>Accomplishments at Smucker</h1>
+    </scroll-parallax>
+
+
+    <div id="overlay-A">
+
+      <div class="grid-item-A whoAmI-box">
+        <h1>Who am I?</h1>
+      </div>
+
+      <div class="grid-item-A background-box horizontal-container">
+
+        <div class="vertical-container">
+          <img class="home-icon" src="./assets/Icons/Home.png" />
+          <h1 class="icon-title">Home</h1>
         </div>
-  
-        <div class="grid-item-B droid-box expandable">
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
+        <img class="pin" src="./assets/Icons/pin.png">
+        <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
+
+      </div>
+
+
+      <div class="grid-item-A school-box horizontal-container">
+
+        <div class="vertical-container">
+          <img class="school-icon" src="./assets/Icons/school.png" />
+          <h1 class="icon-title">School</h1>
+        </div>
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
+
+      </div>
+
+
+      <div class="grid-item-A major-box horizontal-container">
+
+        <div class="vertical-container">
+          <img class="major-icon" src="./assets/Icons/fieldOfStudy.png" />
+          <h1 class="icon-title">Major</h1>
+        </div>
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <div class="major-info">
+
+          <div>
+            <img src="./assets/Icons/computer.png" style="height: 100px; width: 104px;">
+            <img src="./assets/Icons/phone.png" style="height: 100px; width: 60px; margin: 0px 10px 0px 10px;">
+            <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
+          </div>
+
+          <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+
+        </div>
+
+      </div>
+
+
+      <div class="grid-item-A graduation-box horizontal-container">
+        <div class="vertical-container">
+          <img class="graduation-icon" src="./assets/Icons/grad.png" />
+          <h1 class="icon-title">Graduation <br>Date</h1>
+        </div>
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!--VIDEO-->
+  <section class="horizontal-content" id="seeWhatIHaveAccomplished">
+
+    <video class="video-background" autoplay muted loop>
+      <source src="./assets/droid.mp4" type="video/mp4">
+    </video>
+
+    <div id="overlay-B">
+
+      <div class="grid-item-B smucker-accomplishments-box">
+        <h1>Accomplishments at Smucker</h1>
+      </div>
+
+      <div class="grid-item-B droid-box expandable">
+        <div class="vertical-container">
+          <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" />
+          <h1 class="icon-title">DROID: A Website Auditing Tool</h1>
+        </div>
+        <div class="droid-overlay"></div>
+      </div>
+
+
+
+      <div class="grid-item-B dunkin-box expandable">
+        <div class="vertical-container">
+          <img class="dunkin-logo" src="./assets/dunkin-style-guide.png" alt="Dunking Logo" />
+          <h1 class="icon-title">An Overhaul of Dunkin's Website Style</h1>
+        </div>
+        <div class="dunkin-overlay"></div>
+      </div>
+
+
+      <div class="grid-item-B onetrust-box expandable">
+        <div class="vertical-container">
+          <img class="onetrust-logo" src="./assets/onetrust-logo.png" alt="OneTrust logo">
+          <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
+        </div>
+        <div class="onetrust-overlay"></div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
+
+    <img class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
+
+
+
+    <div id="overlay-C">
+
+      <div class="grid-item-C droid-section-title" style="width: 20%;">
+        <h1>DROID</h1>
+        <h3>A website Auditing Tool</h3>
+      </div>
+
+      <!--Parent-most div for the veProgress and the Deletion Video-->
+      <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <div class="grid-item-C expandable">
           <div class="vertical-container">
-            <img class="droid-logo" src="./assets/droid-logo-black.svg" alt="Droid Logo" />
-            <h1 class="icon-title">DROID: A Website Auditing Tool</h1>
+
+            <div ref="veProgressRef">
+              <h1 class="icon-title">Optimized Runtime by 39.61%</h1>
+              <ve-progress v-if="veProgressInView" :key="veProgressKey" :progress="39.61" animation="rs 3000 5000"
+                line-mode="out" dot="10% blue" :size="400" :color="gradient">
+                <template #legend>
+                  <span>%</span>
+                </template>
+                <template #legend-caption>
+                  <h1 class="icon-title" style="font-size: 26px;">Startup time: <s>8.14s</s> 4.91s</h1>
+                </template>
+              </ve-progress>
+            </div>
+
           </div>
-          <div class="droid-overlay"></div>
+          <div class="droid-optimization-overlay"></div>
         </div>
-  
-  
-  
-        <div class="grid-item-B dunkin-box expandable">
+
+
+
+
+        <!--Here's we're including a demo video of the deletion-->
+        <div class="grid-item-C expandable">
           <div class="vertical-container">
-            <img class="dunkin-logo" src="./assets/dunkin-style-guide.png" alt="Dunking Logo" />
-            <h1 class="icon-title">An Overhaul of Dunkin's Website Style</h1>
+            <h1 class="icon-title">Implemented deletion of database records</h1>
+            <video class="video-background" style="height: 370px; width: 658px;" autoplay muted loop>
+              <source src="./assets/droid-deletion-demo.mp4" type="video/mp4">
+            </video>
           </div>
-          <div class="dunkin-overlay"></div>
+          <div class="droid-deletion-overlay"></div>
         </div>
-  
-  
-        <div class="grid-item-B onetrust-box expandable">
-          <div class="vertical-container">
-            <img class="onetrust-logo" src="./assets/onetrust-logo.png" alt="OneTrust logo">
-            <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
-          </div>
-          <div class="onetrust-overlay"></div>
-        </div>
-  
-  
       </div>
-  
-    </section>
-  
-  
-    <section id="droid-overlay-section" style="height: 932px; background-color: grey;">
-      <div class="droidSlideshow">
-        <img class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
-      </div>
-  
-  
-      <div id="overlay-C">
-  
-        <div class="grid-item-C droid-section-title" style="width: 20%;">
-          <h1>DROID</h1>
-          <h3>A website Auditing Tool</h3>
-        </div>
-  
-        <!--Parent-most div for the veProgress and the Deletion Video-->
-        <div style="display: flex; flex-direction: row; justify-content: space-around;">
-          <div class="grid-item-C expandable">
-            <div class="vertical-container">
-  
-              <div ref="veProgressRef">
-                <h1 class="icon-title">Optimized Runtime by 39.61%</h1>
-                <ve-progress v-if="veProgressInView" :key="veProgressKey" :progress="39.61" animation="rs 3000 5000"
-                  line-mode="out" dot="10% blue" :size="400" :color="gradient">
-                  <template #legend>
-                    <span>%</span>
-                  </template>
-                  <template #legend-caption>
-                    <h1 class="icon-title" style="font-size: 26px;">Startup time: <s>8.14s</s> 4.91s</h1>
-                  </template>
-                </ve-progress>
-              </div>
-  
-            </div>
-            <div class="droid-optimization-overlay"></div>
+
+
+
+
+    </div>
+
+  </section>
+
+
+  <section id="droid-overlay-section2" style="height: 932px; background-color: grey;">
+
+    <img class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
+
+
+    <div id="overlay-D">
+      <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">Before</h1>
+            <img class="droid-before-settings" src="./assets/droid-before-settings.png"
+              alt="Droid before implemeting the setting page" />
           </div>
-  
-  
-  
-  
-          <!--Here's we're including a demo video of the deletion-->
-          <div class="grid-item-C expandable">
-            <div class="vertical-container">
-              <h1 class="icon-title">Implemented deletion of database records</h1>
-              <video class="video-background" style="height: 370px; width: 658px;" autoplay muted loop>
-                <source src="./assets/droid-deletion-demo.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="droid-deletion-overlay"></div>
+          <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">After</h1>
+            <img class="droid-after-settings" src="./assets/droid-after-settings.png"
+              alt="Droid after implemeting the setting page" />
           </div>
         </div>
-  
-  
-  
-  
       </div>
-  
-    </section>
-  
-  
-    <section id="droid-overlay-section2" style="height: 932px; background-color: grey;">
-      <div class="droidSlideshow">
-        <img class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
-      </div>
-  
-  
-      <div id="overlay-D">
-        <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
-          <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
-          <div style="display: flex; flex-direction: row; align-items: center;">
-            <div style="display: flex; flex-direction: column;">
-              <h1 class="icon-title">Before</h1>
-              <img class="droid-before-settings" src="./assets/droid-before-settings.png"
-                alt="Droid before implemeting the setting page" />
-            </div>
-            <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
-            <div style="display: flex; flex-direction: column;">
-              <h1 class="icon-title">After</h1>
-              <img class="droid-after-settings" src="./assets/droid-after-settings.png"
-                alt="Droid after implemeting the setting page" />
-            </div>
-          </div>
+
+      <div class="grid-item-D key-learnings-box expandable" style="display: flex; flex-direction: column;">
+
+        <h1 class="icon-title" style="margin-bottom: 20px;">Key Learnings & Skills Acquired</h1>
+        <div style="display: flex; margin-top: 35px;">
+          <img v-for="(skill, index) in keyLearningsIcons" :key="index" class="skills-list"
+            :src="require(`@/assets/key-learnings/${skill}`)" />
         </div>
-  
-        <div class="grid-item-D key-learnings-box expandable" style="display: flex; flex-direction: column;">
-          
-          <h1 class="icon-title" style="margin-bottom: 20px;">Key Learnings & Skills Acquired</h1>
-          
+
+        <!--
           <Splide :options="options" >
             <SplideSlide v-for="(slide, index) in keyLearningsIcons" :key="index">
               <img :src="require(`@/assets/key-learnings/${slide}`)" class="splide-slideshow"/>
             </SplideSlide>
           </Splide>
+          -->
 
-        </div>
-  
-  
-  
-        <!--
+      </div>
+
+
+
+      <!--
         <div class="grid-item-D droid-periodic-deletion-box expandable">
           <div class="vertical-container">
             <h1 class="icon-title">Implemented periodic cleaning of the database</h1>
@@ -299,250 +304,289 @@
           <div class="droid-periodic-deletion-overlay"></div>
         </div>
         -->
-  
+
+    </div>
+
+  </section>
+
+
+
+  <section id="dunkin-overlay-section">
+    <div class="dunkinSection">
+      <img class="background-image blur" src="./assets/dunkin-background.png" alt="Dunkin Background"
+        style="width: 1920px; height: 932px;" />
+    </div>
+
+    <div id="overlay-E">
+      <div> <!--Title here-->
+
       </div>
-  
-    </section>
-  
-  
-    <!--
-    <section id="dunkin-overlay-section" style="height:932px;">
-      <div ref="droidSlideshow" class="droidSlideshow">
-        <img ref="dunkinImgRef" class="background-image blur" src="./assets/dunkin-style-guide.png"
-          alt="Full-sized Droid logo" />
+
+      <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center; flex: 1;">
+        <img-comparison-slider style="width: 512px; height: 500px;">
+          <!--eslint-disable-->
+          <figure slot="first" class="before">
+            <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure slot="second" class="after">
+            <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-new.png" />
+            <figcaption>After</figcaption>
+          </figure>
+          <!--eslint-enable-->
+        </img-comparison-slider>
+        
+        <img-comparison-slider style="width: 512px; height: 500px;">
+          <!--eslint-disable-->
+          <figure slot="first" class="before">
+            <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
+            <figcaption>Before</figcaption>
+          </figure>
+
+          <figure slot="second" class="after">
+            <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-new.png" />
+            <figcaption>After</figcaption>
+          </figure>
+          <!--eslint-enable-->
+        </img-comparison-slider>
+        
       </div>
-  
-    </section>
-  
-  
-    
+    </div>
+
+  </section>
+
+
+  <!--
     <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
   
     </section>
     -->
-  </template>
+</template>
     
-  <script>
-  import ScrollParallax from './components/ScrollParallax.vue';
-  import { VeProgress } from "vue-ellipse-progress";
-  import { onBeforeUnmount, onMounted, ref } from 'vue'
-  import { gsap } from "gsap"
-  import { Splide, SplideSlide } from '@splidejs/vue-splide'
-  
-  // The following two will be used for fading in the pictures of horizontal_section s when scrolling. 
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // The following two will be used for implementing GSAP's scrolling animation. Which is better because you can control the scrolling speed. 
-  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-  gsap.registerPlugin(ScrollToPlugin);
-  
-  export default {
-  
-    components: {
-      ScrollParallax,
-      VeProgress, 
-      Splide, 
-      SplideSlide
-    },
-    setup() {
-      let videoObserver // This will be used for pausing the video when it's out of the viewport
-      let horizontalSectionsObserver;
-      let backgroundImagesObserver;
-      let veProgressObserver;
-      let autoScroll // This will be used for implementing the auto scrolling
-      let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
-      let keyLearningsIcons = ref(["vue-icon.png", "quasar-logo.png", "php-logo.png", "laravel-logo.png", "js-logo.png", "html-logo.png", "css-logo.png"])
-      const keyLearningsSlideshow = ref(null)
-      const veProgressInView = ref(false) // Tracks whether the veProgress component is in view. We'll need to destroy it when not in view to force animation to re-run
-      const veProgressKey = ref(0)
-      const veProgressRef = ref(null) // We're observing the parent ref to determine if veProgress should be rendered or not. 
-      const options = ref({
-        type: 'fade',
-        autoplay: true,
-        interval: 3000,
-        arrows: false,
-        pagination: false, 
-        pauseOnHover: false, 
-        rewind: true, 
+<script>
+import ScrollParallax from './components/ScrollParallax.vue';
+import { VeProgress } from "vue-ellipse-progress";
+import { ImgComparisonSlider } from '@img-comparison-slider/vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { gsap } from "gsap"
+//import { Splide, SplideSlide } from '@splidejs/vue-splide'
 
-        // Other options if needed
+// The following two will be used for fading in the pictures of horizontal_section s when scrolling. 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// The following two will be used for implementing GSAP's scrolling animation. Which is better because you can control the scrolling speed. 
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
+
+export default {
+
+  components: {
+    ScrollParallax,
+    VeProgress,
+    ImgComparisonSlider
+    //Splide, 
+    //SplideSlide
+  },
+  setup() {
+    let videoObserver // This will be used for pausing the video when it's out of the viewport
+    let horizontalSectionsObserver;
+    let backgroundImagesObserver;
+    let veProgressObserver;
+    let autoScroll // This will be used for implementing the auto scrolling
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let keyLearningsIcons = ref(["vue-icon.png", "quasar-logo.png", "php-logo.png", "laravel-logo.png", "js-logo.png", "html-logo.png", "css-logo.png"])
+    const keyLearningsSlideshow = ref(null)
+    const veProgressInView = ref(false) // Tracks whether the veProgress component is in view. We'll need to destroy it when not in view to force animation to re-run
+    const veProgressKey = ref(0)
+    const veProgressRef = ref(null) // We're observing the parent ref to determine if veProgress should be rendered or not. 
+    const options = ref({
+      type: 'fade',
+      autoplay: true,
+      interval: 3000,
+      arrows: false,
+      pagination: false,
+      pauseOnHover: false,
+      rewind: true,
+
+      // Other options if needed
+    })
+
+    const gradient = ref({
+      radial: false,
+      colors: [
+        {
+          color: '#6546f7',
+          offset: "0",
+          opacity: '1',
+        },
+        {
+          color: 'lime',
+          offset: "100",
+          opacity: '0.6',
+        },
+      ]
+    })
+    let introBox
+
+    let droidBox
+    let dunkinBox
+    let oneTrustBox
+
+    onMounted(() => {
+
+      // Defining values first:
+      document.title = "Nathan's Showcase" // Setting the name of the tab title
+      const videoElement = document.querySelector('.video-background') // Saving the element with class="video-background". We'll use it later to stop video when it's out of viewport
+      introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
+      const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
+      const backgroundImages = document.querySelectorAll('.background-image')
+      const expandableBoxes = document.querySelectorAll('.expandable')
+      droidBox = document.querySelector('.droid-box')
+      dunkinBox = document.querySelector('.dunkin-box')
+      oneTrustBox = document.querySelector('.onetrust-box')
+
+
+      //startAutoScroll()
+
+      // This makes the intro box fade in on page load
+      gsap.from('.intro-box', {
+        duration: 3, // Duration of fade in
+        opacity: 0,  // Start from opacity of 0
+        delay: 0.8 // Wait 0.8 seconds after the page loads before starting to fade in
       })
 
-      const gradient = ref({
-        radial: false,
-        colors: [
-          {
-            color: '#6546f7',
-            offset: "0",
-            opacity: '1',
-          },
-          {
-            color: 'lime',
-            offset: "100",
-            opacity: '0.6',
-          },
-        ]
-      })
-      let introBox
-  
-      let droidBox
-      let dunkinBox
-      let oneTrustBox
-  
-      onMounted(() => {
-  
-        // Defining values first:
-        document.title = "Nathan's Showcase" // Setting the name of the tab title
-        const videoElement = document.querySelector('.video-background') // Saving the element with class="video-background". We'll use it later to stop video when it's out of viewport
-        introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
-        const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
-        const backgroundImages = document.querySelectorAll('.background-image')
-        const expandableBoxes = document.querySelectorAll('.expandable')
-        droidBox = document.querySelector('.droid-box')
-        dunkinBox = document.querySelector('.dunkin-box')
-        oneTrustBox = document.querySelector('.onetrust-box')
-  
-  
-        //startAutoScroll()
-  
-        // This makes the intro box fade in on page load
-        gsap.from('.intro-box', {
-          duration: 3, // Duration of fade in
-          opacity: 0,  // Start from opacity of 0
-          delay: 0.8 // Wait 0.8 seconds after the page loads before starting to fade in
-        })
-  
-  
-        // TODO: CONSIDER COMPACTING THOSE INTO ONLY ONE GSAP, We can compact the A-C, but not the D
-        // Makes grid items fade in when they're in viewport
-        gsap.fromTo(".grid-item-A",
-          // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-          // From 
-          {
-            y: '-50%',
-            opacity: 0
-          },
-          // To
-          {
-            delay: 3,
-            opacity: 1,
-            y: '0%',
-            stagger: 0.5,
-            scrollTrigger: {
-              trigger: ".grid-item-A",
-              start: "top bottom",
-              end: "bottom middle",
-              toggleActions: "restart none restart none"
-            },
-            duration: 2,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          })
-  
-        gsap.fromTo(".grid-item-B",
-          // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-          // From 
-          {
-            y: '-50%',
-            opacity: 0
-          },
-          // To
-          {
-            delay: 3,
-            opacity: 1,
-            y: '0%',
-            stagger: 0.5,
-            scrollTrigger: {
-              trigger: ".grid-item-B",
-              start: "top bottom",
-              end: "bottom middle",
-              toggleActions: "restart none restart none"
-            },
-            duration: 2,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          })
-  
-        gsap.fromTo(".grid-item-C",
-          // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-          // From 
-          {
-            y: '-50%',
-            opacity: 0
-          },
-          // To
-          {
-            delay: 3,
-            opacity: 1,
-            y: '0%',
-            stagger: 0.5,
-            scrollTrigger: {
-              trigger: ".grid-item-C",
-              start: "top bottom",
-              end: "bottom middle",
-              toggleActions: "restart none restart none"
-            },
-            duration: 2,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          })
-  
-        gsap.fromTo(".grid-item-D",
-          // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
-          // From 
-          {
-            y: '-50%',
-            opacity: 0
-          },
-          // To
-          {
-            delay: 3,
-            opacity: 1,
-            y: '0%',
-            stagger: 0.5,
-            scrollTrigger: {
-              trigger: ".grid-item-D",
-              start: "middle top",
-              end: "bottom middle",
-              toggleActions: "restart none restart none"
-            },
-            duration: 2,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          })
-  
-  
-        gsap.to(".arrow-right-icon", {
-          scale: 0.8, // Scale the image by 20%
-          duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
-          repeat: -1, // num of times to repeat animation, -1 = infinitely
-          yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
-          ease: "power1.inOut",
+
+      // TODO: CONSIDER COMPACTING THOSE INTO ONLY ONE GSAP, We can compact the A-C, but not the D
+      // Makes grid items fade in when they're in viewport
+      gsap.fromTo(".grid-item-A",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
           scrollTrigger: {
-            trigger: ".arrow-right-icon",
-            start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
-            end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
-  
-          }
-        })
-  
-        //Making the pin for the US map bounce up and down
-        gsap.to(".pin", {
-          y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
-          repeat: -1, // infinite repitions
-          duration: 2, // The time it takes to complete each up and down cycle
-          yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
-          ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
-          scrollTrigger: {
-            trigger: '.pin',
+            trigger: ".grid-item-A",
             start: "top bottom",
-            end: "bottom top",
-            toggleActions: "restart pause resume pause"
-          }
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
         })
-  
-  
+
+      gsap.fromTo(".grid-item-B",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-B",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+      gsap.fromTo(".grid-item-C",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-C",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+      gsap.fromTo(".grid-item-D",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-D",
+            start: "middle top",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+      /*
+      gsap.to(".arrow-right-icon", {
+        scale: 0.8, // Scale the image by 20%
+        duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
+        repeat: -1, // num of times to repeat animation, -1 = infinitely
+        yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: ".arrow-right-icon",
+          start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
+          end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
+ 
+        }
+      })
+      */
+
+      //Making the pin for the US map bounce up and down
+      gsap.to(".pin", {
+        y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
+        repeat: -1, // infinite repitions
+        duration: 2, // The time it takes to complete each up and down cycle
+        yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
+        ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
+        scrollTrigger: {
+          trigger: '.pin',
+          start: "top bottom",
+          end: "bottom top",
+          toggleActions: "restart pause resume pause"
+        }
+      })
+
+
         /*
         // Enables Slideshow
         const keyLearningsSlides = Array.from(keyLearningsSlideshow.value.children)
@@ -563,718 +607,760 @@
           index = (index + 1) % keyLearningsSlides.length
         }, 3000)
         */
-  
-  
-  
-  
-  
-  
-          // Event Listeners:
-  
-          /* Slightly expands the intro box on mouse hover. We're using 
-          mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
-          because mouseenter and mouseleave work when entering or leaving the 
-          bounds of the intro-box. Making the animation and everything within it have
-          the same animation. On the other hand, the mouseover event is triggered 
-          when you enter the intro box, but the mouseout event is triggered when 
-          you leave the intro box OR when you hover over a child element of the 
-          intro box (the buttons). This can cause the animation to rapidly 
-          switch between scaling up and down when you move your mouse over the 
-          buttons.*/
-          ;[droidBox, dunkinBox, oneTrustBox].forEach(element => {
-            element.addEventListener('click', () => {
-              console.log(`section to scroll to: ${event.target.classList[0]}`)
-              scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+
+
+
+
+
+
+        // Event Listeners:
+
+        /* Slightly expands the intro box on mouse hover. We're using 
+        mouseenter and mouseleave INSTEAD OF mouseover and mouseout 
+        because mouseenter and mouseleave work when entering or leaving the 
+        bounds of the intro-box. Making the animation and everything within it have
+        the same animation. On the other hand, the mouseover event is triggered 
+        when you enter the intro box, but the mouseout event is triggered when 
+        you leave the intro box OR when you hover over a child element of the 
+        intro box (the buttons). This can cause the animation to rapidly 
+        switch between scaling up and down when you move your mouse over the 
+        buttons.*/
+        ;[droidBox, dunkinBox, oneTrustBox].forEach(element => {
+          element.addEventListener('click', () => {
+            console.log(`section to scroll to: ${event.target.classList[0]}`)
+            scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
+          })
+        })
+
+      expandableBoxes.forEach(box => {
+        if (box != null) {
+          box.addEventListener('mouseenter', () => {
+            gsap.to(box, {
+              duration: 0.3,
+              scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
             })
           })
-  
-        expandableBoxes.forEach(box => {
-          if (box != null) {
-            box.addEventListener('mouseenter', () => {
-              gsap.to(box, {
-                duration: 0.3,
-                scale: 1.1 // Multiply the dimensions of the intro-box by 1.1, increase by 10%
-              })
-            })
-  
-            box.addEventListener('mouseleave', () => {
-              gsap.to(box, { duration: 0.3, scale: 1 });
-            })
+
+          box.addEventListener('mouseleave', () => {
+            gsap.to(box, { duration: 0.3, scale: 1 });
+          })
+        }
+      })
+
+      // Fade out intro box as user scrolls
+      // TODO: Consider replacing this with GSAP
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Adjust opacity based on scroll position. Adjust the constants if needed.
+        const newOpacity = 1 - (scrollPosition / windowHeight);
+
+        introBox.style.opacity = Math.max(newOpacity, 0);
+      });
+
+      // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
+      document.addEventListener('keydown', (event) => {
+        if (event.key.toLowerCase() === 's')
+          stopAutoScroll()
+        else if (event.key.toLowerCase() === 'a')
+          startAutoScroll()
+      })
+
+
+      // Observers:
+
+      // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
+      videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target === videoElement) {
+            if (entry.isIntersecting)
+              videoElement.play()
+            else
+              videoElement.pause()
           }
         })
-  
-        // Fade out intro box as user scrolls
-        // TODO: Consider replacing this with GSAP
-        window.addEventListener('scroll', () => {
-          const scrollPosition = window.scrollY;
-          const windowHeight = window.innerHeight;
-  
-          // Adjust opacity based on scroll position. Adjust the constants if needed.
-          const newOpacity = 1 - (scrollPosition / windowHeight);
-  
-          introBox.style.opacity = Math.max(newOpacity, 0);
-        });
-  
-        // Adding a keyboard event listener for stopping auto scroll when the user presses 's' on their keyboard
-        document.addEventListener('keydown', (event) => {
-          if (event.key.toLowerCase() === 's')
-            stopAutoScroll()
-          else if (event.key.toLowerCase() === 'a')
-            startAutoScroll()
-        })
-  
-  
-        // Observers:
-  
-        // Pausing the video when the video becomes out of viewport to reduce workload and make the site smoother when scrolling
-        videoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.target === videoElement) {
-              if (entry.isIntersecting)
-                videoElement.play()
-              else
-                videoElement.pause()
-            }
-          })
-        }, {})
-  
-        videoObserver.observe(videoElement)
-  
-        // Using observers to apply shading to horizontal sections. 
-        const intersectingHorizontalSections = new Set();
-        let shadingTimeout;
-        horizontalSectionsObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              intersectingHorizontalSections.add(entry.target);
-              // Clear previous timeout, if it exists.
+      }, {})
+
+      videoObserver.observe(videoElement)
+
+      // Using observers to apply shading to horizontal sections. 
+      const intersectingHorizontalSections = new Set();
+      let shadingTimeout;
+      horizontalSectionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            intersectingHorizontalSections.add(entry.target);
+            // Clear previous timeout, if it exists.
+            clearTimeout(shadingTimeout);
+            // Set new timeout to apply shading.
+            shadingTimeout = setTimeout(() => {
+              // Add or remove 'shaded' depending on whether any sections are intersecting.
+              document.body.classList.toggle('shaded', intersectingHorizontalSections.size > 0);
+            }, 1000); // change this to the shading delay you want.
+          }
+          else {
+            intersectingHorizontalSections.delete(entry.target);
+            // If no sections are intersecting, immediately remove shading and clear timeout.
+            if (intersectingHorizontalSections.size === 0) {
               clearTimeout(shadingTimeout);
-              // Set new timeout to apply shading.
-              shadingTimeout = setTimeout(() => {
-                // Add or remove 'shaded' depending on whether any sections are intersecting.
-                document.body.classList.toggle('shaded', intersectingHorizontalSections.size > 0);
-              }, 1000); // change this to the shading delay you want.
+              document.body.classList.remove('shaded');
             }
-            else {
-              intersectingHorizontalSections.delete(entry.target);
-              // If no sections are intersecting, immediately remove shading and clear timeout.
-              if (intersectingHorizontalSections.size === 0) {
-                clearTimeout(shadingTimeout);
-                document.body.classList.remove('shaded');
-              }
-            }
-          });
-        }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
-  
-        horizontalSections.forEach(horizontalSection => {
-          horizontalSectionsObserver.observe(horizontalSection);
+          }
         });
-  
-        // Droid Observer: This blurs the background image
-        const intersectingBackgroundImages = new Set();
-        let blurringTimeout;
-        backgroundImagesObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              intersectingBackgroundImages.add(entry.target);
-              // Clear previous timeout, if it exists.
+      }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
+
+      horizontalSections.forEach(horizontalSection => {
+        horizontalSectionsObserver.observe(horizontalSection);
+      });
+
+      // This blurs the background image
+      const intersectingBackgroundImages = new Set();
+      let blurringTimeout;
+      backgroundImagesObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            intersectingBackgroundImages.add(entry.target);
+            // Clear previous timeout, if it exists.
+            clearTimeout(blurringTimeout);
+            // Set new timeout to apply shading.
+            blurringTimeout = setTimeout(() => {
+              // Add or remove 'shaded' depending on whether any sections are intersecting.
+              entry.target.classList.toggle('blur', intersectingBackgroundImages.size > 0);
+            }, 1000); // change this to the shading delay you want.
+          }
+          else {
+            intersectingBackgroundImages.delete(entry.target);
+            // If no sections are intersecting, immediately remove shading and clear timeout.
+            if (intersectingBackgroundImages.size === 0) {
               clearTimeout(blurringTimeout);
-              // Set new timeout to apply shading.
-              blurringTimeout = setTimeout(() => {
-                // Add or remove 'shaded' depending on whether any sections are intersecting.
-                entry.target.classList.toggle('blur', intersectingBackgroundImages.size > 0);
-              }, 1000); // change this to the shading delay you want.
+              entry.target.classList.remove('blur');
             }
-            else {
-              intersectingBackgroundImages.delete(entry.target);
-              // If no sections are intersecting, immediately remove shading and clear timeout.
-              if (intersectingBackgroundImages.size === 0) {
-                clearTimeout(blurringTimeout);
-                entry.target.classList.remove('blur');
-              }
-            }
-          });
-        }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
-  
-        backgroundImages.forEach(backgroundImg => {
-          backgroundImagesObserver.observe(backgroundImg);
+          }
         });
-  
-  
-        veProgressObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !veProgressInView.value) {
-              veProgressInView.value = true
-              veProgressKey.value++  // increment key to force component recreation. When the key changes, Vue treats it as a whole new component different from the previous one
-            }
-            else if (!entry.isIntersecting && veProgressInView.value) {
-              veProgressInView.value = false
-            }
-          })
-        }, { threshold: 0.8 })
-  
-        if (veProgressRef.value) { // We're observing the parent div that contains the veProgress. 
-          veProgressObserver.observe(veProgressRef.value)
-        }
-  
-        /*
-        Regarding the observer above, that observer work if you had multiple sections with the same class name. 
-        If you look at the template, every sliding section is in its own horizontal section. 
-   
-        But if you put them all under the same section with the same class name, you could use the following, simpler, code. It works when you have only one element with the horiontal_content class:
-   
-        const horizontalSections = document.querySelector('.horizontal__content')      
-        horizontalSectionsObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.target === horizontalSections){
-              document.body.classList.toggle('shaded', entry.isIntersecting)
-            }
-          })
-        }, {threshold: 0.1}) // This means that the shading will appear when at least 30% of the horizontal__content section is visible
-        horizontalSectionsObserver.observe(horizontalSections)
-   
-        */
-  
-      })
-  
-      const scrollToSection = (sectionToScrollTo) => {
-        stopAutoScroll()
-        // Old code, replaced with GSAP
-        //const getToKnowMeSection = document.getElementById("getToKnowMe");
-        //getToKnowMeSection.scrollIntoView({ behavior: 'smooth' })
-        gsap.to(window, { duration: 1.25, scrollTo: sectionToScrollTo })
+      }, { threshold: 0.8 }); // The threshold: 0.8 means that 80% of the section must be within the viewport for the effect to take place. 
+
+      backgroundImages.forEach(backgroundImg => {
+        backgroundImagesObserver.observe(backgroundImg);
+      });
+
+
+      veProgressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !veProgressInView.value) {
+            veProgressInView.value = true
+            veProgressKey.value++  // increment key to force component recreation. When the key changes, Vue treats it as a whole new component different from the previous one
+          }
+          else if (!entry.isIntersecting && veProgressInView.value) {
+            veProgressInView.value = false
+          }
+        })
+      }, { threshold: 0.8 })
+
+      if (veProgressRef.value) { // We're observing the parent div that contains the veProgress. 
+        veProgressObserver.observe(veProgressRef.value)
       }
-  
-  
-      const startAutoScroll = () => {
-        let currentSectionNumber = 0; // The index of the current section we're on above.
-  
-        autoScroll = setInterval(() => {
-          console.log("Section Num:", currentSectionNumber)
-          // Previous code. It was replaced by GSAP
-          //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
-          //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
-          gsap.to(window, { duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber] })
-  
-          currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
-          console.log("Now it's: ", currentSectionNumber)
-        }, 9000) // Running sutoScroll once every 9000 Millisecond = 9 seconds. 
+
+      /*
+      Regarding the observer above, that observer work if you had multiple sections with the same class name. 
+      If you look at the template, every sliding section is in its own horizontal section. 
+ 
+      But if you put them all under the same section with the same class name, you could use the following, simpler, code. It works when you have only one element with the horiontal_content class:
+ 
+      const horizontalSections = document.querySelector('.horizontal__content')      
+      horizontalSectionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target === horizontalSections){
+            document.body.classList.toggle('shaded', entry.isIntersecting)
+          }
+        })
+      }, {threshold: 0.1}) // This means that the shading will appear when at least 30% of the horizontal__content section is visible
+      horizontalSectionsObserver.observe(horizontalSections)
+ 
+      */
+
+    })
+
+    const scrollToSection = (sectionToScrollTo) => {
+      stopAutoScroll()
+      // Old code, replaced with GSAP
+      //const getToKnowMeSection = document.getElementById("getToKnowMe");
+      //getToKnowMeSection.scrollIntoView({ behavior: 'smooth' })
+      gsap.to(window, { duration: 1.25, scrollTo: sectionToScrollTo })
+    }
+
+
+    const startAutoScroll = () => {
+      let currentSectionNumber = 0; // The index of the current section we're on above.
+
+      autoScroll = setInterval(() => {
+        console.log("Section Num:", currentSectionNumber)
+        // Previous code. It was replaced by GSAP
+        //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
+        //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
+        gsap.to(window, { duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber] })
+
+        currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
+        console.log("Now it's: ", currentSectionNumber)
+      }, 11000) // Running sutoScroll once every 9000 Millisecond = 9 seconds. 
+    }
+
+    const stopAutoScroll = () => {
+      clearInterval(autoScroll) // Almost like unmounting an event listener to cease its effect
+    }
+
+    onBeforeUnmount(() => {
+      if (videoObserver)
+        videoObserver.disconnect();
+
+      if (horizontalSectionsObserver)
+        horizontalSectionsObserver.disconnect()
+
+      if (introBox) {
+        introBox.removeEventListener('mouseenter')
+        introBox.removeEventListener('mouseleave')
       }
-  
-      const stopAutoScroll = () => {
-        clearInterval(autoScroll) // Almost like unmounting an event listener to cease its effect
+
+      if (droidBox) {
+        droidBox.removeEventListener('mouseenter')
+        droidBox.removeEventListener('mouseleave')
+        droidBox.removeEventListener('click')
       }
-  
-      onBeforeUnmount(() => {
-        if (videoObserver)
-          videoObserver.disconnect();
-  
-        if (horizontalSectionsObserver)
-          horizontalSectionsObserver.disconnect()
-  
-        if (introBox) {
-          introBox.removeEventListener('mouseenter')
-          introBox.removeEventListener('mouseleave')
-        }
-  
-        if (droidBox) {
-          droidBox.removeEventListener('mouseenter')
-          droidBox.removeEventListener('mouseleave')
-          droidBox.removeEventListener('click')
-        }
-  
-        if (dunkinBox) {
-          dunkinBox.removeEventListener('mouseenter')
-          dunkinBox.removeEventListener('mouseleave')
-          dunkinBox.removeEventListener('click')
-        }
-  
-        if (oneTrustBox) {
-          oneTrustBox.removeEventListener('mouseenter')
-          oneTrustBox.removeEventListener('mouseleave')
-          oneTrustBox.removeEventListener('click')
-        }
-  
-        if (window) {
-          window.removeEventListener('keydown')
-          window.removeEventListener('scroll')
-        }
-  
-      })
-  
-  
-      return {
-        scrollToSection,
-        keyLearningsIcons, 
-        keyLearningsSlideshow,
-        veProgressInView,
-        veProgressKey,
-        veProgressRef,
-        gradient, 
-        options
+
+      if (dunkinBox) {
+        dunkinBox.removeEventListener('mouseenter')
+        dunkinBox.removeEventListener('mouseleave')
+        dunkinBox.removeEventListener('click')
       }
-    },
-  };
-  </script>
+
+      if (oneTrustBox) {
+        oneTrustBox.removeEventListener('mouseenter')
+        oneTrustBox.removeEventListener('mouseleave')
+        oneTrustBox.removeEventListener('click')
+      }
+
+      if (window) {
+        window.removeEventListener('keydown')
+        window.removeEventListener('scroll')
+      }
+
+    })
+
+
+    return {
+      scrollToSection,
+      keyLearningsIcons,
+      keyLearningsSlideshow,
+      veProgressInView,
+      veProgressKey,
+      veProgressRef,
+      gradient,
+      options
+    }
+  },
+};
+</script>
     
-  <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica;
-    height: 3000px;
-    background-color: black;
-  }
-  
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(ellipse at center, transparent 40%, black 90%);
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  
-  body.shaded::before {
-    opacity: 1;
-  }
-  
-  #intro-section {
-    height: 1080px;
-  }
-  
-  .horizontal_img {
-    height: 937px;
-  }
-  
-  .img-title {
-    position: relative;
-    bottom: 30em;
-    color: white;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-    margin-right: 32px;
-  }
-  
-  .img-title img {
-    width: 350px;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-    border-radius: 30px;
-  }
-  
-  .spacing {
-    height: 0px;
-  }
-  
-  .horizontal-content {
-    overflow: hidden;
-  }
-  
-  .button {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-family: 'Petrona';
-    font-size: 18px;
-  }
-  
-  .button:hover {
-    background: #2980b9;
-  }
-  
-  .intro-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: -790px;
-    color: black;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-    background: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 600px;
-    left: 35%;
-  }
-  
-  
-  
-  .intro-box:hover {
-    transform: scale(1.1);
-  }
-  
-  .intro-box h1 {
-    margin-bottom: 10px;
-    font-size: 42px;
-    font-family: 'Petrona';
-  }
-  
-  #smuckerLogo {
-    height: 141px;
-    width: 281px;
-  }
-  
-  .home-icon {
-    height: 108px;
-    width: 111px;
-  }
-  
-  .UW-icon {
-    height: 100px;
-    width: 100px;
-  }
-  
-  .major-icon {
-    height: 108px;
-    width: 113px;
-  }
-  
-  .graduation-icon {
-    height: 100px;
-    width: 100px;
-  }
-  
-  .school-icon {
-    height: 108px;
-    width: 133px;
-  }
-  
-  .vertical-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    /*Prevents the container from taking up the entire box and only giving the size of the biggest element in it. */
-  }
-  
-  .icon-title {
-    font-family: 'Petrona';
-    margin: 8px;
-    text-align: center;
-  }
-  
-  /*We're using KursorJS for the website's cursor. But there was 
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  height: 3000px;
+  background-color: black;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, black 90%);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body.shaded::before {
+  opacity: 1;
+}
+
+#intro-section {
+  height: 1080px;
+}
+
+.horizontal_img {
+  height: 937px;
+}
+
+.img-title {
+  position: relative;
+  bottom: 30em;
+  color: white;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-right: 32px;
+}
+
+.img-title img {
+  width: 350px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  border-radius: 30px;
+}
+
+.spacing {
+  height: 0px;
+}
+
+.horizontal-content {
+  overflow: hidden;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Petrona';
+  font-size: 18px;
+}
+
+.button:hover {
+  background: #2980b9;
+}
+
+.intro-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -790px;
+  color: black;
+  /*text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);*/
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  left: 35%;
+}
+
+
+
+.intro-box:hover {
+  transform: scale(1.1);
+}
+
+.intro-box h1 {
+  margin-bottom: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+#smuckerLogo {
+  height: 141px;
+  width: 281px;
+}
+
+.home-icon {
+  height: 108px;
+  width: 111px;
+}
+
+.UW-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.major-icon {
+  height: 108px;
+  width: 113px;
+}
+
+.graduation-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.school-icon {
+  height: 108px;
+  width: 133px;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  /*Prevents the container from taking up the entire box and only giving the size of the biggest element in it. */
+}
+
+.icon-title {
+  font-family: 'Petrona';
+  margin: 8px;
+  text-align: center;
+}
+
+/*We're using KursorJS for the website's cursor. But there was 
       a problem where when you hover over a button, the normal cursor would
       reappear in addition to the Kursor cursor. The following CSS
       ensures that the defaults cursor always remains hidden when 
       hovering over any of the items below. 
   */
-  a,
-  button,
-  input,
-  textarea {
-    cursor: none !important;
-  }
-  
-  #getToKnowMe,
-  #seeWhatIHaveAccomplished,
-  #droid-overlay-section,
-  #droid-overlay-section2 {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  
-  .droid-overlay,
-  .dunkin-overlay,
-  .onetrust-overlay,
-  .droid-optimization-overlay,
-  .droid-settings-overlay,
-  .droid-deletion-overlay,
-  .droid-periodic-deletion-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0);
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-  }
-  
-  #overlay-A {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /*"Make 3 colums with width of 1fr (equal widths)" */
-    justify-items: center;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  #overlay-B {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /*"Make 3 colums with width of 1fr (equal widths)" */
-    justify-items: center;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  #overlay-C {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  #overlay-D {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    /*"Make 3 colums with width of 1fr (equal widths)" */
-    justify-items: center;
-    align-items: center;
-  }
-  
-  .whoAmI-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: black;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-    background: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 300px;
-  }
-  
-  .whoAmI-box h1 {
-    margin-bottom: 10px;
-    /*Replace those two margin options with the margin: # # # # */
-    margin-top: 10px;
-    font-size: 42px;
-    font-family: 'Petrona';
-  }
-  
-  .whoAmI-box,
-  .smucker-accomplishments-box,
-  .droid-section-title {
-    grid-row: 1;
-    grid-column: 2;
-  }
-  
-  .smucker-accomplishments-box h1 {
-    margin-bottom: 10px;
-    /*Replace those two margin options with the margin: # # # # */
-    margin-top: 10px;
-    font-size: 42px;
-    font-family: 'Petrona';
-  }
-  
-  .grid-item-A,
-  .grid-item-B,
-  .grid-item-C,
-  .grid-item-D {
-    /* Styling for each grid item */
-    background: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 5px;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .horizontal-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .onetrust-logo {
-    height: 225px;
-    width: 400px;
-    border-radius: 10px;
-  }
-  
-  .droid-section-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 200px
-  }
-  
-  .droid-section-title h1 {
-    margin: 0;
-    /*Replace those two margin options with the margin: # # # # */
-    font-size: 42px;
-    font-family: 'Petrona';
-  }
-  
-  .droid-section-title h3 {
-    margin: 0px;
-    font-size: 22px;
-    font-family: 'Petrona';
-  }
-  
-  
-  .background-box,
-  .droid-box,
-  .droid-runtime-box {
-    grid-row: 2;
-    grid-column: 1;
-  }
-  
-  .pin {
-    height: 50px;
-    width: 39px;
-    transform: translate(-114px, -75px);
-  }
-  
-  .school-box,
-  .dunkin-box {
-    grid-row: 2;
-    grid-column: 2;
-  }
-  
-  .droid-deletion-box {
-    grid-row: 3;
-    grid-column: 1;
-  }
-  
-  .major-box,
-  .onetrust-box,
-  .droid-deletion-box {
-    grid-row: 2;
-    grid-column: 3;
-  }
-  
-  .droid-setting-box {
-    grid-row: 1;
-    grid-column: 1;
-  }
-  
-  .droid-logo {
-    height: 225px;
-    width: 400px;
-  }
-  
-  .dunkin-logo {
-    height: 225px;
-    width: 400px;
-    border-radius: 10px;
-  }
-  
-  .major-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .graduation-box {
-    grid-row: 3;
-    grid-column: 2;
-  }
-  
-  .droid-periodic-deletion-box {
-    grid-row: 3;
-    grid-column: 3;
-  }
-  
-  .partition {
-    height: 100px;
-    width: 12px;
-    margin: 0px 35px 0px 5px;
-  }
-  
-  .droidSlideshow {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: filter 1s ease-in-out;
-  }
-  
-  .blur {
-    filter: blur(25px);
-  }
-  
-  .droid-before-settings {
-    height: 300px;
-    width: 534px;
-  }
-  
-  .arrow-right-icon {
-    height: 100px;
-    width: 269px;
-    margin: 15px;
-  }
-  
-  .droid-after-settings {
-    height: 300px;
-    width: 534px;
-  }
-  
-  /*Expands the max width to allow horizontal spacing in the DROID page.*/
-  #overlay-C>div {
-    width: 80%;
-    /* adjust this percentage as needed */
-    margin: auto;
-  }
-  
-  .key-learning-slide {
-    max-height: 200px;
-    width: auto;
-    /*The following setup is intented to make the image replace each other by taking up the same spot in the div. This is also why the parent div for the icon is positioned relaitvely.*/
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .key-learnings-box{
-    position: relative;
+a,
+button,
+input,
+textarea {
+  cursor: none !important;
+}
 
-    /*The following numbers were chose to match the div above it. We need them to be the smae size */
-    height: 343px;
-    width: 1367px;
+#getToKnowMe,
+#seeWhatIHaveAccomplished,
+#droid-overlay-section,
+#droid-overlay-section2, 
+#dunkin-overlay-section{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.droid-overlay,
+.dunkin-overlay,
+.onetrust-overlay,
+.droid-optimization-overlay,
+.droid-settings-overlay,
+.droid-deletion-overlay,
+.droid-periodic-deletion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay-A {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#overlay-B {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#overlay-C, 
+#overlay-E  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  /*align-items: center;*/
+  justify-content: space-around;
+}
+
+#overlay-D{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  align-items: center;
+}
+
+.whoAmI-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.whoAmI-box h1 {
+  margin-bottom: 10px;
+  /*Replace those two margin options with the margin: # # # # */
+  margin-top: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+.whoAmI-box,
+.smucker-accomplishments-box,
+.droid-section-title {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.smucker-accomplishments-box h1 {
+  margin-bottom: 10px;
+  /*Replace those two margin options with the margin: # # # # */
+  margin-top: 10px;
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+.grid-item-A,
+.grid-item-B,
+.grid-item-C,
+.grid-item-D {
+  /* Styling for each grid item */
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 3;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.onetrust-logo {
+  height: 225px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.droid-section-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px
+}
+
+.droid-section-title h1 {
+  margin: 0;
+  /*Replace those two margin options with the margin: # # # # */
+  font-size: 42px;
+  font-family: 'Petrona';
+}
+
+.droid-section-title h3 {
+  margin: 0px;
+  font-size: 22px;
+  font-family: 'Petrona';
+}
+
+
+.background-box,
+.droid-box,
+.droid-runtime-box {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.pin {
+  height: 50px;
+  width: 39px;
+  transform: translate(-114px, -75px);
+}
+
+.school-box,
+.dunkin-box {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.droid-deletion-box {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.major-box,
+.onetrust-box,
+.droid-deletion-box {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.droid-setting-box {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.droid-logo {
+  height: 225px;
+  width: 400px;
+}
+
+.dunkin-logo {
+  height: 225px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.major-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graduation-box {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.droid-periodic-deletion-box {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.partition {
+  height: 100px;
+  width: 12px;
+  margin: 0px 35px 0px 5px;
+}
+
+.dunkinSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: filter 1s ease-in-out;
+}
+
+.blur {
+  filter: blur(25px);
+}
+
+.droid-before-settings {
+  height: 300px;
+  width: 534px;
+}
+
+.arrow-right-icon {
+  height: 100px;
+  width: 269px;
+  margin: 15px;
+}
+
+.droid-after-settings {
+  height: 300px;
+  width: 534px;
+}
+
+/*Expands the max width to allow horizontal spacing in the DROID page.*/
+#overlay-C>div {
+  width: 80%;
+  /* adjust this percentage as needed */
+  margin: auto;
+}
+
+.key-learning-slide {
+  max-height: 200px;
+  width: auto;
+  /*The following setup is intented to make the image replace each other by taking up the same spot in the div. This is also why the parent div for the icon is positioned relaitvely.*/
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.key-learnings-box {
+  position: relative;
+
+  /*The following numbers were chose to match the div above it. We need them to be the smae size */
+  height: 343px;
+  width: 1367px;
+}
+
+.skills-list {
+  width: auto;
+  /* or any other value */
+  height: 184px;
+  /* or any other value */
+}
+
+.before,
+  .after {
+    margin: 0;
   }
-  
-  .splide-slideshow{
-    width: auto; /* or any other value */
-    height: 200px; /* or any other value */
+
+  .before figcaption,
+  .after figcaption {
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 12px;
+    color: #2e3452;
+    font-weight: bold;
+    opacity: 0.8;
+    padding: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 100%;
   }
-  </style>
+
+  .before figcaption {
+    left: 12px;
+  }
+
+  .after figcaption {
+    right: 12px;
+  }
+
+  img-comparison-slider {
+    --divider-width: 5px;
+    --divider-color: black;
+    --default-handle-opacity: 1;
+    --default-handle-color: black;
+    --default-handle-width: clamp(40px, 10vw, 200px);
+    border-radius: 10px;
+  }
+
+
+</style>
     
     
   
