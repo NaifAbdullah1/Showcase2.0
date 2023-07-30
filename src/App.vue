@@ -65,8 +65,12 @@
 
     <scroll-parallax :speed="0.40" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
-        <img class="horizontal_img" src="./assets/OriPic(cropped).jpg" />
-        <img class="horizontal_img" src="./assets/Smucker.jpg" />
+        <!--<img class="horizontal_img" src="./assets/Smucker.jpg" />-->
+
+        <img class="horizontal_img" src="./assets/ahli.jpg" />
+        <img class="horizontal_img" src="./assets/OriPic(cropped2).jpg" />
+        <img class="horizontal_img" src="./assets/karate.jpg" />
+        <img class="horizontal_img" src="./assets/badger.jpg" />
       </div>
     </scroll-parallax>
 
@@ -124,7 +128,7 @@
             <img src="./assets/Icons/databases.png" style="height: 100px; width: 85px;">
           </div>
 
-          <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;">Computer Science</h1>
+          <h1 style="font-family: 'Petrona'; font-size: 22px; margin: 0;"><b>Computer Science</b></h1>
 
         </div>
 
@@ -184,7 +188,7 @@
       <div class="grid-item-B onetrust-box expandable">
         <div class="vertical-container">
           <img class="onetrust-logo" src="./assets/onetrust-logo.png" alt="OneTrust logo">
-          <h1 class="icon-title">OneTrust CSS Banner Enhancements</h1>
+          <h1 class="icon-title">OneTrust's CSS Banner Enhancements</h1>
         </div>
         <div class="onetrust-overlay"></div>
       </div>
@@ -210,7 +214,7 @@
 
       <!--Parent-most div for the veProgress and the Deletion Video-->
       <div style="display: flex; flex-direction: row; justify-content: space-around;">
-        <div class="grid-item-C expandable">
+        <div class="grid-item-C">
           <div class="vertical-container">
 
             <div ref="veProgressRef">
@@ -234,7 +238,7 @@
 
 
         <!--Here's we're including a demo video of the deletion-->
-        <div class="grid-item-C expandable">
+        <div class="grid-item-C">
           <div class="vertical-container">
             <h1 class="icon-title">Implemented deletion of database records</h1>
             <video class="video-background" style="height: 370px; width: 658px;" autoplay muted loop>
@@ -259,7 +263,8 @@
 
 
     <div id="overlay-D">
-      <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
+
+      <div class="grid-item-D droid-setting-box" style="display: flex; flex-direction: column;">
 
         <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
 
@@ -272,7 +277,7 @@
           </div>
 
           <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
-          
+
           <div style="display: flex; flex-direction: column;">
             <h1 class="icon-title">After</h1>
             <img class="droid-after-settings" src="./assets/droid-after-settings.png"
@@ -283,7 +288,7 @@
 
       </div>
 
-      <div class="grid-item-D key-learnings-box expandable" style="display: flex; flex-direction: column;">
+      <div class="grid-item-D key-learnings-box" style="display: flex; flex-direction: column;">
 
         <h1 class="icon-title" style="margin-bottom: 20px;">Key Learnings & Skills Acquired</h1>
         <div style="display: flex; margin-top: 35px;">
@@ -317,15 +322,13 @@
   </section>
 
 
-
   <section id="dunkin-overlay-section">
-    <div class="dunkinSection">
-      <img class="background-image blur" src="./assets/dunkin-background.png" alt="Dunkin Background"
-        style="width: 1920px; height: 932px;" />
-    </div>
+
+    <img class="background-image blur" src="./assets/dunkin-background.png" alt="Dunkin Background"
+      style="width: 1920px; height: 932px;" />
 
     <div id="overlay-E">
-      
+
       <div class="dunkin-style-section-title" style="width: 30%;">
         <h1>Overhaul of Dunkin's Website Style</h1>
       </div>
@@ -343,7 +346,7 @@
           </figure>
           <!--eslint-enable-->
         </img-comparison-slider>
-        
+
         <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
           <!--eslint-disable-->
           <figure slot="first" class="before">
@@ -357,18 +360,71 @@
           </figure>
           <!--eslint-enable-->
         </img-comparison-slider>
-        
+
       </div>
     </div>
 
   </section>
 
 
-  <!--
-    <section class="horizontal-content" id="onetrust-overlay-section" style="height: 1000px;">
-  
-    </section>
-    -->
+
+  <section id="onetrust-overlay-section">
+
+    <img class="background-image blur" src="./assets/onetrust-logo-background.png" alt="Onetrust Background"
+      style="width: 1920px; height: 932px;" />
+
+    <div id="overlay-F">
+
+      <div class="onetrust-section-title" style="width: 30%;">
+        <h1>OneTrust's CSS Banner Enhancements</h1>
+      </div>
+
+
+      <div class="grid-item-F cookiebar-wide" style="display: flex; flex-direction: column;">
+
+        <h1 class="icon-title" style="margin-bottom: 20px;">Desktop Width</h1>
+
+        <div style="display: flex; flex-direction: row; align-items: center;">
+
+          <img-comparison-slider style="" class="image-comparison-slider">
+            <!--eslint-disable-->
+            <figure slot="first" class="before">
+              <img slot="first" style="width: 100%;" src="./assets/cookie-bar/old-wide.png" />
+              <figcaption class="slider-label-before">Before</figcaption>
+            </figure>
+            <figure slot="second" class="after">
+              <img slot="second" style="width: 100%;" src="./assets/cookie-bar/new-wide.png" />
+              <figcaption class="slider-label-after">After</figcaption>
+            </figure>
+            <!--eslint-enable-->
+          </img-comparison-slider>
+
+          <!--
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">Before</h1>
+            <img class="" src="./assets/cookie-bar/old-wide.png" />
+          </div>
+
+          <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
+
+          <div style="display: flex; flex-direction: column;">
+            <h1 class="icon-title">After</h1>
+            <img class="" src="./assets/cookie-bar/new-wide.png" />
+          </div>
+
+          -->
+
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+  </section>
 </template>
     
 <script>
@@ -402,7 +458,7 @@ export default {
     let backgroundImagesObserver;
     let veProgressObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "dunkin-overlay-section", "#onetrust-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let keyLearningsIcons = ref(["vue-icon.png", "quasar-logo.png", "php-logo.png", "laravel-logo.png", "js-logo.png", "html-logo.png", "css-logo.png"])
     const keyLearningsSlideshow = ref(null)
     const veProgressInView = ref(false) // Tracks whether the veProgress component is in view. We'll need to destroy it when not in view to force animation to re-run
@@ -587,7 +643,7 @@ export default {
           overwrite: 'auto'
         })
 
-        gsap.fromTo(".dunkin-style-section-title",
+      gsap.fromTo(".dunkin-style-section-title",
         // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
         // From 
         {
@@ -1013,10 +1069,11 @@ body.shaded::before {
 }
 
 
-
+/*
 .intro-box:hover {
   transform: scale(1.1);
 }
+*/
 
 .intro-box h1 {
   margin-bottom: 10px;
@@ -1085,8 +1142,9 @@ textarea {
 #getToKnowMe,
 #seeWhatIHaveAccomplished,
 #droid-overlay-section,
-#droid-overlay-section2, 
-#dunkin-overlay-section{
+#droid-overlay-section2,
+#dunkin-overlay-section,
+#onetrust-overlay-section {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -1137,8 +1195,8 @@ textarea {
   align-items: center;
 }
 
-#overlay-C, 
-#overlay-E  {
+#overlay-C,
+#overlay-E {
   position: absolute;
   top: 0;
   left: 0;
@@ -1147,11 +1205,11 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-items: center;
-  /*align-items: center;*/
+  align-items: center;
   justify-content: space-around;
 }
 
-#overlay-D{
+#overlay-D {
   position: absolute;
   top: 0;
   left: 0;
@@ -1159,6 +1217,20 @@ textarea {
   height: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  align-items: center;
+}
+
+#overlay-F {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  /*OR, grid-template-rows: repeat(4, auto); */
   /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   align-items: center;
@@ -1201,7 +1273,8 @@ textarea {
   font-family: 'Petrona';
 }
 
-.dunkin-style-section-title{
+.dunkin-style-section-title,
+.onetrust-section-title {
   background: rgba(255, 255, 255, 1);
   padding: 20px;
   border-radius: 5px;
@@ -1211,7 +1284,6 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
   margin: 0;
   font-size: 22px;
   font-family: 'Petrona';
@@ -1228,7 +1300,8 @@ textarea {
 .grid-item-A,
 .grid-item-B,
 .grid-item-C,
-.grid-item-D {
+.grid-item-D,
+.grid-item-F {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 1);
   padding: 20px;
@@ -1307,6 +1380,10 @@ textarea {
   grid-column: 1;
 }
 
+.cookiebar-wide {
+  grid-row: 2;
+}
+
 .droid-logo {
   height: 225px;
   width: 400px;
@@ -1334,17 +1411,12 @@ textarea {
   grid-column: 3;
 }
 
+
+
 .partition {
   height: 100px;
   width: 12px;
   margin: 0px 35px 0px 5px;
-}
-
-.dunkinSection {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .background-image {
@@ -1375,7 +1447,7 @@ textarea {
 }
 
 /*Expands the max width to allow horizontal spacing in the DROID page.*/
-#overlay-C>div, 
+#overlay-C>div,
 #overlay-E>div {
   width: 80%;
   /* adjust this percentage as needed */
@@ -1407,43 +1479,47 @@ textarea {
 }
 
 .before,
-  .after {
-    margin: 0;
-  }
+.after {
+  margin: 0;
+}
 
-  .before figcaption,
-  .after figcaption {
-    background: #fff;
-    border: 1px solid #c0c0c0;
-    border-radius: 12px;
-    color: black;
-    font-weight: bolder;
-    
-    opacity: 1;
-    padding: 12px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    line-height: 100%;
-  }
+.before figcaption,
+.after figcaption {
+  background: #fff;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  color: black;
+  font-weight: bolder;
 
-  .before figcaption {
-    left: 12px;
-  }
+  opacity: 1;
+  padding: 12px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 100%;
+}
 
-  .after figcaption {
-    right: 12px;
-  }
+.before figcaption {
+  left: 12px;
+}
 
-  img-comparison-slider {
-    --divider-width: 5px;
-    --divider-color: black;
-    --default-handle-opacity: 1;
-    --default-handle-color: black;
-    --default-handle-width: clamp(40px, 10vw, 200px);
-    border-radius: 10px;
-  }
+.after figcaption {
+  right: 12px;
+}
 
+img-comparison-slider {
+  --divider-width: 5px;
+  --divider-color: black;
+  --default-handle-opacity: 1;
+  --default-handle-color: black;
+  --default-handle-width: clamp(40px, 10vw, 200px);
+  border-radius: 10px;
+}
+
+.image-comparison-slider:hover .label-before,
+.image-comparison-slider:hover .label-after {
+  visibility: hidden;
+}
 
 </style>
     
