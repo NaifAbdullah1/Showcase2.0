@@ -335,8 +335,10 @@
 
       <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
 
-        <div class="grid-item-F">
-          <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
+        <div class="grid-item-F image-comparison-slider" style="display: flex; flex-direction: column;">
+          <h1 class="icon-title" style="margin-bottom: 20px;">Home Page</h1>
+
+          <img-comparison-slider style="width: 564px; height: 550px;">
             <!--eslint-disable-->
             <figure slot="first" class="before">
               <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
@@ -350,19 +352,22 @@
           </img-comparison-slider>
         </div>
 
-        <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
-          <!--eslint-disable-->
-          <figure slot="first" class="before">
-            <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
-            <figcaption>Before</figcaption>
-          </figure>
+        <div class="grid-item-F image-comparison-slider" style="display: flex; flex-direction: column;">
+          <h1 class="icon-title" style="margin-bottom: 20px;">Coffee Recipes' Page</h1>
+          <img-comparison-slider style="width: 564px; height: 550px;">
+            <!--eslint-disable-->
+            <figure slot="first" class="before">
+              <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
+              <figcaption>Before</figcaption>
+            </figure>
 
-          <figure slot="second" class="after">
-            <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-new.png" />
-            <figcaption>After</figcaption>
-          </figure>
-          <!--eslint-enable-->
-        </img-comparison-slider>
+            <figure slot="second" class="after">
+              <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-new.png" />
+              <figcaption>After</figcaption>
+            </figure>
+            <!--eslint-enable-->
+          </img-comparison-slider>
+        </div>
 
       </div>
     </div>
@@ -1519,8 +1524,8 @@ img-comparison-slider {
   border-radius: 10px;
 }
 
-.image-comparison-slider:hover .label-before,
-.image-comparison-slider:hover .label-after {
+.img-comparison-slider:hover .label-before,
+.img-comparison-slider:hover .label-after {
   visibility: hidden;
 }
 </style>
