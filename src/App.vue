@@ -334,18 +334,21 @@
       </div>
 
       <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
-        <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
-          <!--eslint-disable-->
-          <figure slot="first" class="before">
-            <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
-            <figcaption>Before</figcaption>
-          </figure>
-          <figure slot="second" class="after">
-            <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-new.png" />
-            <figcaption>After</figcaption>
-          </figure>
-          <!--eslint-enable-->
-        </img-comparison-slider>
+
+        <div class="grid-item-F">
+          <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
+            <!--eslint-disable-->
+            <figure slot="first" class="before">
+              <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure slot="second" class="after">
+              <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-new.png" />
+              <figcaption>After</figcaption>
+            </figure>
+            <!--eslint-enable-->
+          </img-comparison-slider>
+        </div>
 
         <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
           <!--eslint-disable-->
@@ -1520,7 +1523,6 @@ img-comparison-slider {
 .image-comparison-slider:hover .label-after {
   visibility: hidden;
 }
-
 </style>
     
     
