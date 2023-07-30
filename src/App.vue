@@ -175,7 +175,7 @@
       <div class="grid-item-B dunkin-box expandable">
         <div class="vertical-container">
           <img class="dunkin-logo" src="./assets/dunkin-style-guide.png" alt="Dunking Logo" />
-          <h1 class="icon-title">An Overhaul of Dunkin's Website Style</h1>
+          <h1 class="icon-title">Overhaul of Dunkin's Website Style</h1>
         </div>
         <div class="dunkin-overlay"></div>
       </div>
@@ -260,20 +260,27 @@
 
     <div id="overlay-D">
       <div class="grid-item-D droid-setting-box expandable" style="display: flex; flex-direction: column;">
+
         <h1 class="icon-title" style="margin-bottom: 20px;">Implemented a New "Settings" Page</h1>
+
         <div style="display: flex; flex-direction: row; align-items: center;">
+
           <div style="display: flex; flex-direction: column;">
             <h1 class="icon-title">Before</h1>
             <img class="droid-before-settings" src="./assets/droid-before-settings.png"
               alt="Droid before implemeting the setting page" />
           </div>
+
           <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
+          
           <div style="display: flex; flex-direction: column;">
             <h1 class="icon-title">After</h1>
             <img class="droid-after-settings" src="./assets/droid-after-settings.png"
               alt="Droid after implemeting the setting page" />
           </div>
+
         </div>
+
       </div>
 
       <div class="grid-item-D key-learnings-box expandable" style="display: flex; flex-direction: column;">
@@ -318,12 +325,13 @@
     </div>
 
     <div id="overlay-E">
-      <div> <!--Title here-->
-
+      
+      <div class="dunkin-style-section-title" style="width: 30%;">
+        <h1>Overhaul of Dunkin's Website Style</h1>
       </div>
 
-      <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center; flex: 1;">
-        <img-comparison-slider style="width: 564px; height: 550px;">
+      <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
+        <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
           <!--eslint-disable-->
           <figure slot="first" class="before">
             <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
@@ -336,7 +344,7 @@
           <!--eslint-enable-->
         </img-comparison-slider>
         
-        <img-comparison-slider style="width: 564px; height: 550px;">
+        <img-comparison-slider style="width: 564px; height: 550px;" class="image-comparison-slider">
           <!--eslint-disable-->
           <figure slot="first" class="before">
             <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
@@ -554,6 +562,57 @@ export default {
           ease: 'power1.out',
           overwrite: 'auto'
         })
+
+      gsap.fromTo(".image-comparison-slider",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".image-comparison-slider",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+        gsap.fromTo(".dunkin-style-section-title",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".dunkin-style-section-title",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
+
+
+
 
       /*
       gsap.to(".arrow-right-icon", {
@@ -1142,6 +1201,30 @@ textarea {
   font-family: 'Petrona';
 }
 
+.dunkin-style-section-title{
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 0;
+  font-size: 22px;
+  font-family: 'Petrona';
+  width: auto;
+}
+
+.dunkin-style-section-title h1 {
+  margin: 0;
+  /*Replace those two margin options with the margin: # # # # */
+  font-size: 32px;
+  font-family: 'Petrona';
+}
+
 .grid-item-A,
 .grid-item-B,
 .grid-item-C,
@@ -1292,7 +1375,8 @@ textarea {
 }
 
 /*Expands the max width to allow horizontal spacing in the DROID page.*/
-#overlay-C>div {
+#overlay-C>div, 
+#overlay-E>div {
   width: 80%;
   /* adjust this percentage as needed */
   margin: auto;
