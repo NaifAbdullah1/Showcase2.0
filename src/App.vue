@@ -24,7 +24,6 @@
   <!--
 
     PROBLEMS TO FIX:
-    - add buttons
     - add company objectives. Take each accomplishment and listen again to recordings
   -->
 
@@ -354,7 +353,11 @@
 
       </div>
 
-
+      <div class="cont-button" style="width: 100%;">
+        <button class="caret-button" @click="scrollToSection('#dunkin-overlay-section')">
+          <i class="caret"></i>
+        </button>
+      </div>
 
       <!--
         <div class="grid-item-D droid-periodic-deletion-box expandable">
@@ -381,7 +384,7 @@
         <h1>Overhaul of Dunkin's Website Style</h1>
       </div>
 
-      <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
+      <div class="dunkin-sliders" style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
 
         <div class="grid-item-E" style="display: flex; flex-direction: column;">
           <h1 class="icon-title" style="margin-bottom: 20px;">Home Page</h1>
@@ -418,6 +421,13 @@
         </div>
 
       </div>
+
+      <div class="cont-button" style="width: 100%;">
+        <button class="caret-button" @click="scrollToSection('#onetrust-overlay-section')">
+          <i class="caret"></i>
+        </button>
+      </div>
+      
     </div>
 
   </section>
@@ -488,9 +498,13 @@
         </img-comparison-slider>
       </div>
 
+      <div class="cont-button" style="grid-row: 4; position:absolute; width: 100%;">
+        <button class="caret-button" @click="scrollToSection('#intro-section')">
+          <i class="caret" style="transform: rotate(-135deg); -webkit-transform: rotate(-135deg);"></i>
+        </button>
+      </div>
 
     </div>
-    <!--</div> -->
   </section>
 </template>
     
@@ -1391,11 +1405,11 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   align-items: center;
-  justify-content: space-around;
 }
 
 #overlay-D {
@@ -1405,7 +1419,7 @@ textarea {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto auto;
   /*"Make 3 colums with width of 1fr (equal widths)" */
   justify-items: center;
   align-items: center;
@@ -1472,7 +1486,8 @@ textarea {
   grid-row: 1;
 }
 
-.progress-and-deletion{
+.progress-and-deletion, 
+.dunkin-sliders{
   grid-row: 2;
 }
 
@@ -1509,6 +1524,8 @@ textarea {
   font-size: 22px;
   font-family: 'Petrona';
   width: auto;
+
+  grid-row: 1;
 }
 
 .dunkin-style-section-title h1 {
@@ -1610,7 +1627,6 @@ textarea {
 
 .droid-setting-box {
   grid-row: 1;
-  grid-column: 1;
 }
 
 .cookiebar-wide {
@@ -1622,7 +1638,8 @@ textarea {
 }
 
 
-.cookiebar-mobile {
+.cookiebar-mobile, 
+.key-learnings-box {
   grid-row: 2;
 }
 
