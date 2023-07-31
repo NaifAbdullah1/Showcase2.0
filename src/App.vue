@@ -25,8 +25,6 @@
 
     PROBLEMS TO FIX:
     - add buttons
-    - When the droid 2 stuff fade in, the items in the subsequent slides also fade in, the same with the next slides too
-    - When we scroll away from a section, the stuff don't get deleted unless we revisit. Make sure to delete all content as soon as they're out of view. 
     - add company objectives. Take each accomplishment and listen again to recordings
   -->
 
@@ -291,7 +289,8 @@
       </div>
 
       <div>
-        <button class="button" style="justify-self: end; align-self: end;" @click="scrollToSection('#droid-overlay-section2')">Cont.</button>
+        <button class="button" style="justify-self: end; align-self: end;"
+          @click="scrollToSection('#droid-overlay-section2')">Cont.</button>
       </div>
 
 
@@ -601,9 +600,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-A",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-A", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-A", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-A", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -625,9 +635,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-B",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-B", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-B", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-B", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -649,9 +670,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-C",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-C", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-C", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-C", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -673,9 +705,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-D",
-            start: "middle top",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-D", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-D", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-D", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -697,9 +740,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-E",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom bottom",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-E", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-E", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-E", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -721,9 +775,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".dunkin-style-section-title",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".dunkin-style-section-title", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".dunkin-style-section-title", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".dunkin-style-section-title", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -745,9 +810,20 @@ export default {
           stagger: 0.5,
           scrollTrigger: {
             trigger: ".grid-item-F",
-            start: "top bottom",
-            end: "bottom middle",
-            toggleActions: "restart none restart none"
+            start: "bottom center",
+            end: "bottom top",
+            onEnter: () => {
+              // Reset the animation to the start when re-entering the section
+              gsap.set(".grid-item-F", { y: '-50%', opacity: 0 });
+            },
+            onLeave: () => {
+              gsap.set(".grid-item-F", {y: '-50%', opacity: 0})
+            },
+            onLeaveBack: () => {
+              // Set the elements to the initial state when leaving the section
+              gsap.set(".grid-item-F", { y: '-50%', opacity: 0 });
+            },
+            toggleActions: "restart pause reset reset"
           },
           duration: 2,
           ease: 'power1.out',
@@ -1303,7 +1379,6 @@ textarea {
   align-items: center;
 }
 
-#overlay-C,
 #overlay-E {
   position: absolute;
   top: 0;
@@ -1344,6 +1419,7 @@ textarea {
   align-items: center;
 }
 
+#overlay-C,
 #overlay-G {
   position: absolute;
   top: 0;
@@ -1381,10 +1457,13 @@ textarea {
 }
 
 .whoAmI-box,
-.smucker-accomplishments-box,
-.droid-section-title {
+.smucker-accomplishments-box {
   grid-row: 1;
   grid-column: 2;
+}
+
+.droid-section-title {
+  grid-row: 1;
 }
 
 .smucker-accomplishments-box h1 {
@@ -1496,7 +1575,7 @@ textarea {
   grid-column: 2;
 }
 
-.accomplishments-button{
+.accomplishments-button {
   grid-row: 3;
   grid-column: 3;
   align-self: end;
