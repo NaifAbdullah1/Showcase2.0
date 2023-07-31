@@ -21,6 +21,15 @@
   -->
 
 
+  <!--
+
+    PROBLEMS TO FIX:
+    - MAKE SURE THE ACOMPLISHMENT BUTTONS WORK
+    - When the droid 2 stuff fade in, the items in the subsequent slides also fade in, the same with the next slides too
+    - When we scroll away from a section, the stuff don't get deleted unless we revisit. Make sure to delete all content as soon as they're out of view. 
+    - add company objectives. Take each accomplishment and listen again to recordings
+  -->
+
 <template>
   <section id="intro-section">
     <video class="video-background" autoplay muted loop>
@@ -63,7 +72,7 @@
 
   <section class="horizontal-content" id="getToKnowMe">
 
-    <scroll-parallax :speed="0.40" :left="true" direction="x">
+    <scroll-parallax :speed="0.44" :left="true" direction="x">
       <div style="display: flex; justify-content: flex-start;">
         <!--<img class="horizontal_img" src="./assets/Smucker.jpg" />-->
 
@@ -81,7 +90,7 @@
         <h1>Who am I?</h1>
       </div>
 
-      <div class="grid-item-A background-box horizontal-container">
+      <div class="grid-item-A background-box horizontal-container reduce-opacity-on-hover">
 
         <div class="vertical-container">
           <img class="home-icon" src="./assets/Icons/Home.png" />
@@ -90,14 +99,19 @@
 
         <img class="partition" src="./assets/Icons/bline.png">
 
-        <img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">
-        <img class="pin" src="./assets/Icons/pin.png">
-        <img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">
+        <img src="./assets/sa-flag.png" style="height: 80px; width: 120px;" />
+        <img src="./assets/airplane.png" style="height: 71px; width: 80px; margin: 0px 10px 0px 10px;" />
+        <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
+        <!--<img src="./assets/wi-flag.png" style="height: 80px; width: 120px;"/>-->
+        <!--<img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">-->
+        <!--<img class="pin" src="./assets/Icons/pin.png">-->
+        <!--<img src="./assets/Icons/W.png" style="height: 120px; width: 128px;">-->
 
       </div>
 
 
-      <div class="grid-item-A school-box horizontal-container">
+      <!--
+      <div class="grid-item-A school-box horizontal-container reduce-opacity-on-hover">
 
         <div class="vertical-container">
           <img class="school-icon" src="./assets/Icons/school.png" />
@@ -109,9 +123,10 @@
         <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
 
       </div>
+      -->
 
 
-      <div class="grid-item-A major-box horizontal-container">
+      <div class="grid-item-A major-box horizontal-container reduce-opacity-on-hover">
 
         <div class="vertical-container">
           <img class="major-icon" src="./assets/Icons/fieldOfStudy.png" />
@@ -135,7 +150,7 @@
       </div>
 
 
-      <div class="grid-item-A graduation-box horizontal-container">
+      <div class="grid-item-A graduation-box horizontal-container reduce-opacity-on-hover">
         <div class="vertical-container">
           <img class="graduation-icon" src="./assets/Icons/grad.png" />
           <h1 class="icon-title">Graduation <br>Date</h1>
@@ -144,6 +159,27 @@
         <img class="partition" src="./assets/Icons/bline.png">
 
         <h1 style="font-family: 'Petrona'; font-size: 36px;">December 2023</h1>
+
+      </div>
+
+
+      <div class="grid-item-A hobbies-box horizontal-container reduce-opacity-on-hover">
+
+        <div class="vertical-container">
+          <img class="hobbies-icon" src="./assets/Icons/hobbies.png" />
+          <h1 class="icon-title">Hobbies</h1>
+        </div>
+
+        <img class="partition" src="./assets/Icons/bline.png">
+
+        <div style="display: flex; flex-direction: row;">
+
+            <img src="./assets/Icons/kick.png" style="height: 100px; width: 99px;"/>
+            <img src="./assets/Icons/punch.png" style="height: 100px; width: 113px;"/>
+            <img src="./assets/Icons/barbell.png" style="height: 100px; width: 197px;"/>
+            
+
+        </div>
 
       </div>
 
@@ -335,35 +371,35 @@
 
       <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
 
-        <div class="grid-item-F image-comparison-slider" style="display: flex; flex-direction: column;">
+        <div class="grid-item-E" style="display: flex; flex-direction: column;">
           <h1 class="icon-title" style="margin-bottom: 20px;">Home Page</h1>
 
           <img-comparison-slider style="width: 564px; height: 550px;">
             <!--eslint-disable-->
             <figure slot="first" class="before">
               <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-old.png" />
-              <figcaption>Before</figcaption>
+              <figcaption class="slider-label-before">Before</figcaption>
             </figure>
             <figure slot="second" class="after">
               <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-home-new.png" />
-              <figcaption>After</figcaption>
+              <figcaption class="slider-label-after">After</figcaption>
             </figure>
             <!--eslint-enable-->
           </img-comparison-slider>
         </div>
 
-        <div class="grid-item-F image-comparison-slider" style="display: flex; flex-direction: column;">
+        <div class="grid-item-E" style="display: flex; flex-direction: column;">
           <h1 class="icon-title" style="margin-bottom: 20px;">Coffee Recipes' Page</h1>
           <img-comparison-slider style="width: 564px; height: 550px;">
             <!--eslint-disable-->
             <figure slot="first" class="before">
               <img slot="first" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-old.png" />
-              <figcaption>Before</figcaption>
+              <figcaption class="slider-label-before">Before</figcaption>
             </figure>
 
             <figure slot="second" class="after">
               <img slot="second" style="width: 100%;" src="./assets/dunkin-screenshots/dunkin-coffee-new.png" />
-              <figcaption>After</figcaption>
+              <figcaption class="slider-label-after">After</figcaption>
             </figure>
             <!--eslint-enable-->
           </img-comparison-slider>
@@ -383,56 +419,88 @@
 
     <div id="overlay-F">
 
-      <div class="onetrust-section-title" style="width: 30%;">
-        <h1>OneTrust's CSS Banner Enhancements</h1>
+      <div class="grid-item-F onetrust-section-title" style="width: 30%;">
+        <h1 style="margin: 0;">OneTrust's CSS Banner Enhancements</h1>
       </div>
+
+
 
 
       <div class="grid-item-F cookiebar-wide" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 0px;">Desktop Width</h1>
+        <img-comparison-slider>
+          <!--eslint-disable-->
+          <figure slot="first" class="before">
+            <img slot="first" style="width: 100%;" src="./assets/cookie-bar/old-wide.png" />
+            <figcaption class="slider-label-before">Before</figcaption>
+          </figure>
+          <figure slot="second" class="after">
+            <img slot="second" style="width: 100%;" src="./assets/cookie-bar/new-wide.png" />
+            <figcaption class="slider-label-after">After</figcaption>
+          </figure>
+          <!--eslint-enable-->
+        </img-comparison-slider>
+      </div>
 
-        <h1 class="icon-title" style="margin-bottom: 20px;">Desktop Width</h1>
+      <!--<div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; width: 100%;"> -->
+      <!--width: This div is in a grid, which means the width given to this div by the grid will be just enough to fit the content. This means that we won't have space to do justify-content: space-around. Therefore, we have to set width: 100% so that we take all the width that the grid can give us. Which will enable us to do space-around. ALIGN-ITEMS: we gave this one "center" so that divs don't get stretched to match each others' height. remember that justify is for "horizontal" alignment and align is for "vertical" alignment-->
 
-        <div style="display: flex; flex-direction: row; align-items: center;">
+      <div class="grid-item-F cookiebar-tablet" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 0px;">Tablet Width</h1>
+        <img-comparison-slider>
+          <!--eslint-disable-->
+          <figure slot="first" class="before">
+            <img slot="first" style="width: 100%;" src="./assets/cookie-bar/old-mid.png" />
+            <figcaption class="slider-label-before">Before</figcaption>
+          </figure>
+          <figure slot="second" class="after">
+            <img slot="second" style="width: 100%;" src="./assets/cookie-bar/new-mid.png" />
+            <figcaption class="slider-label-after">After</figcaption>
+          </figure>
+          <!--eslint-enable-->
+        </img-comparison-slider>
+      </div>
 
-          <img-comparison-slider style="" class="image-comparison-slider">
-            <!--eslint-disable-->
-            <figure slot="first" class="before">
-              <img slot="first" style="width: 100%;" src="./assets/cookie-bar/old-wide.png" />
-              <figcaption class="slider-label-before">Before</figcaption>
-            </figure>
-            <figure slot="second" class="after">
-              <img slot="second" style="width: 100%;" src="./assets/cookie-bar/new-wide.png" />
-              <figcaption class="slider-label-after">After</figcaption>
-            </figure>
-            <!--eslint-enable-->
-          </img-comparison-slider>
-
-          <!--
-          <div style="display: flex; flex-direction: column;">
-            <h1 class="icon-title">Before</h1>
-            <img class="" src="./assets/cookie-bar/old-wide.png" />
-          </div>
-
-          <img class="arrow-right-icon" src="./assets/Icons/arrow-right.png" alt="Arrow down icon" />
-
-          <div style="display: flex; flex-direction: column;">
-            <h1 class="icon-title">After</h1>
-            <img class="" src="./assets/cookie-bar/new-wide.png" />
-          </div>
-
-          -->
-
-        </div>
-
+      <div class="grid-item-F cookiebar-mobile" style="display: flex; flex-direction: column;">
+        <h1 class="icon-title" style="margin-bottom: 0px;">Mobile Width</h1>
+        <img-comparison-slider>
+          <!--eslint-disable-->
+          <figure slot="first" class="before">
+            <img slot="first" style="width: 100%;" src="./assets/cookie-bar/old-small.png" />
+            <figcaption class="slider-label-before">Before</figcaption>
+          </figure>
+          <figure slot="second" class="after">
+            <img slot="second" style="width: 100%;" src="./assets/cookie-bar/new-small.png" />
+            <figcaption class="slider-label-after">After</figcaption>
+          </figure>
+          <!--eslint-enable-->
+        </img-comparison-slider>
       </div>
 
 
+    </div>
+    <!--</div> -->
+  </section>
+
+
+
+  <!--
+  <section id="onetrust-overlay-section2">
+
+    <img class="background-image blur" src="./assets/onetrust-logo-background.png" alt="Onetrust Background"
+      style="width: 1920px; height: 932px;" />
+
+    <div id="overlay-G">
+
+      <div class="grid-item-F onetrust-section-title" style="width: 30%;">
+        <h1 style="margin: 0;">OneTrust's CSS Banner Enhancements: Responsiveness</h1>
+      </div>
 
 
     </div>
 
 
-  </section>
+  </section> -->
 </template>
     
 <script>
@@ -466,7 +534,7 @@ export default {
     let backgroundImagesObserver;
     let veProgressObserver;
     let autoScroll // This will be used for implementing the auto scrolling
-    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "dunkin-overlay-section", "#onetrust-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
+    let sectionsToScrollTo = ['#getToKnowMe', "#seeWhatIHaveAccomplished", "#droid-overlay-section", "#droid-overlay-section2", "#dunkin-overlay-section", "#onetrust-overlay-section", "#intro-section"] // These will be used for snap and auto scrolling, add more sections as needed
     let keyLearningsIcons = ref(["vue-icon.png", "quasar-logo.png", "php-logo.png", "laravel-logo.png", "js-logo.png", "html-logo.png", "css-logo.png"])
     const keyLearningsSlideshow = ref(null)
     const veProgressInView = ref(false) // Tracks whether the veProgress component is in view. We'll need to destroy it when not in view to force animation to re-run
@@ -513,7 +581,8 @@ export default {
       introBox = document.querySelector('.intro-box') // Getting the component with class="intro-box"
       const horizontalSections = document.querySelectorAll('.horizontal-content'); // This will be used to apply shading on horizontal sections. 
       const backgroundImages = document.querySelectorAll('.background-image')
-      const expandableBoxes = document.querySelectorAll('.expandable')
+      const expandableBoxes = document.querySelectorAll('.expandable') // any div with this class will expand on hover
+      const opacityReduction = document.querySelectorAll('.reduce-opacity-on-hover')
       droidBox = document.querySelector('.droid-box')
       dunkinBox = document.querySelector('.dunkin-box')
       oneTrustBox = document.querySelector('.onetrust-box')
@@ -627,7 +696,7 @@ export default {
           overwrite: 'auto'
         })
 
-      gsap.fromTo(".image-comparison-slider",
+      gsap.fromTo(".grid-item-E",
         // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
         // From 
         {
@@ -641,7 +710,7 @@ export default {
           y: '0%',
           stagger: 0.5,
           scrollTrigger: {
-            trigger: ".image-comparison-slider",
+            trigger: ".grid-item-E",
             start: "top bottom",
             end: "bottom middle",
             toggleActions: "restart none restart none"
@@ -675,7 +744,29 @@ export default {
           overwrite: 'auto'
         })
 
-
+      gsap.fromTo(".grid-item-F",
+        // Because the grid items are going from point A to point B, you'd have to use GSAP's 'fromTo' instead of just 'to' or just 'from'. Additionally, you'd have to specify two JSON's, one for the 'from' and another for the 'to'
+        // From 
+        {
+          y: '-50%',
+          opacity: 0
+        },
+        // To
+        {
+          delay: 3,
+          opacity: 1,
+          y: '0%',
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: ".grid-item-F",
+            start: "top bottom",
+            end: "bottom middle",
+            toggleActions: "restart none restart none"
+          },
+          duration: 2,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        })
 
 
       /*
@@ -695,6 +786,7 @@ export default {
       */
 
       //Making the pin for the US map bounce up and down
+      /*
       gsap.to(".pin", {
         y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
         repeat: -1, // infinite repitions
@@ -708,6 +800,7 @@ export default {
           toggleActions: "restart pause resume pause"
         }
       })
+      */
 
 
         /*
@@ -768,6 +861,17 @@ export default {
             gsap.to(box, { duration: 0.3, scale: 1 });
           })
         }
+      })
+
+      opacityReduction.forEach(div => {
+        div.addEventListener("mouseenter", (event) => {
+          event.target.style.transition = 'opacity 0.5s ease';
+          event.target.style.opacity = '0.2';
+        })
+
+        div.addEventListener("mouseleave", (event) => {
+          event.target.style.opacity = '1';
+        })
       })
 
       // Fade out intro box as user scrolls
@@ -1000,7 +1104,7 @@ body::before {
   right: 0;
   bottom: 0;
   left: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, black 90%);
+  background: radial-gradient(ellipse at center, transparent 50%, black 90%);
   pointer-events: none;
   z-index: 2;
   opacity: 0;
@@ -1045,7 +1149,7 @@ body.shaded::before {
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
-  background: #3498db;
+  background: rgba(50, 50, 50, 1);
   color: white;
   border: none;
   border-radius: 5px;
@@ -1056,7 +1160,7 @@ body.shaded::before {
 }
 
 .button:hover {
-  background: #2980b9;
+  background: #646464;
 }
 
 .intro-box {
@@ -1109,6 +1213,11 @@ body.shaded::before {
   width: 113px;
 }
 
+.hobbies-icon{
+  height: 100px;
+  width: 103px;
+}
+
 .graduation-icon {
   height: 100px;
   width: 100px;
@@ -1140,19 +1249,22 @@ body.shaded::before {
       ensures that the defaults cursor always remains hidden when 
       hovering over any of the items below. 
   */
+/*
 a,
 button,
 input,
 textarea {
   cursor: none !important;
 }
+*/
 
 #getToKnowMe,
 #seeWhatIHaveAccomplished,
 #droid-overlay-section,
 #droid-overlay-section2,
 #dunkin-overlay-section,
-#onetrust-overlay-section {
+#onetrust-overlay-section,
+#onetrust-overlay-section2 {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -1244,6 +1356,20 @@ textarea {
   align-items: center;
 }
 
+#overlay-G {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  /*OR, grid-template-rows: repeat(4, auto); */
+  /*"Make 3 colums with width of 1fr (equal widths)" */
+  justify-items: center;
+  align-items: center;
+}
+
 .whoAmI-box {
   display: flex;
   justify-content: center;
@@ -1309,6 +1435,7 @@ textarea {
 .grid-item-B,
 .grid-item-C,
 .grid-item-D,
+.grid-item-E,
 .grid-item-F {
   /* Styling for each grid item */
   background: rgba(255, 255, 255, 1);
@@ -1376,11 +1503,15 @@ textarea {
   grid-column: 1;
 }
 
+.hobbies-box{
+  grid-row: 3;
+  grid-column: 2;
+}
+
 .major-box,
-.onetrust-box,
 .droid-deletion-box {
   grid-row: 2;
-  grid-column: 3;
+  grid-column: 2;
 }
 
 .droid-setting-box {
@@ -1389,6 +1520,15 @@ textarea {
 }
 
 .cookiebar-wide {
+  grid-row: 4;
+}
+
+.cookiebar-tablet {
+  grid-row: 3;
+}
+
+
+.cookiebar-mobile {
   grid-row: 2;
 }
 
@@ -1409,9 +1549,10 @@ textarea {
   align-items: center;
 }
 
-.graduation-box {
-  grid-row: 3;
-  grid-column: 2;
+.graduation-box, 
+.onetrust-box {
+  grid-row: 2;
+  grid-column: 3;
 }
 
 .droid-periodic-deletion-box {
@@ -1524,9 +1665,13 @@ img-comparison-slider {
   border-radius: 10px;
 }
 
-.img-comparison-slider:hover .label-before,
-.img-comparison-slider:hover .label-after {
+img-comparison-slider:hover .slider-label-before,
+img-comparison-slider:hover .slider-label-after {
   visibility: hidden;
+}
+
+img-comparison-slider:focus {
+  outline: none;
 }
 </style>
     
