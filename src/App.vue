@@ -24,7 +24,7 @@
   <!--
 
     PROBLEMS TO FIX:
-    - MAKE SURE THE ACOMPLISHMENT BUTTONS WORK
+    - add buttons
     - When the droid 2 stuff fade in, the items in the subsequent slides also fade in, the same with the next slides too
     - When we scroll away from a section, the stuff don't get deleted unless we revisit. Make sure to delete all content as soon as they're out of view. 
     - add company objectives. Take each accomplishment and listen again to recordings
@@ -411,7 +411,6 @@
   </section>
 
 
-
   <section id="onetrust-overlay-section">
 
     <img class="background-image blur" src="./assets/onetrust-logo-background.png" alt="Onetrust Background"
@@ -482,25 +481,6 @@
     <!--</div> -->
   </section>
 
-
-
-  <!--
-  <section id="onetrust-overlay-section2">
-
-    <img class="background-image blur" src="./assets/onetrust-logo-background.png" alt="Onetrust Background"
-      style="width: 1920px; height: 932px;" />
-
-    <div id="overlay-G">
-
-      <div class="grid-item-F onetrust-section-title" style="width: 30%;">
-        <h1 style="margin: 0;">OneTrust's CSS Banner Enhancements: Responsiveness</h1>
-      </div>
-
-
-    </div>
-
-
-  </section> -->
 </template>
     
 <script>
