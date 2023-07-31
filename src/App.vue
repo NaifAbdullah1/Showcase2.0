@@ -183,7 +183,11 @@
 
 
       <div class="accomplishments-button">
-        <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">Accomplishments at Smucker</button>
+        <button class="caret-button" @click="scrollToSection('#seeWhatIHaveAccomplished')">
+          <i class="caret"></i>
+        </button>
+
+        <!--<button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">Accomplishments at Smucker</button>-->
       </div>
 
 
@@ -242,8 +246,6 @@
 
     <img class="background-image blur" src="./assets/droid-slideshow/droid-logo.png" alt="Full-sized Droid logo" />
 
-
-
     <div id="overlay-C">
 
       <div class="grid-item-C droid-section-title" style="width: 20%;">
@@ -252,7 +254,7 @@
       </div>
 
       <!--Parent-most div for the veProgress and the Deletion Video-->
-      <div style="display: flex; flex-direction: row; justify-content: space-around;">
+      <div class="progress-and-deletion" style="display: flex; flex-direction: row; justify-content: space-around;">
         <div class="grid-item-C">
           <div class="vertical-container">
 
@@ -288,10 +290,14 @@
         </div>
       </div>
 
-      <div>
-        <button class="button" style="justify-self: end; align-self: end;"
-          @click="scrollToSection('#droid-overlay-section2')">Cont.</button>
-      </div>
+      <div class="cont-button" style="width: 100%;">
+        <button class="caret-button" @click="scrollToSection('#droid-overlay-section2')">
+          <i class="caret"></i>
+        </button>
+        <!--<button class="button"
+          @click="scrollToSection('#droid-overlay-section2')">Cont.</button> -->
+          
+        </div>
 
 
     </div>
@@ -1466,6 +1472,20 @@ textarea {
   grid-row: 1;
 }
 
+.progress-and-deletion{
+  grid-row: 2;
+}
+
+.cont-button{
+  grid-row: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+
+
+
 .smucker-accomplishments-box h1 {
   margin-bottom: 10px;
   /*Replace those two margin options with the margin: # # # # */
@@ -1747,6 +1767,32 @@ img-comparison-slider:hover .slider-label-after {
 img-comparison-slider:focus {
   outline: none;
 }
+
+.caret-button {
+  background-color: #000; /* Dark background */
+  color: #fff; /* White caret */
+  border: none; 
+  border-radius: 50%; /* Makes the button circular */
+  width: 50px; /* Size of the button */
+  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  margin: 0px 10px 10px 0px;
+}
+
+.caret {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 </style>
     
     
