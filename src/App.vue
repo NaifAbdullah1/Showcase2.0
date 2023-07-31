@@ -603,7 +603,6 @@ export default {
         delay: 0.8 // Wait 0.8 seconds after the page loads before starting to fade in
       })
 
-
       // TODO: CONSIDER COMPACTING THOSE INTO ONLY ONE GSAP, We can compact the A-C, but not the D
       // Makes grid items fade in when they're in viewport
       gsap.fromTo(".grid-item-A",
@@ -908,6 +907,7 @@ export default {
       */
 
 
+      // Starts showcase 
       window.addEventListener('mousedown', function (event) {
         if (event.button === 3) {
           stopAutoScroll()
