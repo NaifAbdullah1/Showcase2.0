@@ -97,7 +97,7 @@
         <img class="partition" src="./assets/Icons/bline.png">
 
         <img src="./assets/sa-flag.png" style="height: 80px; width: 120px;" />
-        <img src="./assets/airplane.png" style="height: 71px; width: 80px; margin: 0px 10px 0px 10px;" />
+        <img src="./assets/Icons/airplane.png" style="height: 71px; width: 76px; margin: 0px 7px 0px 10px; transform: rotate(-45deg);" />
         <img class="UW-icon" src="./assets/UW-Madison.png" style="height: 150px; width: 228px;" />
         <!--<img src="./assets/wi-flag.png" style="height: 80px; width: 120px;"/>-->
         <!--<img src="./assets/Icons/USA-WI.png" style="height: 150px; width: 244px;">-->
@@ -295,8 +295,8 @@
         </button>
         <!--<button class="button"
           @click="scrollToSection('#droid-overlay-section2')">Cont.</button> -->
-          
-        </div>
+
+      </div>
 
 
     </div>
@@ -384,7 +384,8 @@
         <h1>Overhaul of Dunkin's Website Style</h1>
       </div>
 
-      <div class="dunkin-sliders" style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
+      <div class="dunkin-sliders"
+        style="display:flex; flex-direction: row; justify-content: space-around; align-items: center;"> <!--flex: 1;-->
 
         <div class="grid-item-E" style="display: flex; flex-direction: column;">
           <h1 class="icon-title" style="margin-bottom: 20px;">Home Page</h1>
@@ -427,7 +428,7 @@
           <i class="caret"></i>
         </button>
       </div>
-      
+
     </div>
 
   </section>
@@ -627,7 +628,7 @@ export default {
               gsap.set(".grid-item-A", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-A", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-A", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -662,7 +663,7 @@ export default {
               gsap.set(".grid-item-B", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-B", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-B", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -697,7 +698,7 @@ export default {
               gsap.set(".grid-item-C", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-C", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-C", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -732,7 +733,7 @@ export default {
               gsap.set(".grid-item-D", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-D", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-D", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -767,7 +768,7 @@ export default {
               gsap.set(".grid-item-E", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-E", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-E", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -802,7 +803,7 @@ export default {
               gsap.set(".dunkin-style-section-title", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".dunkin-style-section-title", {y: '-50%', opacity: 0})
+              gsap.set(".dunkin-style-section-title", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -837,7 +838,7 @@ export default {
               gsap.set(".grid-item-F", { y: '-50%', opacity: 0 });
             },
             onLeave: () => {
-              gsap.set(".grid-item-F", {y: '-50%', opacity: 0})
+              gsap.set(".grid-item-F", { y: '-50%', opacity: 0 })
             },
             onLeaveBack: () => {
               // Set the elements to the initial state when leaving the section
@@ -851,62 +852,73 @@ export default {
         })
 
 
-        /*
-        gsap.to(".arrow-right-icon", {
-          scale: 0.8, // Scale the image by 20%
-          duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
-          repeat: -1, // num of times to repeat animation, -1 = infinitely
-          yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: ".arrow-right-icon",
-            start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
-            end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
-   
-          }
-        })
-        */
+      /*
+      gsap.to(".arrow-right-icon", {
+        scale: 0.8, // Scale the image by 20%
+        duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
+        repeat: -1, // num of times to repeat animation, -1 = infinitely
+        yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: ".arrow-right-icon",
+          start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
+          end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
+ 
+        }
+      })
+      */
 
-        //Making the pin for the US map bounce up and down
-        /*
-        gsap.to(".pin", {
-          y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
-          repeat: -1, // infinite repitions
-          duration: 2, // The time it takes to complete each up and down cycle
-          yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
-          ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
-          scrollTrigger: {
-            trigger: '.pin',
-            start: "top bottom",
-            end: "bottom top",
-            toggleActions: "restart pause resume pause"
-          }
-        })
-        */
-
-
-        /*
-        // Enables Slideshow
-        const keyLearningsSlides = Array.from(keyLearningsSlideshow.value.children)
-        // Hide all slides initially
-        gsap.set(keyLearningsSlides, { autoAlpha: 0 })
-        // Show the first slide
-        gsap.set(keyLearningsSlides[0], { autoAlpha: 1 })
-        /// Start the slideshow
-        let index = 0
-        setInterval(() => {
-          let prevIndex = index == 0 ? keyLearningsSlides.length - 1 : index - 1;
-          //Fade out current slide
-          gsap.to(keyLearningsSlides[prevIndex], { autoAlpha: 0, duration: 1 })
-  
-          //Fade in the next slide
-          gsap.to(keyLearningsSlides[index], { autoAlpha: 1, duration: 1 })
-  
-          index = (index + 1) % keyLearningsSlides.length
-        }, 3000)
-        */
+      //Making the pin for the US map bounce up and down
+      /*
+      gsap.to(".pin", {
+        y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
+        repeat: -1, // infinite repitions
+        duration: 2, // The time it takes to complete each up and down cycle
+        yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
+        ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
+        scrollTrigger: {
+          trigger: '.pin',
+          start: "top bottom",
+          end: "bottom top",
+          toggleActions: "restart pause resume pause"
+        }
+      })
+      */
 
 
+      /*
+      // Enables Slideshow
+      const keyLearningsSlides = Array.from(keyLearningsSlideshow.value.children)
+      // Hide all slides initially
+      gsap.set(keyLearningsSlides, { autoAlpha: 0 })
+      // Show the first slide
+      gsap.set(keyLearningsSlides[0], { autoAlpha: 1 })
+      /// Start the slideshow
+      let index = 0
+      setInterval(() => {
+        let prevIndex = index == 0 ? keyLearningsSlides.length - 1 : index - 1;
+        //Fade out current slide
+        gsap.to(keyLearningsSlides[prevIndex], { autoAlpha: 0, duration: 1 })
+ 
+        //Fade in the next slide
+        gsap.to(keyLearningsSlides[index], { autoAlpha: 1, duration: 1 })
+ 
+        index = (index + 1) % keyLearningsSlides.length
+      }, 3000)
+      */
+
+
+      window.addEventListener('mousedown', function (event) {
+        if (event.button === 3) {
+          stopAutoScroll()
+          this.document.title= "Nathan's Showcase"
+          //console.log('Back button clicked');
+        } else if (event.button === 4) {
+          //console.log('Forward button clicked');
+          this.document.title= "Nathan's Showcase (SLIDESHOW MODE)"
+          startAutoScroll()
+        }
+      })
 
 
 
@@ -1486,12 +1498,12 @@ textarea {
   grid-row: 1;
 }
 
-.progress-and-deletion, 
-.dunkin-sliders{
+.progress-and-deletion,
+.dunkin-sliders {
   grid-row: 2;
 }
 
-.cont-button{
+.cont-button {
   grid-row: 3;
   display: flex;
   justify-content: flex-end;
@@ -1638,7 +1650,7 @@ textarea {
 }
 
 
-.cookiebar-mobile, 
+.cookiebar-mobile,
 .key-learnings-box {
   grid-row: 2;
 }
@@ -1786,12 +1798,16 @@ img-comparison-slider:focus {
 }
 
 .caret-button {
-  background-color: #000; /* Dark background */
-  color: #fff; /* White caret */
-  border: none; 
-  border-radius: 50%; /* Makes the button circular */
-  width: 50px; /* Size of the button */
-  height: 50px; 
+  background-color: #000;
+  /* Dark background */
+  color: #fff;
+  /* White caret */
+  border: none;
+  border-radius: 50%;
+  /* Makes the button circular */
+  width: 50px;
+  /* Size of the button */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1809,7 +1825,6 @@ img-comparison-slider:focus {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-
 </style>
     
     
