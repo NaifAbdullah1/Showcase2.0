@@ -174,13 +174,18 @@
 
         <div style="display: flex; flex-direction: row;">
 
-            <img src="./assets/Icons/kick.png" style="height: 100px; width: 99px;"/>
-            <img src="./assets/Icons/punch.png" style="height: 100px; width: 113px;"/>
-            <img src="./assets/Icons/barbell.png" style="height: 100px; width: 197px;"/>
-            
+          <img src="./assets/Icons/kick.png" style="height: 100px; width: 99px;" />
+          <img src="./assets/Icons/punch.png" style="height: 100px; width: 113px;" />
+          <img src="./assets/Icons/barbell.png" style="height: 100px; width: 197px;" />
+
 
         </div>
 
+      </div>
+
+
+      <div class="accomplishments-button">
+        <button class="button" @click="scrollToSection('#seeWhatIHaveAccomplished')">Accomplishments at Smucker</button>
       </div>
 
 
@@ -285,7 +290,9 @@
         </div>
       </div>
 
-
+      <div>
+        <button class="button" style="justify-self: end; align-self: end;" @click="scrollToSection('#droid-overlay-section2')">Cont.</button>
+      </div>
 
 
     </div>
@@ -480,7 +487,6 @@
     </div>
     <!--</div> -->
   </section>
-
 </template>
     
 <script>
@@ -749,38 +755,38 @@ export default {
         })
 
 
-      /*
-      gsap.to(".arrow-right-icon", {
-        scale: 0.8, // Scale the image by 20%
-        duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
-        repeat: -1, // num of times to repeat animation, -1 = infinitely
-        yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".arrow-right-icon",
-          start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
-          end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
- 
-        }
-      })
-      */
+        /*
+        gsap.to(".arrow-right-icon", {
+          scale: 0.8, // Scale the image by 20%
+          duration: 1, // How long it takes to complete one cycle of the animation, 1/2 seconds in this case
+          repeat: -1, // num of times to repeat animation, -1 = infinitely
+          yoyo: true, //Reverse the animation on alternate iterations, like a yoyo
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: ".arrow-right-icon",
+            start: "top bottom", // Starts when the TOP of the component reaches the bottom of the screen
+            end: "bottom top", //animation ends when the bottom of the component hits the top of the viewport. 
+   
+          }
+        })
+        */
 
-      //Making the pin for the US map bounce up and down
-      /*
-      gsap.to(".pin", {
-        y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
-        repeat: -1, // infinite repitions
-        duration: 2, // The time it takes to complete each up and down cycle
-        yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
-        ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
-        scrollTrigger: {
-          trigger: '.pin',
-          start: "top bottom",
-          end: "bottom top",
-          toggleActions: "restart pause resume pause"
-        }
-      })
-      */
+        //Making the pin for the US map bounce up and down
+        /*
+        gsap.to(".pin", {
+          y: "-55px", // Move the item up 20px (it would be moving it up and down 20px if yoyo:true)
+          repeat: -1, // infinite repitions
+          duration: 2, // The time it takes to complete each up and down cycle
+          yoyo: true, // Make the animation reverse direction in each cylce, like a yoyo, giving it the bouncing effect
+          ease: 'power1.inOut', //applies easing to the animation, making the movement more natural. 
+          scrollTrigger: {
+            trigger: '.pin',
+            start: "top bottom",
+            end: "bottom top",
+            toggleActions: "restart pause resume pause"
+          }
+        })
+        */
 
 
         /*
@@ -1137,6 +1143,8 @@ body.shaded::before {
   transition: background 0.3s;
   font-family: 'Petrona';
   font-size: 18px;
+  position: relative;
+  z-index: 3;
 }
 
 .button:hover {
@@ -1193,7 +1201,7 @@ body.shaded::before {
   width: 113px;
 }
 
-.hobbies-icon{
+.hobbies-icon {
   height: 100px;
   width: 103px;
 }
@@ -1483,9 +1491,16 @@ textarea {
   grid-column: 1;
 }
 
-.hobbies-box{
+.hobbies-box {
   grid-row: 3;
   grid-column: 2;
+}
+
+.accomplishments-button{
+  grid-row: 3;
+  grid-column: 3;
+  align-self: end;
+  justify-self: end;
 }
 
 .major-box,
@@ -1529,7 +1544,7 @@ textarea {
   align-items: center;
 }
 
-.graduation-box, 
+.graduation-box,
 .onetrust-box {
   grid-row: 2;
   grid-column: 3;
