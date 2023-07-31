@@ -925,7 +925,7 @@ export default {
         buttons.*/
         ;[droidBox, dunkinBox, oneTrustBox].forEach(element => {
           element.addEventListener('click', () => {
-            console.log(`section to scroll to: ${event.target.classList[0]}`)
+            //console.log(`section to scroll to: ${event.target.classList[0]}`)
             scrollToSection(`#${event.target.classList[0]}-section`) // You need to make the whole div as one, 
           })
         })
@@ -1103,14 +1103,14 @@ export default {
       let currentSectionNumber = 0; // The index of the current section we're on above.
 
       autoScroll = setInterval(() => {
-        console.log("Section Num:", currentSectionNumber)
+        //console.log("Section Num:", currentSectionNumber)
         // Previous code. It was replaced by GSAP
         //const sectionToScrollTo = document.getElementById(sectionsToScrollTo[currentSectionNumber]) // Getting the specific section, look at the function scrollToGetToKnowMeSection and scrollToSeeWhatIHaveAccomplished for an example use case
         //sectionToScrollTo.scrollIntoView({ behavior: 'smooth' })
         gsap.to(window, { duration: 3, scrollTo: sectionsToScrollTo[currentSectionNumber] })
 
         currentSectionNumber = currentSectionNumber === sectionsToScrollTo.length - 1 ? 0 : currentSectionNumber + 1 // If we've reached the last element in that array of sections, we're resetting the index back to 0 to go back to the top of the site. Otherwise, we're incrementing by 1 to get to the next section. 
-        console.log("Now it's: ", currentSectionNumber)
+        //console.log("Now it's: ", currentSectionNumber)
       }, 11000) // Running sutoScroll once every 9000 Millisecond = 9 seconds. 
     }
 
