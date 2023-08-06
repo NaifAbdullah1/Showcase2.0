@@ -17,6 +17,8 @@
     When truning this into a personal site, we'll follow a grey/dark color scheme
     Work on replacing the smucker logo with your own, the site: https://www.brandcrowd.com/ is excellent. We already got a logo from there. We'll have a copy in the assets file and in OneDrive
   
+    A great example of a parallax effect site: emadalmalki.com
+
     Post Showcase notes: 
   -->
 
